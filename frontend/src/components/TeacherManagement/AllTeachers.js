@@ -109,7 +109,7 @@ this.filterData(res.data.existingTeachers,searchKey);
       <td>{teachers.mobile}</td>
       <td>{teachers.date}</td>
       <td>
-      <a className="btn btn-primary"  role="button" href={`/edit/${teachers._id}`}><i className="fas fa-edit"></i>&nbsp;Update</a>
+      <a className="btn btn-primary"  role="button" href={`/teacherEdit/${teachers._id}`}><i className="fas fa-edit"></i>&nbsp;Update</a>
       &nbsp;
       <a className="btn btn-warning" role="button" href="" onClick={()=>this.onDelete(teachers._id)} ><i className="far fa-trash-alt"></i>&nbsp;Delete</a>
       </td>
@@ -118,7 +118,7 @@ this.filterData(res.data.existingTeachers,searchKey);
   </tbody>
 </table>
 
-<a class="btn btn-success" href="/add" role="button">Create Teacher</a>
+<a class="btn btn-success" href="/teacherAdd" role="button">Create Teacher</a>
 
   </div>
    </div>

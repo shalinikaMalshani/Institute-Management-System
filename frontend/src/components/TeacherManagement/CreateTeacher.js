@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import Success from "./Success";
+import Error from "./Error";
 
 const initialState={
             name:"",
@@ -13,14 +15,20 @@ const initialState={
             date:"",
             emailError:"",
             nameError:"",
-            phoneError:""
+            phoneError:"",
+            genderError:"",
+            quaError:"",
+            ageError:"",
+            subError:"",
+            dateError:"",
+        
 }
 
 export default class CreateTeacher extends React.Component{
     constructor(props){
         super(props);
 
-        this.state=initialState;
+        this.state={alertMsg:"",initialState};
     }
 
     handlInputChange=(e)=>{
@@ -48,28 +56,76 @@ onChangeFile =e=>{
         this.setState({photo:e.target.result});
     }
 }
+// display =()=>{
+//     let successMsg="";
+//     successMsg="ppppppppppppp";
+//     if(this.state.successMsg){
+// this.setState({successMsg})
+// return false;
+//     }
+//     return true;
+// }
 
 validate =()=>{
-let emailError="";
+
 let nameError="";
-let phoneError=""
+let genderError="";
+let quaError="";
+let subError="";
+let ageError="";
+let emailError="";
+let phoneError="";
+let dateError="";
+
 
 if(!this.state.name){
     nameError="Name Cannot Be Empty"
 }
+
+if(!this.state.gender){
+    genderError="Gender Cannot Be Empty"
+}
+
+if(!this.state.qualification){
+    quaError="Qualification Cannot Be Empty"
+}
+
+if(!this.state.subject){
+    subError="Subject Cannot Be Empty"
+}
+
+let agePattern=/^[A-Za-z]+$/;
+
+if(!this.state.age){
+    ageError="Age Cannot Be Empty"
+}else if(this.state.age.match(agePattern)){
+    ageError="Cannot enter any characters"
+}else if(this.state.age<0){
+    ageError="Invalid age";
+}
+
+if(!this.state.date){
+    dateError="Date Cannot Be Empty"
+}
+
+
+
 if(!this.state.email){
     emailError="Email Cannot Be Empty"
 }else if(!this.state.email.includes("@")){
     emailError="Invalid Email";
 }
+
 let pattern=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-if(this.state.mobile.length>10 || this.state.mobile.length<10 || !this.state.mobile.match(pattern)){
+if(!this.state.mobile){
+    phoneError="Contact Cannot Be Empty"
+}else if(this.state.mobile.length>10 || this.state.mobile.length<10 || !this.state.mobile.match(pattern)){
 phoneError="Invalid Phone Number";
 }
 
 
-if(emailError || nameError || phoneError){
-this.setState({emailError,nameError,phoneError});
+if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError ){
+this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError});
 return false;
 }
 
@@ -98,14 +154,10 @@ return true;
         
     
         axios.post("http://localhost:8091/add",data).then((res)=>{
-          
-if(res.data.success){
-    alert("Teacher Added Successfully!!");
-    //clear form
-   this.setState(initialState);
-}else{
-    alert("Error ocoured in entered detail.Please enter detils again.")
-}
+          this.setState({alertMsg:"success"});
+          this.setState(initialState);
+        }).catch(error=>{
+            this.setState({alertMsg:"error"});
         })
     
     }
@@ -116,7 +168,10 @@ if(res.data.success){
         return(
             <div style={{marginLeft:"325px",width:"76%"}}>
                 <h2>Create Teacher</h2>
-            <form>
+                {this.state.alertMsg==="success"?<Success/>:null}
+                {this.state.alertMsg==="error"?<Error/>:null}
+
+    <form>
   <div className="row">
       <div className="col-6">
   <div className="mb-3">
@@ -138,9 +193,13 @@ if(res.data.success){
     name="age" 
      placeholder="Enter age"
      required="required"
+     min="0"
      value={this.state.age} 
     onChange={this.handlInputChange}
     />
+    {this.state.ageError?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.ageError}</div>
+):null}
     </div>
     </div>
 </div>
@@ -165,6 +224,9 @@ if(res.data.success){
            value="Female"
            checked={this.state.gender === "Female"}  /> Female
      </div>
+     {this.state.genderError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.genderError}</div>
+):null}
   </div>
   </div>
 <div className="col-6">
@@ -194,6 +256,9 @@ name="qualification"
 placeholder="MSc,phD" 
 value={this.state.qualification} 
 onChange={this.handlInputChange}/>
+{this.state.quaError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.quaError}</div>
+):null}
 </div>
 </div>
 <div className="col-6">
@@ -222,8 +287,12 @@ onChange={this.handlInputChange}
         <option selected disabled >--Select Subject--</option>
         <option value="Chemistry">Chemistry</option>
         <option value="Physics">Physics</option>
-</select>
 
+        {this.state.subError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.subError}</div>
+):null}
+
+</select>
           </div>
 </div>
 <div className="col-6">
@@ -235,9 +304,13 @@ name="date"
  value={this.state.date} 
 onChange={this.handlInputChange}
 />
+{this.state.dateError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.dateError}</div>
+):null}
 </div>
 </div>
 </div>
+
 <div class="mb-3">
   <label for="formFile" class="form-label">Photo</label>
   <input class="form-control" type="file" id="photo" name="photo" onChange={this.onChangeFile}/>
