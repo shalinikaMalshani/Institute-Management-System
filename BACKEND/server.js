@@ -35,7 +35,8 @@ const lessonRouter=require("./routes/Teacher/lessons");
 
 //student
 
-
+const studentRouter = require("./routes/Student/student.js");
+const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
 
 
 
@@ -62,7 +63,7 @@ const lessonRouter=require("./routes/Teacher/lessons");
 
 
 
-const studentRouter = require("./routes/Student/student.js");
+
 
 
 //app.use("/teacher",teacherRouter);
@@ -77,7 +78,8 @@ app.use(lessonRouter);
 
 
 //student
-
+app.use("/student",studentRouter);
+app.use("/onlineStudent",onlineStudentRouter);
 
 
 

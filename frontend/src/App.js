@@ -18,7 +18,7 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-import OnlineAllLessonStuView from "./components/TeacherManagement/OnlineAllLessonStuView";
+// import OnlineAllLessonStuView from "./components/TeacherManagement/OnlineAllLessonStuView";
 
 
 
