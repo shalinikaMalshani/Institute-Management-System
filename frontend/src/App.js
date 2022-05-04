@@ -18,7 +18,8 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-import OnlineAllLessonStuView from "./components/TeacherManagement/OnlineAllLessonStuView";
+import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
+
 
 
 
@@ -28,6 +29,60 @@ function App() {
   return (
     <BrowserRouter>
     <SideMenu/>
+{/* teacher counter */}
+<Route path="/teacherAll" exact component={AllTeachers}/>
+  <Route  path="/teacherAdd" exact component={CreateTeacher} />
+  <Route  path="/teacherEdit/:id" exact component={EditTeacher} />
+  <Route  path="/teacherSalary/:id" exact component={EditSalary} />
+  <Route  path="/teacher/:id" exact component={TeacherDetail} />
+  <Route  path="/report/:sDate/:eDate" exact component={Report} />
+  <Route  path="/teacherLeave" exact component={TeacherLeave} />
+  <Route  path="/teacherReportInput" exact component={ReportInput} />
+  <Route  path="/addSalary" exact component={Salary} />
+  <Route  path="/AllSalary" exact component={AllSalary} />
+  <Route  path="/navTeacher" exact component={Navigation} />
+  <Route  path="/allLeaves" exact component={AllLeaves} />
+
+
+{/* student counter */}
+
+
+
+{/* class counter*/}
+
+
+
+{/* notice counter */}
+
+
+
+
+{/* inquire counter */}
+
+
+
+
+
+{/* admin */}
+
+
+
+
+
+{/* teacher online */}
+
+<Route  path="/onlineRegister" exact component={OnlineCreateTeacher} />
+  <Route  path="/loginTeacher" exact component={OnlineTeacherLogin} />
+  <Route  path="/onlineLeave" exact component={OnlineTeacherLeave} />
+  <Route  path="/onlineLesson" exact component={OnlineTeacherLesson} />
+  <Route  path="/onlineAllLesson" exact component={OnlineTeacherAllLessons} />
+ 
+
+
+
+
+
+
 
 
 

@@ -49,7 +49,7 @@ onChangeFile =e=>{
     console.log("file",file);
     let reader=new FileReader();
     reader.readAsDataURL(file[0]);
-
+    
     reader.onload =e=>{
         console.log("image url",e.target.result);
         this.setState({photo:e.target.result});

@@ -42,17 +42,40 @@ onChangeSelect = e=>{
 }
 
 
-onChangeFile =e=>{
-    let file=e.target.files;
-    console.log("file",file);
-    let reader=new FileReader();
-    reader.readAsDataURL(file[0]);
 
-    reader.onload =e=>{
-        console.log("image url",e.target.result);
-        this.setState({lessonNote:e.target.result});
-    }
+
+
+
+
+onChangeFile1=e=>{
+    
+    this.setState({
+        lessonNote:e.target.files[0].name
+       
+
+    })
 }
+
+onChangeFile2=e=>{
+    
+    this.setState({
+        tute:e.target.files[0].name
+       
+
+    })
+}
+
+onChangeFile4=e=>{
+    
+    this.setState({
+        tuteAnswers:e.target.files[0].name,
+       
+
+    })
+}
+
+
+
 
 validate =()=>{
 
@@ -204,12 +227,12 @@ reset() {
     <label for="age" className="form-label">Lesson Notes</label>
     <input type="file" className="form-control" id="lessonNote"
     name="lessonNote" 
-   
-    onChange={this.onChangeFile}
+  onChange={this.onChangeFile1}
     />
-    {this.state.lessonNoteError?(
+     {this.state.lessonNoteError ?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.lessonNoteError}</div>
 ):null}
+   
     </div>
     </div>
 </div>
@@ -221,20 +244,20 @@ reset() {
 <label for="qualification" className="form-label">Tute</label>
 <input type="file" className="form-control" id="tute" 
 name="tute" 
-
-value={this.state.tute} 
-onChange={this.handlInputChange}/>
+onChange={this.onChangeFile2}
+/>
 {this.state.tuteError ?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.tuteError}</div>
 ):null}
 </div>
 </div>
+
 <div className="col-6">
 <div className="mb-3">
 <label for="mobile" className="form-label">Tute Answer Upload Link</label>
 <input type="text" className="form-control" id="stuTuteAnswers"
 name="stuTuteAnswers" 
-  value={this.state.stuTuteAnswers} 
+value={this.state.stuTuteAnswers}
 onChange={this.handlInputChange}
 />
 {this.state.stuTuteAnswersError ?(
@@ -252,9 +275,8 @@ onChange={this.handlInputChange}
 <label for="subject" className="form-label">Tute Answers</label>
 <input type="file" className="form-control" id="tuteAnswers"
 name="tuteAnswers" 
-
- value={this.state.tuteAnswers} 
-onChange={this.handlInputChange}
+onChange={this.onChangeFile4}
+ 
 />
           </div>
 </div>
@@ -263,7 +285,7 @@ onChange={this.handlInputChange}
 <label for="date" className="form-label">Referances</label>
 <input type="text" className="form-control" id="referances"
 name="referances" 
- value={this.state.referances} 
+value={this.state.referances}
 onChange={this.handlInputChange}
 />
 {this.state.referancesError ?(

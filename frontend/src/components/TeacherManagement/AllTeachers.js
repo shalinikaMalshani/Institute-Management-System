@@ -122,7 +122,7 @@ this.filterData(res.data.existingTeachers,searchKey);
       <td>{teachers.mobile}</td>
       <td>{teachers.date}</td>
       <td>
-      <a className="btn btn-warning"  role="button" href={`/teacherEdit/${teachers._id}`} style={{padding:"6px"}} ><i className="fas fa-edit"></i>&nbsp;Edit</a>
+      <a className="btn btn-warning"  role="button" href={`/teacherEdit/${teachers._id}`} ><i className="fas fa-edit"></i>&nbsp;Edit</a>
       &nbsp;
       <a className="btn btn-danger" role="button" href="" onClick={()=>this.onDelete(teachers._id)} ><i className="far fa-trash-alt"></i>&nbsp;Delete</a>
       
