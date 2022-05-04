@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
+
+
 const initialState={
-    s_date:"",
-    e_date:"",
+    sDate:"",
+    eDate:"",
     
 }
 export default class ReportInput extends Component{
@@ -10,7 +11,10 @@ export default class ReportInput extends Component{
     constructor(props){
         super(props);
 
-        this.state=initialState;
+        this.state={
+            
+            initialState
+        };
     }
 
     handlInputChange=(e)=>{
@@ -21,48 +25,45 @@ export default class ReportInput extends Component{
             [name]:value
         })
 
+
+
     }
 
-onSubmit=(e)=>{
-        e.preventDefault();
 
-        const {s_date,e_date}=this.state;
-        const data={
-           s_date:s_date,
-           e_date:e_date
-        }
-    axios.post("http://localhost:8091/Report",data).then((res)=>{
-          
-if(res.data.success){
-    console.log(data);
-    alert("Input Added Successfully!!");
-    //clear form
-   this.setState(initialState);
-   console.log(data);
-}else{
-    alert("Error ocoured");
-}
-        })
-    }
-  render(){
+
+
+   
+    render(){
     return(
-        <div style={{marginLeft:"325px",width:"76%"}}>
+        <div style={{marginLeft:"325px",width:"76%"}}><br></br>
+              <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{height:'45px', width:'80px'}}>
+                  <a href="/" style={{textDecoration:'none', color:'white',display:'flex'}}><i class="fa-solid fa-angles-left"
+                   style={{marginTop:'5px'}}></i>&nbsp;Back</a>
+                </button>
+
+<br></br><br></br>
                 <h2>Report</h2>
                  <form>
   
-    <div className="mb-3"><label for="s_date" className="form-label">Date From</label><input type="date" className="form-control" id="s_date"
-name="s_date" 
- placeholder="Enter from date" value={this.state.s_date} 
+    <div className="mb-3"><label for="sDate" className="form-label">Date From</label><input type="date" className="form-control" id="sDate"
+name="sDate" 
+ placeholder="Enter from date" value={this.state.sDate} 
  onChange={this.handlInputChange}/></div>
 
-<div className="mb-3"><label for="e_date" className="form-label">Date To</label><input type="date" className="form-control" id="e_date"
-name="e_date" 
- placeholder="Enter to date" value={this.state.e_date} 
+<div className="mb-3"><label for="eDate" className="form-label">Date To</label><input type="date" className="form-control" id="eDate"
+name="eDate" 
+ placeholder="Enter to date" value={this.state.eDate} 
  onChange={this.handlInputChange}/></div>
 
-<button type="reset" className="btn btn-danger">Reset</button>&nbsp;
   
-  <button type="submit" className="btn btn-primary" onClick={this.onSubmit} >Submit</button>
+  
+  
+  <button type="reset" className="btn btn-danger"  >Reset</button>&nbsp;
+  
+  {/* <button type="submit" className="btn btn-primary" >Submit</button> */}
+  <a className="btn btn-success"  role="button" href={`/report/${this.state.sDate}/${this.state.eDate}`} >&nbsp;Submit</a>
+
 
 </form>
             </div>
