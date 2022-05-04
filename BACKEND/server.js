@@ -24,14 +24,81 @@ mongoose.connect(URL)
 })
 
 //import route
+//teacher
 const teacherRouter=require("./routes/Teacher/teachers");
+const leaveRouter=require("./routes/Teacher/leaves");
+const salaryRouter=require("./routes/Teacher/salary");
+const lessonRouter=require("./routes/Teacher/lessons");
+
+
+
+
+//student
+
+
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
+
+
+
+
 
 
 const studentRouter = require("./routes/Student/student.js");
 
 
 //app.use("/teacher",teacherRouter);
+//teacher
 app.use(teacherRouter);
+app.use(leaveRouter);
+app.use(salaryRouter);
+app.use(lessonRouter);
+
+
+
+
+
+//student
+
+
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
 
 
 app.use("/student",studentRouter);

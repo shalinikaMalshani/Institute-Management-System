@@ -66,20 +66,9 @@ onSubmit=(e)=>{
 
     
     axios.put(`http://localhost:8091/update/${id}`,data).then((res)=>{
-        if(res.data.success){
-            alert("Teacher Updated");
-            this.setState({
-                name:"",
-                photo:"",
-                age:"",
-                gender:"",
-                email:"",
-                qualification:"",
-                mobile:"",
-                subject:"",
-                date:""
-                })
-        }
+        alert("Teacher Updated");
+        this.props.history.push("/teacherAll");     
+        
                 })
         
         
@@ -87,13 +76,10 @@ onSubmit=(e)=>{
             }
 
             componentDidMount() {
-  
-                const id= this.props.match.params.id;
-        
-                axios.get(`http://localhost:8091/teacher/${id}`).then((res)=>{
+  const id= this.props.match.params.id;
+        axios.get(`http://localhost:8091/teacher/${id}`).then((res)=>{
                if(res.data.success){
-                  
-                 this.setState({
+                this.setState({
                  name:res.data.teacher.name,
                  photo:res.data.teacher.photo,
                  age:res.data.teacher.age,
@@ -237,7 +223,7 @@ onChange={this.handlInputChange}
 </div>
 
 
-<button type="submit" className="btn btn-primary" onClick={this.onSubmit} >Update</button>
+<button type="submit" className="btn btn-success" onClick={this.onSubmit} >Update</button>
 </form>
 </div>
     )

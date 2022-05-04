@@ -12,6 +12,8 @@ const initialState={
             mobile:"",
             subject:"Chemistry",
             date:"",
+            password:"",
+            confirmPassword:"",
             emailError:"",
             nameError:"",
             phoneError:"",
@@ -20,14 +22,16 @@ const initialState={
             ageError:"",
             subError:"",
             dateError:"",
+            passwordError:"",
+            typeError:""
         
 }
 
-export default class CreateTeacher extends React.Component{
+export default class OnlineCreateTeacher extends React.Component{
     constructor(props){
         super(props);
 
-        this.state={alertMsg:"",initialState,rType:"Counter"};
+        this.state={alertMsg:"",initialState,rType:"Online"};
     }
 
     handlInputChange=(e)=>{
@@ -43,6 +47,10 @@ export default class CreateTeacher extends React.Component{
 onChangeSelect = e=>{
     this.setState({subject:e.target.value});
 }
+
+// changeType = e=>{
+//     this.setState({rType:e.target.value});
+// }
 
 onChangeFile =e=>{
     let file=e.target.files;
@@ -66,6 +74,8 @@ let ageError="";
 let emailError="";
 let phoneError="";
 let dateError="";
+let passwordError="";
+
 
 
 if(!this.state.name){
@@ -113,9 +123,20 @@ if(!this.state.mobile){
 phoneError="Invalid Phone Number";
 }
 
+if(!this.state.password){
+    passwordError="Password Cannot Be Empty"
+}
 
-if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError ){
-this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError});
+if(!this.state.confirmPassword){
+    passwordError="Password Cannot Be Empty"
+}
+
+// if(!this.state.type){
+//     typeError="Type Cannot Be Empty"
+// }
+
+if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError || passwordError ){
+this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError,passwordError});
 return false;
 }
 
@@ -127,7 +148,7 @@ return true;
         e.preventDefault();
         const isValid=this.validate();
         if(isValid){
-        const {name,photo,age,gender,email,qualification,mobile,subject,date,rType}=this.state;
+        const {name,photo,age,gender,email,qualification,mobile,subject,date,rType,password,confirmPassword}=this.state;
         const data={
             name:name,
             photo:photo,
@@ -138,14 +159,17 @@ return true;
             mobile:mobile,
             subject:subject,
             date:date,
-            rType:rType
-            
+            rType:rType,
+            password:password,
+            confirmPassword:confirmPassword
+           
         }
     
         
     
         axios.post("http://localhost:8091/add",data).then((res)=>{
           alert("Teacher added successfully!");
+          console.log("data",data);
           this.setState(initialState);
             this.props.history.push("/teacherAll");
         }).catch(error=>{
@@ -164,7 +188,10 @@ reset() {
     qualification:"",
     mobile:"",
     subject:"",
-    date:""})
+    date:"",
+   rType:"",
+password:"",
+confirmPassword:""})
 }
     
     render(){
@@ -177,27 +204,29 @@ reset() {
                 </button>
 
 <br></br><br></br>
-                <h2>Create Teacher</h2>
+                <h2>Teacher Registration Online</h2>
                 {/* {this.state.alertMsg==="success"?<Success/>:null} */}
                 {/* {this.state.alertMsg==="error"?<Error/>:null} */}
 
     <form>
 
-    <div className="col-6">
-  <div className="mb-3">
     
-    <input type="text" className="form-control" id="type" style={{"display":"none"}}
-    name="type" 
-       value={this.state.rType} 
-    onChange={this.handlInputChange}/>
+    
    
-    </div>
-    </div>
-
+   
+   
 
   <div className="row">
       <div className="col-6">
   <div className="mb-3">
+
+  <input type="text" className="form-control" id="rType" style={{"display":"none"}}
+    name="rType" 
+    defaultValue={this.state.rType}
+    value={this.state.rType} 
+    onChange={this.handlInputChange}/>
+    
+
     <label for="name" className="form-label">Name</label>
     <input type="text" className="form-control" id="name" 
     name="name" 
@@ -336,11 +365,46 @@ onChange={this.handlInputChange}
 
 
 
+<input type="text" className="form-control" id="type" style={{display:'none'}}
+name="type" 
+ 
+ value={this.state.type} 
+onChange={this.handlInputChange}
+/>
 
 <div class="mb-3">
   <label for="formFile" class="form-label">Photo</label>
   <input class="form-control" type="file" id="photo" name="photo" onChange={this.onChangeFile}/>
 </div>
+
+<div className="row">
+      <div className="col-6">
+<div className="mb-3">
+<label for="password" className="form-label">Password</label>
+<input type="password" className="form-control" id="password"
+name="password" 
+ placeholder="Enter password" 
+ value={this.state.password} 
+onChange={this.handlInputChange}
+/>
+      
+
+
+          </div>
+</div>
+<div className="col-6">
+<div className="mb-3">
+<label for="confirmPassword" className="form-label">Confirm Password</label>
+<input type="password" className="form-control" id="confirmPassword"
+name="confirmPassword" 
+ placeholder="confirmPassword" 
+ value={this.state.confirmPassword} 
+onChange={this.handlInputChange}
+/>
+
+</div>
+</div>
+</div> 
 
 <button className="btn btn-danger" onChange={this.reset} >Reset</button>&nbsp;
   <button type="submit" className="btn btn-success" onClick={this.onSubmit} >Submit</button>

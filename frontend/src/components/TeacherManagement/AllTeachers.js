@@ -13,6 +13,7 @@ constructor(props){
 
 componentDidMount(){
   this.retrieveTeachers();//this method gather the all sub comp and comps
+  
 }
 
 
@@ -29,12 +30,16 @@ console.log(this.state.teachers);
 })
 }
 
+  
+
 onDelete =(id)=>{
   axios.delete(`http://localhost:8091/delete/${id}`).then((res)=>{
     
-        alert("Student Delete");
-        this.retrieveTeachers();
+   alert("Teacher deleted");
+  this.retrieveTeachers();
         
+    }).catch((error)=>{
+              alert("Error occoured");
     
             })
 
@@ -66,7 +71,15 @@ this.filterData(res.data.existingTeachers,searchKey);
 
  render(){
    return(
-  <div style={{marginLeft:"325px",width:"76%"}}>
+  <div style={{marginLeft:"325px",width:"76%"}}><br></br>
+    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'45px', width:'80px'}}>
+                  <a href="/navTeacher" style={{textDecoration:'none', color:'white',display:'flex'}}><i class="fa-solid fa-angles-left"
+                   style={{marginTop:'5px'}}></i>&nbsp;Back</a>
+                </button>
+
+<br></br><br></br>
+             
          {/* <div className="container">   */}
    <div className="row">
  <div className="col-lg-12"> 
@@ -100,7 +113,7 @@ this.filterData(res.data.existingTeachers,searchKey);
         {teachers.name}
         </a>
         </td>
-  <td><img src={teachers.photo} width="100px" height="100px" ></img></td>
+  <td><img src={teachers.photo} width="90px" height="90px" ></img></td>
   <td>{teachers.age}</td>
       <td>{teachers.gender}</td>
       <td>{teachers.subject}</td>
@@ -109,16 +122,17 @@ this.filterData(res.data.existingTeachers,searchKey);
       <td>{teachers.mobile}</td>
       <td>{teachers.date}</td>
       <td>
-      <a className="btn btn-primary"  role="button" href={`/teacherEdit/${teachers._id}`}><i className="fas fa-edit"></i>&nbsp;Update</a>
+      <a className="btn btn-warning"  role="button" href={`/teacherEdit/${teachers._id}`} style={{padding:"6px"}} ><i className="fas fa-edit"></i>&nbsp;Edit</a>
       &nbsp;
-      <a className="btn btn-warning" role="button" href="" onClick={()=>this.onDelete(teachers._id)} ><i className="far fa-trash-alt"></i>&nbsp;Delete</a>
+      <a className="btn btn-danger" role="button" href="" onClick={()=>this.onDelete(teachers._id)} ><i className="far fa-trash-alt"></i>&nbsp;Delete</a>
+      
+       
       </td>
     </tr>
     ))}
   </tbody>
 </table>
 
-<a class="btn btn-success" href="/teacherAdd" role="button">Create Teacher</a>
 
   </div>
    </div>
