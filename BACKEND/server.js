@@ -26,8 +26,16 @@ mongoose.connect(URL)
 //import route
 const teacherRouter=require("./routes/Teacher/teachers");
 
+
+const studentRouter = require("./routes/Student/student.js");
+
+
 //app.use("/teacher",teacherRouter);
 app.use(teacherRouter);
+
+
+app.use("/student",studentRouter);
+
 
 
 app.listen(PORT,() => {//function(){}
