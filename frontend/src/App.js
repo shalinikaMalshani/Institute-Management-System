@@ -31,6 +31,8 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
+import StudentReportInput from "./components/StudentManagement/StudentReportInput";
+import StudentReport from "./components/StudentManagement/StudentReport";
 
 
 
@@ -64,7 +66,8 @@ function App() {
 <Route path="/update/:id" exact component={Edit}></Route>
 <Route path="/delete" exact component={StudentDelete}></Route>
 <Route path="/get/:id" exact component={ StudentDetails}></Route>
-
+<Route path="/studentReportInput" exact component={ StudentReportInput}></Route>
+<Route path="/studentReport/:sDate/:eDate"exact component={StudentReport}></Route>
 
 
 

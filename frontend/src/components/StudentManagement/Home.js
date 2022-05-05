@@ -42,7 +42,7 @@ export default class Home extends Component{
 
                 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="left" data-bs-content="Left popover" style={{marginLeft:'30px', height:'75px', width:'230px'}}>
-                 <a href="/reportInput" style={{textDecoration:'none', color:'white',aHoover:'red'}}>REPORT</a>
+                 <a href="/studentReportInput" style={{textDecoration:'none', color:'white',aHoover:'red'}}>REPORT</a>
                 </button>&nbsp;
 
              </div>   
