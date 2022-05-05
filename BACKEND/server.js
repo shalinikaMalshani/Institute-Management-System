@@ -23,11 +23,9 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
-//import route
-const teacherRouter=require("./routes/Teacher/teachers");
 
-//app.use("/teacher",teacherRouter);
-app.use(teacherRouter);
+
+
 
 
 app.listen(PORT,() => {//function(){}
