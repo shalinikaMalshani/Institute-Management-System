@@ -25,6 +25,7 @@ import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeache
 
 //students
 import Home from "./components/StudentManagement/Home";
+import StudentAdd from "./components/StudentManagement/StudentAdd";
 
 
 
@@ -54,7 +55,7 @@ function App() {
 {/* student counter */}
 
 <Route path="/studentDashboard" exact component={Home}></Route>
-
+<Route path="/save" exact component={StudentAdd}></Route>
 
 
 
