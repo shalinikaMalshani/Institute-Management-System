@@ -104,6 +104,26 @@ router.route("/updateLesson/:id").put(async(req,res)=>{
         })
     })
     
+     //get a sepcific teacher
+     router.route("/teacherLessson/:id").get(async(req,res)=>{
+        let userId=req.params.id;
+        
+        Lesson.findById(userId,(err,teacher)=>{
+            if(err){
+                return res.status(400).json({
+                    success:false,err
+                })
+            }
+        return res.status(200).json({
+            success:true,
+            teacher
+        });
+        
+        });
+        
+        });
+        
+   
     
         
     

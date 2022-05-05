@@ -18,12 +18,12 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-<<<<<<< HEAD
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
-
-=======
-// import OnlineAllLessonStuView from "./components/TeacherManagement/OnlineAllLessonStuView";
->>>>>>> c4206a51388ebc08ce4826e3528f6257b27f1354
+import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
+import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
+import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
+import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
+import Home from "./components/TeacherManagement/Home";
 
 
 
@@ -80,7 +80,12 @@ function App() {
   <Route  path="/onlineLeave" exact component={OnlineTeacherLeave} />
   <Route  path="/onlineLesson" exact component={OnlineTeacherLesson} />
   <Route  path="/onlineAllLesson" exact component={OnlineTeacherAllLessons} />
- 
+  <Route  path="/lessonEdit/:id" exact component={OnlineTeacherLessonUpdate} />
+  <Route  path="/onlineMeeting" exact component={OnlineMeeting} />
+  <Route  path="/onlineAllMeeting" exact component={OnlineAllMeeting} />
+  <Route  path="/meetingEdit/:id" exact component={OnlineMeetingEdit} />
+  <Route  path="/home" exact component={Home} />
+
 
 
 

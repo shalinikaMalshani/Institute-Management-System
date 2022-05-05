@@ -29,6 +29,7 @@ const teacherRouter=require("./routes/Teacher/teachers");
 const leaveRouter=require("./routes/Teacher/leaves");
 const salaryRouter=require("./routes/Teacher/salary");
 const lessonRouter=require("./routes/Teacher/lessons");
+const meetingRouter=require("./routes/Teacher/meeting");
 
 
 
@@ -72,6 +73,8 @@ app.use(teacherRouter);
 app.use(leaveRouter);
 app.use(salaryRouter);
 app.use(lessonRouter);
+app.use(meetingRouter);
+
 
 
 

@@ -15,7 +15,11 @@ export default class OnlineTeacherLogin extends React.Component{
     constructor(props){
         super(props);
 
-        this.state={alertMsg:"",initialState};
+        this.state={
+            alertMsg:"",
+            initialState, 
+            teacherDetail:{}
+    };
     }
 
     handlInputChange=(e)=>{
@@ -82,9 +86,14 @@ return true;
     
         axios.post("http://localhost:8091/teacherLogin",data).then((res)=>{
           alert("Teacher login successfully!");
-          console.log("data",data);
+          this.setState({
+            teacherDetail:res.data.datat
+              });
+          console.log("data teacher",this.state.teacherDetail.email);
+          localStorage.setItem("username",this.state.teacherDetail.name);
+          localStorage.setItem("userId",this.state.teacherDetail._id);
           this.setState(initialState);
-            this.props.history.push("/");
+            this.props.history.push("/home");
         }).catch(error=>{
             alert("Error occoured.Please check and resubmit the details.");
         })

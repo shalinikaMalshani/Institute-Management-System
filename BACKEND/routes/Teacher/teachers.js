@@ -159,41 +159,26 @@ router.route("/update/:id").put(async(req,res)=>{
     
     });
 
+
     //login
     router.post("/teacherLogin", async(req,res) => {
-
-        try{
+            try{
                 const {email, password} = req.body;
-    
-               //check with database username
+                //check with database username
                 const teacherLogin = await Teacher.findOne({email: email});
-        
-                
                 if(!teacherLogin){
-    
-                    res.status(400).json({error: "Teacher does not exists"});
-    
-                }
-    
-                else if (password == teacherLogin.password){
-    
-                     res.json({message: "Teacher Sign In Successfully"});
-                    console.log(res.status.error);
-                    // res.json({adminLogin: {
-                    //     _id : adminLogin._id,
-                    // }})
-                   
-                    
-                }else{ 
-    
-                    res.status(400).json({error: "Invalid Credientials"});
-                   
-                }
-              
-    
-        }catch(err){
-    
-            console.log(err);
+                     res.status(400).json({error: "Teacher does not exists"});
+                }else if (password == teacherLogin.password){
+                        return res.json({
+                         success:true,
+                         datat:teacherLogin
+                        });
+                        
+                     }else{ 
+                        res.status(400).json({error: "Invalid Credientials"});
+                     }
+              }catch(err){
+                console.log(err);
         }
     })    
     
