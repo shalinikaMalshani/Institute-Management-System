@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 // teacher
@@ -18,6 +20,14 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
+<<<<<<< HEAD
+import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
+import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
+import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
+import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
+import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
+import Home from "./components/TeacherManagement/Home";
+=======
 
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 
@@ -31,8 +41,12 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
+<<<<<<< HEAD
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
+=======
+>>>>>>> 550b3e533ab7a12c7cedc2f385d09e9907c0dca4
+>>>>>>> f370c74d8a50502665df02314834fb4ee865c62e
 
 
 
@@ -119,7 +133,12 @@ function App() {
   <Route  path="/onlineLeave" exact component={OnlineTeacherLeave} />
   <Route  path="/onlineLesson" exact component={OnlineTeacherLesson} />
   <Route  path="/onlineAllLesson" exact component={OnlineTeacherAllLessons} />
- 
+  <Route  path="/lessonEdit/:id" exact component={OnlineTeacherLessonUpdate} />
+  <Route  path="/onlineMeeting" exact component={OnlineMeeting} />
+  <Route  path="/onlineAllMeeting" exact component={OnlineAllMeeting} />
+  <Route  path="/meetingEdit/:id" exact component={OnlineMeetingEdit} />
+  <Route  path="/home" exact component={Home} />
+
 
 
 
@@ -135,3 +154,4 @@ function App() {
 }
 
 export default App;
+>>>>>>> 78985762dcf25c5157dc7272a57c6dcaef110524
