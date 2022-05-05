@@ -61,6 +61,7 @@ export default class StudentAdd extends Component{
         axios.post("http://localhost:8091/student/add",data).then((res) =>{
             if(res.data.success){
                 alert("Student Added Successfully")
+                this.props.history.push("/all");
             this.setState(
                 this.state={
                     "stuName":"",
@@ -152,7 +153,7 @@ export default class StudentAdd extends Component{
 
                 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'40px', width:'110px', marginTop:"-10px"}}>
-                <a href="/" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
+                <a href="/studentDashboard" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
                 style={{marginTop:'5px'}}></i>&nbsp;&nbsp;&nbsp;&nbsp;Back</a>
                 </button>
                 <br></br><br></br>

@@ -26,8 +26,11 @@ import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeache
 //students
 import Home from "./components/StudentManagement/Home";
 import StudentAdd from "./components/StudentManagement/StudentAdd";
-
-
+import AllStudent from "./components/StudentManagement/AllStudent";
+import StudentUpdate from "./components/StudentManagement/StudentUpdate";
+import Edit from "./components/StudentManagement/Edit";
+import StudentDelete from "./components/StudentManagement/StudentDelete";
+import StudentDetails from "./components/StudentManagement/StudentDetails";
 
 
 
@@ -56,6 +59,11 @@ function App() {
 
 <Route path="/studentDashboard" exact component={Home}></Route>
 <Route path="/save" exact component={StudentAdd}></Route>
+<Route path="/allStudents" exact component={AllStudent}></Route>
+<Route path="/update" exact component={StudentUpdate}></Route>
+<Route path="/update/:id" exact component={Edit}></Route>
+<Route path="/delete" exact component={StudentDelete}></Route>
+<Route path="/get/:id" exact component={ StudentDetails}></Route>
 
 
 
