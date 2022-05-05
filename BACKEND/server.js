@@ -23,6 +23,8 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
+
+
 //import route
 //teacher
 const teacherRouter=require("./routes/Teacher/teachers");
@@ -106,7 +108,8 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 
 
-app.use("/student",studentRouter);
+// app.use("/student",studentRouter);
+
 
 
 

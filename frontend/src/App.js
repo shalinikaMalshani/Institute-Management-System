@@ -18,12 +18,28 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
+<<<<<<< HEAD
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
 import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
 import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
 import Home from "./components/TeacherManagement/Home";
+=======
+
+import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
+
+
+
+//students
+import Home from "./components/StudentManagement/Home";
+import StudentAdd from "./components/StudentManagement/StudentAdd";
+import AllStudent from "./components/StudentManagement/AllStudent";
+import StudentUpdate from "./components/StudentManagement/StudentUpdate";
+import Edit from "./components/StudentManagement/Edit";
+import StudentDelete from "./components/StudentManagement/StudentDelete";
+import StudentDetails from "./components/StudentManagement/StudentDetails";
+>>>>>>> 550b3e533ab7a12c7cedc2f385d09e9907c0dca4
 
 
 
@@ -49,6 +65,35 @@ function App() {
 
 
 {/* student counter */}
+
+<Route path="/studentDashboard" exact component={Home}></Route>
+<Route path="/save" exact component={StudentAdd}></Route>
+<Route path="/allStudents" exact component={AllStudent}></Route>
+<Route path="/update" exact component={StudentUpdate}></Route>
+<Route path="/update/:id" exact component={Edit}></Route>
+<Route path="/delete" exact component={StudentDelete}></Route>
+<Route path="/get/:id" exact component={ StudentDetails}></Route>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

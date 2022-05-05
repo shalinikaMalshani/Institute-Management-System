@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const classSchema = new mongoose.Schema({
+const feeSchema = new mongoose.Schema({
 
 Class_Type:{
   type:String,
@@ -10,23 +10,15 @@ Subject:{
     type:String,
     required:true
 },
-Teacher_Name:{
+Fee:{
     type:String,
     required:true
 },
-Starting_Time:{
-    type:String,
-    required:true
-},
-Ending_Time:{
+Date:{
   type:String,
   required:true
 },
-Contact_Number:{
-    type:String,
-    required:true
-},
-Day:{
+Special_Notes:{
   type:String,
   required:true
 }
@@ -34,4 +26,4 @@ Day:{
 
 });
 
-module.exports = mongoose.model('Class',classSchema);
+module.exports = mongoose.model('Fee',feeSchema);

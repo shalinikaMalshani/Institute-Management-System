@@ -1,13 +1,13 @@
 const express = require('express');
-const Class = require('../../models/Class/class');
+const Class = require('../../models/Fee/fee');
 
 const router = express.Router();
 
 //save posts
 
-router.post('/class/add',(req,res)=>{
-let newClass = new Class(req.body);
-newClass.save((err) =>{
+router.post('/fee/add',(req,res)=>{
+let newFee = new Fee(req.body);
+newFee.save((err) =>{
 if(err){
 
 return res.status(400).json({
@@ -15,15 +15,15 @@ error:err
 });
 }
 return res.status(200).json({
-success:"Class Details saves successfully"
+success:"Class Fees saves successfully"
 });
 });
 });
 
 //get posts
 
-router.get('/class',(req,res)=>{
-Class.find().exec((err,Class) =>{
+router.get('/fee',(req,res)=>{
+Fee.find().exec((err,Fee) =>{
 if(err){
 return res.status(400).json({
 error:err
@@ -31,16 +31,16 @@ error:err
 }
 return res.status(200).json({
 success:true,
-existingClass:Class
+existingFee:Fee
 });
 });
 });
 
 //get a specific post
 
-router.get("/class/:id",(req,res)=>{
+router.get("/fee/:id",(req,res)=>{
 let postId = req.params.id;
-Class.findById(postId,(err,post) =>{
+Fee.findById(postId,(err,post) =>{
 if(err){
     return res.status(400).json({success:false, err});
 }
@@ -58,8 +58,8 @@ return res.status(200).json({
 
 
 //update posts
-router.put('/class/update/:id',(req,res)=>{
-    Detail.findByIdAndUpdate(
+router.put('/fee/update/:id',(req,res)=>{
+    Fee.findByIdAndUpdate(
 req.params.id,
 {
 $set:req.body
@@ -71,20 +71,20 @@ $set:req.body
         });
         }
         return res.status(200).json({
-        success:"Class Details updated Successfully"
+        success:"Class Fees updated Successfully"
 });
 });
 });
 
 //delete posts
-router.delete('/class/delete/:id',(req,res) =>{
-Detail.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
+router.delete('/fee/delete/:id',(req,res) =>{
+Fee.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
     if(err) return res.status(400).json({
-        message:" Class Details Deleted unsuccessfully",err
+        message:" Class Fees Deleted unsuccessfully",err
         });
         
         return res.json({
-        message:" Class Details Deleted Successfully",deletedPost
+        message:" Class Fees Deleted Successfully",deletedPost
 });
 });
 });
