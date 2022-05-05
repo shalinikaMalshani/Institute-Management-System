@@ -19,7 +19,7 @@ const initialState={
 
 }
 
-export default class TeacherLeave extends Component{
+export default class OnlineTeacherLeave extends Component{
 
   constructor(props) {
         super(props);
@@ -117,7 +117,7 @@ export default class TeacherLeave extends Component{
 <br></br><br></br>
               
     
-                <h2>Teacher Leave</h2>
+                <h2>Teacher Leave Online</h2>
                  <form>
   
     

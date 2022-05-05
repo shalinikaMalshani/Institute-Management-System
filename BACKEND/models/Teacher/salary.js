@@ -5,58 +5,46 @@ const mongoose=require("mongoose");
  const Schema=mongoose.Schema;
 
 //all the attributes.Here generate object id automatically.Like PK
-const teacherSchema=new Schema({
+const teacherSalarySchema=new Schema({
     name:{
         type:String,
         required:true//act as backend validatio.It mean the name must have a value before insert to db
     },
-    photo:{
+    month:{
         type:String,
         required:true
     },
-    age:{
+    basic:{
         type:Number,
         required:true
     },
-    gender:{
-        type:String,
+    da:{
+        type:Number,
         required:true
     },
-    email :{
-        type:String,
+    ta :{
+        type:Number,
         required:true
     },
-    qualification :{
-        type:String,
+    ma :{
+        type:Number,
         required:true
     },
-    mobile :{
-        type:String,
+    pf :{
+        type:Number,
         required:true
     },
-    subject :{
-        type:String,
+    gross :{
+        type:Number,
         required:true
     },
-    date :{
-        type:String,
+    net :{
+        type:Number,
         required:true
-    },
-    rType:{
-        type:String,
-        required:true
-    },
-    password:{
-        type:String
-
-    },
-    confirmPassword:{
-        type:String
     }
-
 });
 
-const Teacher=mongoose.model("Teacher",teacherSchema);
+const Salary=mongoose.model("Salary",teacherSalarySchema);
 
 //export the module.If ignore this cannot use this model inside route.
-module.exports=Teacher;
+module.exports=Salary;

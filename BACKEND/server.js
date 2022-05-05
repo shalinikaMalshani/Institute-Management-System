@@ -23,9 +23,94 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
+<<<<<<< HEAD
 
 
 
+=======
+//import route
+//teacher
+const teacherRouter=require("./routes/Teacher/teachers");
+const leaveRouter=require("./routes/Teacher/leaves");
+const salaryRouter=require("./routes/Teacher/salary");
+const lessonRouter=require("./routes/Teacher/lessons");
+
+
+
+
+//student
+
+const studentRouter = require("./routes/Student/student.js");
+const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
+
+
+
+
+
+
+
+
+
+//app.use("/teacher",teacherRouter);
+//teacher
+app.use(teacherRouter);
+app.use(leaveRouter);
+app.use(salaryRouter);
+app.use(lessonRouter);
+
+
+
+
+
+//student
+app.use("/student",studentRouter);
+app.use("/onlineStudent",onlineStudentRouter);
+
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
+
+
+app.use("/student",studentRouter);
+
+>>>>>>> 560e47cfd0244e0a74757ed6e026cc8f83ffde8e
 
 
 app.listen(PORT,() => {//function(){}

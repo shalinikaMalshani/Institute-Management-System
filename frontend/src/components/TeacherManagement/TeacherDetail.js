@@ -11,7 +11,8 @@ export default class TeacherDetail extends Component{
     }
 
     componentDidMount(){
-        const id=this.props.match.params.id;
+         const id=this.props.match.params.id;
+        
 
         axios.get(`http://localhost:8091/teacher/${id}`).then((res)=>{
         if(res.data.success){
@@ -22,13 +23,18 @@ export default class TeacherDetail extends Component{
         
     }
 });
+
+
+
 }
     render(){
-        const{name,photo,age,gender,email,qualification,mobile,subject,date}=this.state.teacher;
+         const{name,photo,age,gender,email,qualification,mobile,subject,date}=this.state.teacher;
+        
+       
         return(
             <div style={{marginLeft:"325px",width:"76%"}}>
                 
-            <h1>Teacher Detail</h1><hr></hr>
+             <h1>Teacher Detail</h1><hr></hr>
               <dl className='row'>
                 
               <dt className='col-sm-3'> Name:</dt><dd className='col-sm-9'>{name}</dd>
@@ -45,8 +51,15 @@ export default class TeacherDetail extends Component{
 
               
               </dl>
+ 
+
+              
+
               
               </div>
+
+
+              
         )
     }
 }
