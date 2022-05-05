@@ -17,6 +17,11 @@ router.route("/add").post((req,res)=>{ //http:...../student/add
     const mobile=req.body.mobile;
     const subject=req.body.subject;
     const date=req.body.date;
+    const rType=req.body.rType;
+    const password=req.body.password;
+    const confirmPassword=req.body.confirmPassword;
+
+   
 
     //initilaize the above atributes
     const newTeacher=new Teacher({
@@ -28,7 +33,10 @@ router.route("/add").post((req,res)=>{ //http:...../student/add
         qualification,
         mobile,
         subject,
-        date});
+        date,
+        rType,
+    password,
+confirmPassword});
 
     //.then->If success do this.javascript promise
     newTeacher.save().then(()=>{
@@ -58,33 +66,31 @@ Teacher.find().exec((err,teachers)=>{
 })
 })
 
-//read teacher
-router.route("/Report").post((req,res)=>{
-    let s_date=[req.query.s_date || []].flat();
-    let e_date=[req.query.e_date || []].flat();
-console.log(s_date,e_date);
-    let songDB = Teacher.find(
-        {
-            date: {$gte: s_date, $lte: e_date}
-        }).sort('rating');
-    console.log(songDB)
-    return songDB;
-
-    // Teacher.find.exec((err,teachers)=>{
-    //     if(err){
-    //         return res.status(400).json({
-    //             error:err
-    //         });
-    //     }
-    //     return res.status(200).json({
-    //         success:true,
-    //         existingTeachers:teachers
-    //     })
+//report
+router.route("/report/:s_date/:e_date").get((req,res)=>{
+    let start=req.params.s_date;
+    let end=req.params.e_date;
     
-    // })
-    })
+    console.log("start,end",start,end);
     
-
+        Teacher.find(
+            { date : { $gt :start, $lt : end}}
+            
+            ).exec((err,teachers)=>{
+            if(err){
+                return res.status(400).json({
+                    error:err
+                });
+            }
+            return res.status(200).json({
+                success:true,
+                report:teachers
+            })
+        
+        })
+      
+    });
+    
 
 //update
 //async method.Here can handle muliple requests without crashing
@@ -152,6 +158,29 @@ router.route("/update/:id").put(async(req,res)=>{
     });
     
     });
+
+
+    //login
+    router.post("/teacherLogin", async(req,res) => {
+            try{
+                const {email, password} = req.body;
+                //check with database username
+                const teacherLogin = await Teacher.findOne({email: email});
+                if(!teacherLogin){
+                     res.status(400).json({error: "Teacher does not exists"});
+                }else if (password == teacherLogin.password){
+                        return res.json({
+                         success:true,
+                         datat:teacherLogin
+                        });
+                        
+                     }else{ 
+                        res.status(400).json({error: "Invalid Credientials"});
+                     }
+              }catch(err){
+                console.log(err);
+        }
+    })    
     
 
 module.exports=router;

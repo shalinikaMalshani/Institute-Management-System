@@ -41,6 +41,17 @@ const teacherSchema=new Schema({
     date :{
         type:String,
         required:true
+    },
+    rType:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String
+
+    },
+    confirmPassword:{
+        type:String
     }
 
 });

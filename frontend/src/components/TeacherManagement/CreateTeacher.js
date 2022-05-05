@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Success from "./Success";
-import Error from "./Error";
+
 
 const initialState={
             name:"",
@@ -28,7 +27,7 @@ export default class CreateTeacher extends React.Component{
     constructor(props){
         super(props);
 
-        this.state={alertMsg:"",initialState};
+        this.state={alertMsg:"",initialState,rType:"Counter"};
     }
 
     handlInputChange=(e)=>{
@@ -50,21 +49,12 @@ onChangeFile =e=>{
     console.log("file",file);
     let reader=new FileReader();
     reader.readAsDataURL(file[0]);
-
+    
     reader.onload =e=>{
         console.log("image url",e.target.result);
         this.setState({photo:e.target.result});
     }
 }
-// display =()=>{
-//     let successMsg="";
-//     successMsg="ppppppppppppp";
-//     if(this.state.successMsg){
-// this.setState({successMsg})
-// return false;
-//     }
-//     return true;
-// }
 
 validate =()=>{
 
@@ -137,7 +127,7 @@ return true;
         e.preventDefault();
         const isValid=this.validate();
         if(isValid){
-        const {name,photo,age,gender,email,qualification,mobile,subject,date}=this.state;
+        const {name,photo,age,gender,email,qualification,mobile,subject,date,rType}=this.state;
         const data={
             name:name,
             photo:photo,
@@ -148,30 +138,63 @@ return true;
             mobile:mobile,
             subject:subject,
             date:date,
+            rType:rType
             
         }
     
         
     
         axios.post("http://localhost:8091/add",data).then((res)=>{
-          this.setState({alertMsg:"success"});
+          alert("Teacher added successfully!");
           this.setState(initialState);
+            this.props.history.push("/teacherAll");
         }).catch(error=>{
-            this.setState({alertMsg:"error"});
+            alert("Error occoured.Please check and resubmit the details.");
         })
     
     }
 }
 
+reset() {
+    this.setState({name:"",
+    photo:"",
+    age:"",
+    gender:"",
+    email:"",
+    qualification:"",
+    mobile:"",
+    subject:"",
+    date:""})
+}
     
     render(){
         return(
-            <div style={{marginLeft:"325px",width:"76%"}}>
+            <div style={{marginLeft:"325px",width:"76%"}}><br></br>
+                  <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'45px', width:'80px'}}>
+                  <a href="/navTeacher" style={{textDecoration:'none', color:'white',display:'flex'}}><i class="fa-solid fa-angles-left"
+                   style={{marginTop:'5px'}}></i>&nbsp;Back</a>
+                </button>
+
+<br></br><br></br>
                 <h2>Create Teacher</h2>
-                {this.state.alertMsg==="success"?<Success/>:null}
-                {this.state.alertMsg==="error"?<Error/>:null}
+                {/* {this.state.alertMsg==="success"?<Success/>:null} */}
+                {/* {this.state.alertMsg==="error"?<Error/>:null} */}
 
     <form>
+
+    <div className="col-6">
+  <div className="mb-3">
+    
+    <input type="text" className="form-control" id="type" style={{"display":"none"}}
+    name="type" 
+       value={this.state.rType} 
+    onChange={this.handlInputChange}/>
+   
+    </div>
+    </div>
+
+
   <div className="row">
       <div className="col-6">
   <div className="mb-3">
@@ -192,7 +215,7 @@ return true;
     <input type="text" className="form-control" id="age"
     name="age" 
      placeholder="Enter age"
-     required="required"
+    
      min="0"
      value={this.state.age} 
     onChange={this.handlInputChange}
@@ -283,7 +306,7 @@ onChange={this.handlInputChange}
       <div className="col-6">
 <div className="mb-3">
 <label for="subject" className="form-label">Subject</label>
-<select onChange={this.onChangeSelect}  className="form-select" name="subject" id="subject" >
+<select onChange={this.onChangeSelect}  className="form-select" name="subject" id="subject">
         <option selected disabled >--Select Subject--</option>
         <option value="Chemistry">Chemistry</option>
         <option value="Physics">Physics</option>
@@ -311,13 +334,16 @@ onChange={this.handlInputChange}
 </div>
 </div>
 
+
+
+
 <div class="mb-3">
   <label for="formFile" class="form-label">Photo</label>
   <input class="form-control" type="file" id="photo" name="photo" onChange={this.onChangeFile}/>
 </div>
 
-<button type="reset" className="btn btn-danger"  >Reset</button>&nbsp;
-  <button type="submit" className="btn btn-primary" onClick={this.onSubmit} >Submit</button>
+<button className="btn btn-danger" onChange={this.reset} >Reset</button>&nbsp;
+  <button type="submit" className="btn btn-success" onClick={this.onSubmit} >Submit</button>
 </form>
         </div>
         )

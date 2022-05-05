@@ -23,11 +23,94 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
+
+
 //import route
+//teacher
 const teacherRouter=require("./routes/Teacher/teachers");
+const leaveRouter=require("./routes/Teacher/leaves");
+const salaryRouter=require("./routes/Teacher/salary");
+const lessonRouter=require("./routes/Teacher/lessons");
+const meetingRouter=require("./routes/Teacher/meeting");
+
+
+
+
+//student
+
+const studentRouter = require("./routes/Student/student.js");
+const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
+
+
+
+
+
+
+
+
 
 //app.use("/teacher",teacherRouter);
+//teacher
 app.use(teacherRouter);
+app.use(leaveRouter);
+app.use(salaryRouter);
+app.use(lessonRouter);
+app.use(meetingRouter);
+
+
+
+
+
+
+//student
+app.use("/student",studentRouter);
+app.use("/onlineStudent",onlineStudentRouter);
+
+
+
+
+
+//class
+
+
+
+
+
+//notice
+
+
+
+//inquire
+
+
+
+//admin
+
+
+
+// app.use("/student",studentRouter);
+
+
 
 
 //Make access to admin

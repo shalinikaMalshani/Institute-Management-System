@@ -1,24 +1,122 @@
 import React, { Component } from "react";
+import axios from "axios";
+
+
+
+const initialState={
+  name:"",
+  type:"",
+  duration:"",
+  fDate:"",
+  tDate:"",
+  reason:"",
+  nameError:"",
+  typeError:"",
+  durError:"",
+  fError:"",
+  tError:"",
+  reasonError:""
+
+}
 
 export default class TeacherLeave extends Component{
 
   constructor(props) {
         super(props);
-        this.state = { status: 0 }; // 0: no show, 1: show yes, 2: show no.
+        this.state = { status: 0, initialState }; // 0: no show, 1: show yes, 2: show no.
         
       }
 
+      handlInputChange=(e)=>{
+        const{name,value}=e.target;
+
+        this.setState({
+            ...this.state,
+            [name]:value
+        })
+
+    }
+
+    //get dropdown value
+    onChangeSelect = e=>{
+      this.setState({type:e.target.value});
+  }
+  
+
+
+
+
       radioHandler = (status) => {
+        if(status===1){
+          this.state.duration="Single Day"
+        }else{
+          this.state.duration="Multiple Days"
+        }  
     this.setState({ status });
+    
+    
    };
   
     
+   onSubmit=(e)=>{
+        
+    e.preventDefault();
+    
+    const {name,type,duration,fDate,tDate,reason}=this.state;
+    const data={
+        name:name,
+        type:type,
+        duration:duration,
+        fDate:fDate,
+        tDate:tDate,
+        reason:reason
+        
+    }
 
+    
+  
+    axios.post("http://localhost:8091/addLeave",data).then((res)=>{
+      if(res.data.success){
+      alert("Teacher leave added successfully!");
+      this.setState(initialState);
+      this.props.history.push("/allLeaves");
+      } 
+    }).catch(error=>{
+        // this.setState({alertMsg:"error"});
+        alert("Error occoured.Please check and resubmit the details.");
+    })
+
+}
+
+
+    
+   
+
+   resetDetails=e=>{
+     e.preventDefault();
+    this.setState({
+      name:"",
+      type:"",
+      duration:"",
+      fDate:"",
+      tDate:"",
+      reason:""})
+  }
+  
     render(){
       const { status } = this.state;
 
         return(
-          <div style={{marginLeft:"325px",width:"76%"}}>
+          <div style={{marginLeft:"325px",width:"76%"}}><br></br>
+              <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'45px', width:'80px'}}>
+                  <a href="/navTeacher" style={{textDecoration:'none', color:'white',display:'flex'}}><i class="fa-solid fa-angles-left"
+                   style={{marginTop:'5px'}}></i>&nbsp;Back</a>
+                </button>
+
+<br></br><br></br>
+              
+    
                 <h2>Teacher Leave</h2>
                  <form>
   
@@ -28,68 +126,90 @@ export default class TeacherLeave extends Component{
     <input type="text" className="form-control" id="name" 
     name="name" 
     placeholder="First Name Last Name" 
+    value={this.state.name} 
+    onChange={this.handlInputChange}
   />
-   
+     {this.state.nameError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
+):null}
     
     </div>
     
     <div className="mb-3">
-<label for="subject" className="form-label">Leave Type</label>
-<select  className="form-select" name="subject" id="subject" >
+<label for="type" className="form-label">Leave Type</label>
+<select  onChange={this.onChangeSelect} className="form-select" name="type" id="type" >
         <option selected disabled >--Select type--</option>
         <option value="Casual">Casual Leave</option>
         <option value="sick">Sick Leave</option>
 </select>
-
           
 </div>
 
 
 
 
-  <div className="mb-3">
-    <label for="gender" className="form-label">Gender</label>
+   <div className="mb-3">
+    <label for="duration" className="form-label">Duration</label>
 <div>
     <input type="radio" 
-    name="gender"
-         id="male"  
-          value="Male"
-           checked={status === 1} onClick={(e) => this.radioHandler(1)} 
+    name="single"
+         id="single"  
+          value="Single Day"
+          
+           checked={status === 1} onClick={(e) => this.radioHandler(1)}
           
         />Single Date
       &nbsp;
         <input type="radio" 
-         id="female" 
-         name="gender"
+         id="multiple" 
+         name="multiple"
+         value="Multiple Days"
+         
          checked={status === 2} onClick={(e) => this.radioHandler(2)}
          /> Multiple Days
 
-{status === 1 && <div className="mb-3"><label for="date" className="form-label">Date</label><input type="date" className="form-control" id="date"
-name="date" 
- placeholder="Enter join date" 
+  {status === 1 && <div className="mb-3"><label for="fDate" className="form-label">Date</label>
+<input type="date" className="form-control" id="fDate"
+value={this.state.fDate} 
+onChange={this.handlInputChange}
+name="fDate" 
+ placeholder="Enter  date" 
  
-/></div>}
-        {status === 2 && <div className="row">
+/>
+{this.state.fError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.fError}</div>
+):null}
+</div>}
+         {status === 2 && <div className="row">
           <div className="col-6">
             <div className="mb-3">
-              <label for="date" className="form-label">From Date</label>
-              <input type="date" className="form-control" id="date"name="date" placeholder="Enter join date" />
+              <label for="fDate" className="form-label">From Date</label>
+              <input type="date" className="form-control" id="fDate"name="fDate" placeholder="Enter from date"
+              value={this.state.fDate} 
+              onChange={this.handlInputChange} />
+         
               </div>
               </div>
               <div className="col-6"><div className="mb-3">
-                <label for="date" className="form-label">To Date</label>
-                <input type="date" className="form-control" id="date" name="date" placeholder="Enter join date" />
-                </div></div></div>}
-     </div>
+                <label for="tDate" className="form-label">To Date</label>
+                <input type="date" className="form-control" id="tDate" name="tDate" placeholder="Enter to date"
+                value={this.state.tDate} 
+                onChange={this.handlInputChange} />
+           
+                </div></div></div>}  
+     </div> 
   
-  </div>
+   </div>  
 
   <div className="mb-3">
     <label for="reason" className="form-label">Reason of Leave</label>
     <textarea className="form-control" id="name" cols={50} rows={3}
     name="reason" 
     placeholder="Enter the reason here" 
+    value={this.state.reason} 
+onChange={this.handlInputChange}
   />
+    
   </div>
 
 
@@ -97,9 +217,9 @@ name="date"
 
 
 
-  <button type="reset" className="btn btn-danger"  >Reset</button>&nbsp;
+  <button type="reset" className="btn btn-danger" onClick={this.resetDetails} >Reset</button>&nbsp;
   
-  <button type="submit" className="btn btn-primary"  >Submit</button>
+  <button type="submit" className="btn btn-success" onClick={this.onSubmit}  >Submit</button>
 
 </form>
             </div>
@@ -108,81 +228,3 @@ name="date"
 }
 
 
-// class TeacherLeave extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { clickedYes: false, clickedNo: false };
-//     this.yesHandler = this.yesHandler.bind(this);
-//     this.noHandler = this.noHandler.bind(this);
-//   }
-//   yesHandler() {
-//     this.setState({
-//       clickedYes: !this.state.clickedYes
-//     });
-//   }
-//   noHandler() {
-//     this.setState({
-//       clickedNo: !this.state.clickedNo
-//     });
-//   }
-//   render() {
-//     const radioNo = this.state.clickedNo ? <h1>No</h1> : null;
-//     const radioYes = this.state.clickedYes ? <h1>Yes</h1> : null;
-//     return (
-//       <>
-//         <input
-//           type="radio"
-//           name="release"
-//           id=""
-//           clickedYes={this.state.clickedYes}
-//           onClick={this.yesHandler}
-//          />Yes
-//         <input
-//           type="radio"
-//           name="release"
-//           clickedNo={this.state.clickedNo}
-//           onClick={this.noHandler}
-//           id=""
-//         />No
-//             {radioYes}
-//             {radioNo}
-
-// {/* {this.state.clickedYes && (<div>Yes</div>)}             {this.state.clickedNo && (<div>No</div>)} */}
-//       </>
-//     );
-//    }
-//  }
-
-// export default TeacherLeave;
-
-
-
-
-// class TeacherLeave extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { status: 0 }; // 0: no show, 1: show yes, 2: show no.
-    
-//   }
-
-//   radioHandler = (status) => {
-//     this.setState({ status });
-//   };
-
-  
-//   render() {
-//     const { status } = this.state;
-    
-//     return (
-//       <form>
-//         <input type="radio" name="release" checked={status === 1} onClick={(e) => this.radioHandler(1)} />Yes
-//         <input type="radio" name="release" checked={status === 2} onClick={(e) => this.radioHandler(2)} />No
-//         {status === 1 && <div>Date<input type="date"></input></div>}
-//         {status === 2 && <div>From Date<input type="date"></input>To Date<input type="date"></input></div>}
-//       </form>
-      
-//     );
-//   }
-// }
-
-// export default TeacherLeave;
