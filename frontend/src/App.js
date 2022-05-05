@@ -18,12 +18,15 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-<<<<<<< HEAD
+
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 
-=======
-// import OnlineAllLessonStuView from "./components/TeacherManagement/OnlineAllLessonStuView";
->>>>>>> c4206a51388ebc08ce4826e3528f6257b27f1354
+
+
+//students
+import Home from "./components/StudentManagement/Home";
+
+
 
 
 
@@ -49,6 +52,30 @@ function App() {
 
 
 {/* student counter */}
+
+<Route path="/studentDashboard" exact component={Home}></Route>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
