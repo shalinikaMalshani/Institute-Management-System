@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 // teacher
@@ -39,16 +37,14 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
+
+
+
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
-=======
->>>>>>> 550b3e533ab7a12c7cedc2f385d09e9907c0dca4
->>>>>>> f370c74d8a50502665df02314834fb4ee865c62e
->>>>>>> 44d5a4a2ee403cca4ad60bb31816ffbf33be9dda
+
+
 
 
 
@@ -156,4 +152,4 @@ function App() {
 }
 
 export default App;
->>>>>>> 78985762dcf25c5157dc7272a57c6dcaef110524
+
