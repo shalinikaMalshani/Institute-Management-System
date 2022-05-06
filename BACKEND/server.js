@@ -113,6 +113,19 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 
 
+//Make access to admin
+const adminRouter = require("./routes/Admin/admin.js");
+app.use("/Admin", adminRouter);
+
+//Make access to Inquiry
+const InquiryRouter = require("./routes/Inquiry/Inquiry.js");
+app.use("/inquiry", InquiryRouter);
+
+//Make access to Notoice route
+const NoticeRouter = require("./routes/Notice/Notice.js");
+app.use("/notice", NoticeRouter);
+
+
 app.listen(PORT,() => {//function(){}
     console.log(`Server is up and running on port number :${PORT}`);
     });
