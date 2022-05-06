@@ -12,8 +12,13 @@
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.0",
+<<<<<<< HEAD
     "sweetalert2": "^11.4.10",
     "web-vitals": "^2.1.4"
+=======
+"sweetalert2": "^11.4.10",
+"web-vitals": "^2.1.4"
+>>>>>>> 5743f8093c03b7c88dcfe1b854300cb9a0a71883
   },
   "scripts": {
     "start": "react-scripts start",
