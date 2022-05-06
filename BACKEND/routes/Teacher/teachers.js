@@ -171,7 +171,7 @@ router.route("/update/:id").put(async(req,res)=>{
                 }else if (password == teacherLogin.password){
                         return res.json({
                          success:true,
-                         datat:teacherLogin
+                         datateacher:teacherLogin
                         });
                         
                      }else{ 

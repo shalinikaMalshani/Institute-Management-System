@@ -1,7 +1,52 @@
 import React from "react";
+import axios from "axios";
 
 
 export default class HomeTeacher extends React.Component{
+
+    constructor(props){
+        super(props);
+      
+        this.state={//All the teachers stores in a array
+          username:"",
+          userId:"",
+          userProfile:"",
+          teachers:[],
+          tId:""
+        };
+      } 
+      
+    
+    componentDidMount(){
+    this.setState({
+    username:localStorage.getItem("username")
+    }) 
+    this.setState({
+        userId:localStorage.getItem("userId")
+        }) 
+        this.setState({
+            userProfile:localStorage.getItem("userProfile")
+            }) 
+
+    this.retrieveTeachers();
+
+    
+    
+
+    }
+    retrieveTeachers(){
+        axios.get("http://localhost:8091/AllTeachers")
+        .then(res=>{
+        if(res.data.success){
+        this.setState({
+          teachers:res.data.existingTeachers
+        })
+        console.log(this.state.teachers);
+        
+        }
+        })
+        }
+
     render(){
         return(
             <React.Fragment>
@@ -24,10 +69,15 @@ export default class HomeTeacher extends React.Component{
                         </div>
                         <div class="login_info">
                              <ul class="d-flex">
-                                <li class="nav-item"><a href="#" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
+                                
+                                <a href={`/teacherProfile/${this.state.userId}`}><img src={this.state.userProfile} alt="" style={{"width":"45px","borderRadius":" 50%","height":" 45px","objectFit":" cover","marginRight":"20px"}}></img></a><span style={{"color":"white","marginRight":"20px"}}>{this.state.username}</span>
+                                
+                                <button onClick={()=>localStorage.clear()} style={{"background":"black","padding":"5px","fontSize":"13px"}}>Logout</button>
+       
+       
+       
                             </ul>
-                            <a href="#" title="" class="apply_btn">Apply Now</a>
+                           
                         </div>
                     </div>
                 </div>
