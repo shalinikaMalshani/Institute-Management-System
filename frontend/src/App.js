@@ -37,31 +37,19 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
 import StudentPayment from "./components/StudentManagement/StudentPayment";
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 5743f8093c03b7c88dcfe1b854300cb9a0a71883
+import SubjectEnrollmentStudents from "./components/StudentManagement/SubjectEnrollmentStudents";
+import UpdateEnrolledSubject from "./components/StudentManagement/UpdateEnrolledSubject";
+import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubjectDetails";
+import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
+import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
 
 
 
 
-import StudentReportInput from "./components/StudentManagement/StudentReportInput";
-import StudentReport from "./components/StudentManagement/StudentReport";
-<<<<<<< HEAD
-=======
->>>>>>> 550b3e533ab7a12c7cedc2f385d09e9907c0dca4
->>>>>>> f370c74d8a50502665df02314834fb4ee865c62e
->>>>>>> 44d5a4a2ee403cca4ad60bb31816ffbf33be9dda
->>>>>>> d3c42e5a0135e43443309b25e31b54cdf49c0ad5
-=======
 
-
->>>>>>> 5743f8093c03b7c88dcfe1b854300cb9a0a71883
 
 
 
@@ -98,7 +86,11 @@ function App() {
 <Route path="/studentReportInput" exact component={ StudentReportInput}></Route>
 <Route path="/studentReport/:sDate/:eDate"exact component={StudentReport}></Route>
 <Route path="/studentPayment" exact component={StudentPayment}></Route>
-
+<Route path="/enrolledStudent" exact component={ SubjectEnrollmentStudents}></Route>
+<Route path="/updatePayment/:id" exact component={ UpdateEnrolledSubject}></Route>
+<Route path="/getPayment/:id" exact component={EnrolledSubjectDetails}></Route>
+<Route path="/onlineAllStudent"  exact component={OnlineAllStudent}></Route>
+<Route path="/gets/:id" exact component={OnlineStudentProfile}></Route>
 
 
 
@@ -169,9 +161,4 @@ function App() {
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
-
->>>>>>> 5743f8093c03b7c88dcfe1b854300cb9a0a71883

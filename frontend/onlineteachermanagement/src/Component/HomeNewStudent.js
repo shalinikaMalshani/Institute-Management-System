@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class HomeNew extends React.Component{
+export default class HomeNewStudent extends React.Component{
     render(){
         return(
             <React.Fragment>
@@ -24,8 +24,8 @@ export default class HomeNew extends React.Component{
                         </div>
                         <div class="login_info">
                              <ul class="d-flex">
-                                <li class="nav-item"><a href="/teacherSignUp" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="/teacherSignIn" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
+                                <li class="nav-item"><a href="/studentRegisterDetails" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
+                                <li class="nav-item"><a href="/studentLogin" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
                             </ul>
                             <a href="#" title="" class="apply_btn">Apply Now</a>
                         </div>

@@ -101,9 +101,21 @@ export default class StudentPayment extends Component{
     constructor(props) {
         super(props);
         this.state = {
-        teacher: "",
-        teacher3: "",
-        teacher4: "",
+        "teacher": "",
+        "teacher3": "",
+        "teacher4": "",
+        "stuName":"",
+        "email":"",
+        "stream":"",
+        "rdate":"",
+        "teacher2":"",
+        "amount":"",
+        "total":"",
+        "subject1":"",
+        "subject2":"",
+        "subject3":"",
+        "subject4":"",
+
         };
     
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -114,7 +126,10 @@ export default class StudentPayment extends Component{
 
 
     state={
-        subjects:[],
+        subject1:[],
+        subject2:[],
+        subject3:[],
+        subject4:[],
         teacher:[],
         fees:[],
         total:[]
@@ -122,10 +137,13 @@ export default class StudentPayment extends Component{
     } 
 
     addSubject(){
-        this.setState({subjects:[...this.state.subjects,""]})
+        this.setState({subject1:[...this.state.subject1,""]})
+        this.setState({subject2:[...this.state.subject2,""]})
+        this.setState({subject3:[...this.state.subject3,""]})
+        this.setState({subject4:[...this.state.subject4,""]})
         this.setState({teacher:[...this.state.teacher,""]})
         this.setState({fees:[...this.state.fees,""]})
-        this.setState({total:[...this.state.total,""]})
+        this.setState({total:[...this.state.total(),""]})
         
         // this.setState({formValues:[...this.formValues,{subjects:"", teacher:"", fees:""}]})
     }
@@ -134,13 +152,22 @@ export default class StudentPayment extends Component{
         // this.state.formValues[index]= e.target.value
         // this.setState({subjects:this.state. formValues=[{subjects:"", teacher:"", fees:""}]})
 
-        this.state.subjects[index]= e.target.value
-        this.setState({teacher:this.state.subjects})
+        this.state.subject1[index]= e.target.value
+        this.setState({teacher:this.state.subject1})
+        this.state.subject2[index]= e.target.value
+        this.setState({teacher:this.state.subject2})
+        this.state.subject3[index]= e.target.value
+        this.setState({teacher:this.state.subject3})
+        this.state.subject4[index]= e.target.value
+        this.setState({teacher:this.state.subject4})
 
         this.state.teacher[index]= e.target.value
         this.setState({teacher:this.state.teacher})
 
         this.state.fees[index]= e.target.value
+        this.setState({fees:this.state.fees})
+
+        this.state.total[index]= e.target.value
         this.setState({fees:this.state.fees})
 
     }
@@ -155,9 +182,13 @@ export default class StudentPayment extends Component{
         console.log(this.state.total,"$$$$");
 
         //update the state
-        this.setState({subjects:this.state.subjects})
+        this.setState({subject1:this.state.subject1})
+        this.setState({subject2:this.state.subject2})
+        this.setState({subject3:this.state.subject3})
+        this.setState({subject4:this.state.subject4})
         this.setState({teacher:this.state.teacher})
         this.setState({fees:this.state.fees})
+        this.setState({total:this.state.fees})
     }
 
 
@@ -170,25 +201,69 @@ export default class StudentPayment extends Component{
 //Submit the form
 handleSubmit = (e)=>{
     e.preventDefault();
-
-
-
-    const{stuName,email,stream,rdate} = this.state;
+    //  const{stuName,email,stream,rdate} = this.state;
+    const{stuName,subject1,subject2,subject3,subject4,teacher,
+      teacher2,teacher3,teacher4,total,amount,email,stream,rdate} = this.state;
 
     const data ={
         stuName:stuName,
         email:email,
         stream:stream,
-        rdate:rdate
+        rdate:rdate,
+        subject1:subject1,
+        subject2:subject2,
+        subject3:subject3,
+        subject4:subject4,
+        teacher:teacher,
+        teacher2:teacher2,
+        teacher3:teacher3,
+        teacher4:teacher4,
+        options:subject1,
+        options2:subject2,
+        // fees1,
+        // fees2,
+        // fees3,
+        // fees4,
+        // fees5,
+        // fees6,
+        fees:total,
+        amount:amount
     }
    
     console.log(data);
     console.log(this.state,"$$$$")
     console.log(this.state,"total")
-    alert("Subject registation & payment success");
+    // alert("Subject registation & payment success");
 
+    axios.post("http://localhost:8091/payment/addPayment",data).then((res) =>{
+      if(res.data.success){
+          alert("Payment Added Successfully")
+          this.props.history.push("/enrolledStudent");
+      this.setState(
+          this.state={
+            "stuName":"",
+            "email":"",
+            "stream":"",
+            "rdate":"",
+            "subject1":"",
+            "subject2":"",
+            "subject3":"",
+            "subject4":"",
+            "options2":"",
+            "teacher":"",
+            "teacher2":"",
+            "teacher3":"",
+            "teacher4":"",
+            "amount":"",
+            "fees":""
+          }
+      )
+      }else{
+          alert("Error ocoured in entered detail.Please enter detils again.")
+      }
+      
+  });
 }
-
 
 
 
@@ -241,12 +316,18 @@ handleSubmit = (e)=>{
             email:"",
             stream:"",
             rdate:"",
-            option:"",
+            // option:"",
+            // options2:"",
             teacher:"",
             teacher2:"",
             teacher3:"",
             teacher4:"",
-            amount:""
+            amount:"",
+            fees:"",
+            subject1:"",
+            subject2:"",
+            subject3:"",
+            subject4:""
             
         })
      }
@@ -281,6 +362,15 @@ handleSubmit = (e)=>{
         return true;
         };
 
+        handleInputChange1 = (e) =>{
+          const {name,value} = e.target;
+          
+          this.setState({
+              ...this.state,
+              [name]:value
+          })
+  
+      }
 
 
 
@@ -288,11 +378,25 @@ handleSubmit = (e)=>{
    render(){
         return(
             <div className="container" style={{padding:"40px",marginLeft:"300px",width:"76%"}}>
+              
+                <ul>
                   <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'40px', width:'110px', marginTop:"-10px"}}>
-                <a href="/" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
+                <a href="/studentDashboard" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
                 style={{marginTop:'5px'}}></i>&nbsp;&nbsp;&nbsp;&nbsp;Back</a>
-                </button>
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'40px', width:'210px', marginTop:"-10px"}}>
+                <a href="/enrolledStudent" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
+                style={{marginTop:'5px'}}></i>&nbsp;&nbsp;&nbsp;&nbsp;All Enrolled Subject </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {/* <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'40px', width:'210px', marginTop:"-10px"}}>
+                <a href="/allSubjects" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
+                style={{marginTop:'5px'}}></i>&nbsp;&nbsp;&nbsp;&nbsp;All Enrolled Subject </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </button> */}
+                </ul>
+                
                 <br></br><br></br>
                 <h4>Class Registation & Payment</h4>
                 <br></br>
@@ -301,13 +405,14 @@ handleSubmit = (e)=>{
                 <div className="col-lg-6">
                     <div className="form-group" style={{marginBottom:'15px',width:"70%"}}>&nbsp;
                     <i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;
-                        <label for="stuName" className="form-lable" style={{marginBottom:'5px'}}>Name</label>
+                        <label for="stuName"  id="stuName" className="form-lable" style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"
                                 className="form-control"
                                 name="stuName"
+                                id="stuName"
                                 placeholder="Enter Student Name"
                                 value={this.state.stuName}
-                                onChange={this.handleInputChange} require>
+                                onChange={this.handleInputChange1} require>
                             </input>
                             {/* {this.state.nameError ?(
                             <div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
@@ -326,7 +431,7 @@ handleSubmit = (e)=>{
                                 name="email"
                                 placeholder="Enter Email"
                                 value={this.state.email}
-                                onChange={this.handleInputChange} required>
+                                onChange={this.handleInputChange1} required>
                             </input>
                             {/* {this.state.emailError ?(
                             <div style={{color:"red",fontWeight:"bold"}} >{this.state.emailError}</div>
@@ -342,13 +447,13 @@ handleSubmit = (e)=>{
                     <label  for="stream" className="form-lable" style={{marginTop:"0px"}}>
                     <i class="fa-solid fa-list"></i>&nbsp;&nbsp;&nbsp;
                         A/L Stream<br></br>
-                        <select  name="stream" value={this.state.stream} onChange={this.handleInputChange} 
+                        <select  name="stream" value={this.state.stream} onChange={this.handleInputChange1} 
                         style={{width:"290px", height:"35px", border:"none", marginTop:"5px"}} required>
                             <option value="Select your A/L stream">&nbsp;&nbsp;&nbsp;--Select your A/L stream--</option>
-                            <option value="biology">&nbsp;  Biology</option>
-                            <option value="mathematics">&nbsp;  Mathematics</option>
-                            <option value="commerce">&nbsp;  Commerce</option>
-                            <option value="art">&nbsp; Art</option>
+                            <option value="Biology">&nbsp;  Biology</option>
+                            <option value="Mathematics">&nbsp;  Mathematics</option>
+                            <option value="Commerce">&nbsp;  Commerce</option>
+                            <option value="Art">&nbsp; Art</option>
                         </select>
                         </label>
                 </div>
@@ -363,7 +468,7 @@ handleSubmit = (e)=>{
                                 name="rdate"
                                 placeholder="Enter Register Date"
                                 value={this.state.rdate}
-                                onChange={this.handleInputChange} required>
+                                onChange={this.handleInputChange1} required>
                             </input>
                           
                         
@@ -378,14 +483,14 @@ handleSubmit = (e)=>{
                     <br></br>
                     <div className="col-lg-3">
 
-                    <label for="subjects" className="form-lable" style={{marginBottom:'5px'}}>
+                    <label for="subject1" className="form-lable" style={{marginBottom:'5px'}}>
                     <i class="fa-solid fa-list"></i>&nbsp;&nbsp;&nbsp;Subjects</label>
                     {/* {
                     this.state.subjects.map((subjects,index)=>{ */}
                         {/* return( */}
                             {/* <div  key={index}> */}
-                            <select  name="subject"  style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
-                                <option value={"Subject"}>&nbsp;Select the subject 1</option>
+                            <select  name="subject1" id="subject1"   onChange={this.handleInputChange1} style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
+                                <option value={"None"}>&nbsp;Select the subject 1</option>
                                 <option value={'Biology'}>&nbsp;  Biology</option>
                                 <option value={'Mathematics'}>&nbsp;  Mathematics</option>
                                 <option value={'Commerce'}>&nbsp;Accounting</option>
@@ -434,8 +539,8 @@ handleSubmit = (e)=>{
                     this.state.subjects.map((subjects,index)=>{ */}
                         {/* return( */}
                             {/* <div  key={index}> */}
-                            <select  name="subject"  style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
-                                <option value={"Subject"}>&nbsp;Select the subject 2</option>
+                            <select  name="subject2"  for="subject2" onChange={this.handleInputChange1} style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
+                                <option value={"None"}>&nbsp;Select the subject 2</option>
                                 <option value={'Art'}>&nbsp;Art</option>
                                 <option value={'Physics'}>&nbsp;Physics</option>
                                 <option value={'IT'}>&nbsp;  IT</option>
@@ -483,8 +588,8 @@ handleSubmit = (e)=>{
                     this.state.subjects.map((subjects,index)=>{ */}
                         {/* return( */}
                             {/* <div  key={index}> */}
-                            <select  name="subject"  style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
-                                <option value={"Subject"}>&nbsp;Select the subject 3</option>
+                            <select  name="subject3" for="subject3"  onChange={this.handleInputChange1} style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
+                                <option value={"None"}>&nbsp;Select the subject 3</option>
                                 <option value={'Biology'}>&nbsp;  Bhudism</option>
                                 <option value={'Mathematics'}>&nbsp;Chemistry</option>
                                 <option value={'Commerce'}>&nbsp; Static </option>
@@ -532,8 +637,8 @@ handleSubmit = (e)=>{
                     this.state.subjects.map((subjects,index)=>{ */}
                         {/* return( */}
                             {/* <div  key={index}> */}
-                            <select  name="subject"  style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
-                                <option value={"Subject"}>&nbsp;Select the subject 4</option>
+                            <select  name="subject4"  for="subject4" onChange={this.handleInputChange1} style={{width:"200px", height:"35px", border:"none", marginTop:"5px"}} required>
+                                <option value={"None"}>&nbsp;Select the subject 4</option>
                                 <option value={'Biology'}>&nbsp;  English</option>
                                 <option value={'Mathematics'}>&nbsp;  Dancing</option>
                                 <option value={'Commerce'}>&nbsp;  Bs</option>
@@ -578,6 +683,7 @@ handleSubmit = (e)=>{
                                 className="form-control"
                                 name="total"
                                 placeholder="Total Class Fees"
+                                onChange={this.handleInputChange}
                                 value={this.total()}
                                 readOnly>
                             </input>
@@ -597,7 +703,7 @@ handleSubmit = (e)=>{
                                 name="amount"
                                 placeholder="Enter Total Amount"
                                 value={this.state.amount}
-                                // onChange={this.handleInputChange} 
+                                onChange={this.handleInputChange1} 
                                 require>
                             </input>
                         
