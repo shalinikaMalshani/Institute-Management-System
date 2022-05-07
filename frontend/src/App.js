@@ -37,13 +37,21 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
-
-
-
-
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
+<<<<<<< HEAD
 import dashboard from "./dashboard";
+=======
+import StudentPayment from "./components/StudentManagement/StudentPayment";
+import SubjectEnrollmentStudents from "./components/StudentManagement/SubjectEnrollmentStudents";
+import UpdateEnrolledSubject from "./components/StudentManagement/UpdateEnrolledSubject";
+import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubjectDetails";
+import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
+import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
+
+
+
+>>>>>>> 62aaad62d10f2765fa915ca14c6dfc42007c29b7
 
 
 
@@ -77,13 +85,18 @@ function App() {
 <Route path="/studentDashboard" exact component={Home}></Route>
 <Route path="/save" exact component={StudentAdd}></Route>
 <Route path="/allStudents" exact component={AllStudent}></Route>
-<Route path="/update" exact component={StudentUpdate}></Route>
+<Route path="/updateStudents" exact component={StudentUpdate}></Route>
 <Route path="/update/:id" exact component={Edit}></Route>
 <Route path="/delete" exact component={StudentDelete}></Route>
 <Route path="/get/:id" exact component={ StudentDetails}></Route>
 <Route path="/studentReportInput" exact component={ StudentReportInput}></Route>
 <Route path="/studentReport/:sDate/:eDate"exact component={StudentReport}></Route>
-
+<Route path="/studentPayment" exact component={StudentPayment}></Route>
+<Route path="/enrolledStudent" exact component={ SubjectEnrollmentStudents}></Route>
+<Route path="/updatePayment/:id" exact component={ UpdateEnrolledSubject}></Route>
+<Route path="/getPayment/:id" exact component={EnrolledSubjectDetails}></Route>
+<Route path="/onlineAllStudent"  exact component={OnlineAllStudent}></Route>
+<Route path="/gets/:id" exact component={OnlineStudentProfile}></Route>
 
 
 
@@ -155,4 +168,3 @@ function App() {
 }
 
 export default App;
-

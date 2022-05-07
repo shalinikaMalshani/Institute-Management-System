@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export default class HomeNew extends React.Component{
+export default class HomeNewStudent extends React.Component{
     render(){
         return(
             <React.Fragment>
@@ -24,8 +24,8 @@ export default class HomeNew extends React.Component{
                         </div>
                         <div class="login_info">
                              <ul class="d-flex">
-                                <li class="nav-item"><a href="/teacherSignUp" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
-                                <li class="nav-item"><a href="/teacherSignIn" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
+                                <li class="nav-item"><a href="/studentRegisterDetails" class="nav-link sign-in js-modal-show"><i class="flaticon-user-male-black-shape-with-plus-sign"></i>Sign Up</a></li>
+                                <li class="nav-item"><a href="/studentLogin" class="nav-link join_now js-modal-show"><i class="flaticon-padlock"></i>Lon In</a></li>
                             </ul>
                             <a href="#" title="" class="apply_btn">Apply Now</a>
                         </div>
@@ -42,7 +42,12 @@ export default class HomeNew extends React.Component{
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="#" class="nav-link active">Home</a>
-                            
+                            <ul class="navbar-nav nav mx-auto">
+                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
+                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
+                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
+                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                         <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>

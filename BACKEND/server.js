@@ -40,6 +40,8 @@ const meetingRouter=require("./routes/Teacher/meeting");
 
 const studentRouter = require("./routes/Student/student.js");
 const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
+const paymentRouter = require("./routes/Student/payment.js");
+const onlinePaymentRouter = require("./routes/Student/onlinePayment.js");
 
 
 
@@ -85,7 +87,8 @@ app.use(meetingRouter);
 //student
 app.use("/student",studentRouter);
 app.use("/onlineStudent",onlineStudentRouter);
-
+app.use("/payment",paymentRouter);
+app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
