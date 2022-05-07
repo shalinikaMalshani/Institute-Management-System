@@ -1,4 +1,8 @@
 import { BrowserRouter ,Route } from "react-router-dom";
+import addLesson from "./Component/addLesson";
+import addMeeting from "./Component/addMeeting";
+import AllMeetings from "./Component/AllMeetings";
+import AllLessons from "./Component/AllLessons";
 import AllTeachers from './Component/AllTeachers';
 import HomeNew from "./Component/HomeNew";
 import HomeTeacher from './Component/HomeTeacher';
@@ -20,6 +24,10 @@ function App() {
  <Route path="/" exact component={HomeNew}/>
  
  <Route path="/teacherSignIn" exact component={TeacherLogin}/>
+ <Route path="/addLesson" exact component={addLesson}/>
+ <Route path="/addMeeting" exact component={addMeeting}/>
+ <Route path="/AllMeetings" exact component={AllMeetings}/>
+ <Route path="/AllLessons" exact component={AllLessons}/>
     </BrowserRouter>
     
   );

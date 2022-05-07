@@ -43,6 +43,7 @@ import StudentDetails from "./components/StudentManagement/StudentDetails";
 
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
+import dashboard from "./dashboard";
 
 
 
@@ -54,6 +55,8 @@ function App() {
   return (
     <BrowserRouter>
     <SideMenu/>
+    <Route path="/dashboard" exact component={dashboard}/>
+
 {/* teacher counter */}
 <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />
