@@ -39,19 +39,16 @@ import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
-<<<<<<< HEAD
-import dashboard from "./dashboard";
-=======
 import StudentPayment from "./components/StudentManagement/StudentPayment";
 import SubjectEnrollmentStudents from "./components/StudentManagement/SubjectEnrollmentStudents";
 import UpdateEnrolledSubject from "./components/StudentManagement/UpdateEnrolledSubject";
 import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubjectDetails";
 import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
 import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
+import dashboard from "./dashboard";
 
 
 
->>>>>>> 62aaad62d10f2765fa915ca14c6dfc42007c29b7
 
 
 

@@ -17,7 +17,9 @@ export default class dashboard extends React.Component{
       
       componentDidMount(){
         this.retrieveTeachers();//this method gather the all sub comp and comps
-        
+        this.retrieveStudents();
+        this.retrieveClasses();
+        this.retrieveAdmins();
       }
       
       

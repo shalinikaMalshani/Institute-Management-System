@@ -27,17 +27,14 @@ function App() {
    <Route path="/homeTeacher" exact component={HomeTeacher}/>
  <Route path="/teacherAlll" exact component={AllTeachers}/>
  <Route path="/teacherProfile/:id" exact component={TeacherProfile}/>
- 
- <Route path="/teacherSignUp" exact component={TeacherSignUp}/>
+<Route path="/teacherSignUp" exact component={TeacherSignUp}/>
  <Route path="/homeNewTeacher" exact component={HomeNewTeacher}/>
- 
- <Route path="/teacherSignIn" exact component={TeacherLogin}/>
-<<<<<<< HEAD
- <Route path="/addLesson" exact component={addLesson}/>
+<Route path="/teacherSignIn" exact component={TeacherLogin}/>
+<Route path="/addLesson" exact component={addLesson}/>
  <Route path="/addMeeting" exact component={addMeeting}/>
  <Route path="/AllMeetings" exact component={AllMeetings}/>
  <Route path="/AllLessons" exact component={AllLessons}/>
-=======
+
 
 
 
@@ -60,7 +57,7 @@ function App() {
  <Route path="/gets/:id" exact component={StudentProfile}/>
  <Route path="/enrolledSubject" exact component={EnrolledSubject}/>
 
->>>>>>> 62aaad62d10f2765fa915ca14c6dfc42007c29b7
+
     </BrowserRouter>
     
   );

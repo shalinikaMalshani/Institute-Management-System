@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import swal from 'sweetalert'
 
 
 export default class HomeTeacher extends React.Component{
@@ -47,6 +48,30 @@ export default class HomeTeacher extends React.Component{
         })
         }
 
+        logout=(e)=>{
+           let user=this.state.username;
+            swal({
+                title: "Are you sure?",
+                text: "Once logout ,you need to relogin",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  swal("Hello " +user + ",you are successfully logout",{
+                    icon: "success",
+                  });
+                } 
+              });
+              localStorage.clear();
+             document.getElementById("profileImage").style.visibility="hidden";
+             document.getElementById("username").style.visibility="hidden";
+             document.getElementById("logout").style.visibility="hidden";
+
+
+
+        }
     render(){
         return(
             <React.Fragment>
@@ -70,9 +95,9 @@ export default class HomeTeacher extends React.Component{
                         <div class="login_info">
                              <ul class="d-flex">
                                 
-                                <a href={`/teacherProfile/${this.state.userId}`}><img src={this.state.userProfile} alt="" style={{"width":"45px","borderRadius":" 50%","height":" 45px","objectFit":" cover","marginRight":"20px"}}></img></a><span style={{"color":"white","marginRight":"20px"}}>{this.state.username}</span>
+                                <a href={`/teacherProfile/${this.state.userId}`}><img id="profileImage" src={this.state.userProfile} alt="" style={{"width":"45px","borderRadius":" 50%","height":" 45px","objectFit":" cover","marginRight":"20px"}}></img></a><span id="username" style={{"color":"white","marginRight":"20px"}}>{this.state.username}</span>
                                 
-                                <button onClick={()=>localStorage.clear()} style={{"background":"black","padding":"5px","fontSize":"13px"}}>Logout</button>
+                                <button id="logout" onClick={this.logout} style={{"background":"black","padding":"5px","fontSize":"13px"}}>Logout</button>
        
        
        
