@@ -97,7 +97,7 @@ export default function AddInquiry(props){
     images();
 
     let namei = "";
-    namei = localStorage.getItem("name");
+    namei = localStorage.getItem("username");
     console.log(namei);
     //.....................................................................
     if (document.getElementById("exampleCheck1").checked == true) {

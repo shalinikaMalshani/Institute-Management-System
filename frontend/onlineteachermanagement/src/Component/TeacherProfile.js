@@ -6,6 +6,7 @@ export default class TeacherProfile extends React.Component{
     constructor(props){
         super(props);
         this.state={
+          userId:"",
         teacher:{}
     };
         }
@@ -24,7 +25,9 @@ export default class TeacherProfile extends React.Component{
         }
     });
     
-    
+    this.setState({
+      userId:localStorage.getItem("userId")
+      }) 
     
     }
 
@@ -32,7 +35,12 @@ export default class TeacherProfile extends React.Component{
 render(){
     const{name,photo,age,gender,email,qualification,mobile,subject,date}=this.state.teacher;
     return(
-       
+      <div>
+    <img src={require('./images/inner_banner_3.jpg')} alt="" style={{width:"100%"}}></img>
+    <div style={{position:" absolute",top: "20%",left:" 10%"}}>
+      <h1 style={{fontSize:"60px"}}>My Profile</h1>
+      <p style={{color:"white",marginLeft:"5px"}}>Home // My Profile</p>
+    </div>
            <div class="student-profile py-4">
   <div class="container">
     <div class="row">
@@ -100,7 +108,16 @@ render(){
     </div>
   </div>
 </div>
-       
+
+<a className="btn btn-warning"  role="button" href={`/teacherEdit/${this.state.userId}`} style={{position:" absolute",bottom: "-70px",left:"320px",width:"130px",borderRadius:"5px",borderWidth:"1", 
+    borderColor:"#ffff"}}><i className="fas fa-edit"></i>&nbsp;Edit Profile</a>
+    <a className="btn btn-warning"  role="button" href="/leaveTeacher" style={{position:" absolute",bottom: "-110px",left:"320px",width:"130px",borderRadius:"5px",borderWidth:"1", 
+    borderColor:"#ffff"}}><i className="fas fa-edit"></i>&nbsp;Add Leave</a>
+<div class="clearfix">
+      
+     
+    </div>
+     </div>  
     )
 }
 }

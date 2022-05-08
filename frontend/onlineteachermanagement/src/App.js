@@ -19,6 +19,12 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
+
+import EditLesson from "./Component/EditLesson";
+import EditMeeting from "./Component/EditMeeting";
+import EditTeacherProfile from "./Component/EditTeacherProfile";
+import LeaveTeacher from "./Component/LeaveTeacher";
+
 import mySubject from "./Component/mySubject";
 import OnlineStudentProfileUpdate from "./Component/OnlineStudentProfileUpdate";
 import updateMySubjects from "./Component/updateMySubjects";
@@ -29,9 +35,20 @@ import Module3 from "./Component/Module3";
 import FileSubmitPage from "./Component/FileSubmitPage";
 import ClassDetailsNw from "./Component/ClassDetailsNw";
 
+import TeacherAllInquiries from "./Component/TeacherAllInquiries";
+import TeacherViewAllNotices from "./Component/TeacherViewAllNotices";
+import TeacherMyNotices from "./Component/TeacherMyNotices";
+import TeacherAddNotices from "./Component/TeacherAddNotice";
+import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
+import AddAllInquiry from "./Component/AddAllInquiry";
+import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
+import AllInquiries from "./Component/StudentAllInquiry";
+
+
 function App() {
   return (
     <BrowserRouter>
+   
    <Route path="/homeTeacher" exact component={HomeTeacher}/>
  <Route path="/teacherAlll" exact component={AllTeachers}/>
  <Route path="/teacherProfile/:id" exact component={TeacherProfile}/>
@@ -42,10 +59,11 @@ function App() {
  <Route path="/addMeeting" exact component={addMeeting}/>
  <Route path="/AllMeetings" exact component={AllMeetings}/>
  <Route path="/AllLessons" exact component={AllLessons}/>
-
-
-
-
+ <Route path="/lessonEdit/:id" exact component={EditLesson}/>
+ <Route path="/meetingEdit/:id" exact component={EditMeeting}/>
+ <Route path="/teacherEdit/:id" exact component={EditTeacherProfile}/>
+ <Route path="/leaveTeacher" exact component={LeaveTeacher}/>
+ 
 
 
 
@@ -74,6 +92,17 @@ function App() {
  <Route path="/fileSubmit" exact component={FileSubmitPage}/>
  <Route path="/classDetailsNw" exact component={ClassDetailsNw}/>
 
+
+
+
+<Route path="/AllInquiries" exact component={TeacherAllInquiries}/>
+<Route path="/AllNotices" exact component={TeacherViewAllNotices}/>
+<Route path="/MyNotices" exact component={TeacherMyNotices}/>
+<Route path="/AddNotices" exact component={TeacherAddNotices}/>
+<Route path="/updateNotices/:id" exact component={TeacherUpdareNotices}/>
+<Route path="/AddInquiry" exact component={AddAllInquiry}/>
+<Route path="/UpdateInquiry/:id" exact component={StudentUpdateInqiury}/>
+<Route path="/StudentAllInquiries" exact component={AllInquiries}/>
 
     </BrowserRouter>
     

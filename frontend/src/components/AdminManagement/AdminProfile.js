@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
+import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
 //import Swal from 'sweetalert2';
+
 
 export default function AdminProfile(props){
 
@@ -37,7 +39,10 @@ export default function AdminProfile(props){
     };
 
     return(
-        <div style={{marginLeft:"325px",width:"40%"}} className = "myDiv">
+        <div>
+            <SideMenu/>
+        <div style={{marginLeft:"325px",width:"76%"}} className = "myDiv">
+            <div style={{marginLeft:"160px", marginTop:"100px"}}>
             <h1>hello</h1>
                      <h4>User Name :{admin.username}</h4>
                      <h4>First Name : {admin.firstName}</h4>
@@ -46,13 +51,14 @@ export default function AdminProfile(props){
                       
 
                       <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
+                  <div>
                    
-                    <img
+                    <img 
                        src = {'/upload/'+admin.logo}
                       alt="Admin"
                       class="rounded-circle p-1 bg-black"
                       width="175"
+                     
                     />
                     <br></br>
                   </div>
@@ -65,9 +71,9 @@ export default function AdminProfile(props){
 							</div>   
                       
                       
-                       
+                            </div>
                     </div>
-
+                    </div>
                     
     )
 }

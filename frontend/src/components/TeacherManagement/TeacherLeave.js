@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import SideMenu from "../../SideMenu.js";
 
 
 
@@ -107,6 +108,7 @@ export default class TeacherLeave extends Component{
       const { status } = this.state;
 
         return(
+          <div><SideMenu/>
           <div style={{marginLeft:"325px",width:"76%"}}><br></br>
               <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'45px', width:'80px'}}>
@@ -222,6 +224,7 @@ onChange={this.handlInputChange}
   <button type="submit" className="btn btn-success" onClick={this.onSubmit}  >Submit</button>
 
 </form>
+            </div>
             </div>
         )
     }

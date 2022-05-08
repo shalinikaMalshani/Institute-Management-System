@@ -126,15 +126,17 @@ export default class HomeTeacher extends React.Component{
                                 <li class="nav-item"><a href="/addLesson" class="nav-link">Physics</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Notices</a>
+                        <li class="nav-item"><a href="/AllNotices" class="nav-link">Notices</a>
                             
                         </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
+                        <li class="nav-item"><a href="/AllInquiries" class="nav-link">Inquires</a>
                             
                             </li>
                             <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
                             
                             </li>
+
+                            
                       
                     </ul>
                 </div>

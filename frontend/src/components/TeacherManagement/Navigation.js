@@ -1,10 +1,14 @@
 import React, {Component} from "react";
+import SideMenu from "../../SideMenu";
 
 
 export default class Navigation extends Component{
 
     render(){
         return(
+            <div>
+                <SideMenu/>
+            
             <div className="container" style={{padding:'50px',marginLeft:"300px",width:"76%" }}>
             
 
@@ -82,7 +86,7 @@ export default class Navigation extends Component{
 
 
 
-
+                          </div>
 
 
  
