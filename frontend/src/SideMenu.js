@@ -58,8 +58,8 @@ export default class SideMenu extends React.Component{
 <li><i className="fa-solid fa-person-chalkboard"></i><a href="/navTeacher">Teacher Management</a></li>
 <li><i className="fa-solid fa-people-group"></i><a href="/studentDashboard">Student Management</a></li>
 <li><i className="fa-solid fa-building-columns"></i><a href="#">Class Management</a></li>
-<li><i className="fa-solid fa-circle-question"></i><a href="#">Inquire Management</a></li>
-<li><i className="fa-solid fa-note-sticky"></i><a href="#">Notice Management</a></li>
+<li><i className="fa-solid fa-circle-question"></i><a href="/Student/AllInquiries">Inquire Management</a></li>
+<li><i className="fa-solid fa-note-sticky"></i><a href="/Admin/AllNotices">Notice Management</a></li>
 </div>
 
 </section>
@@ -74,16 +74,22 @@ export default class SideMenu extends React.Component{
     </div>
     <div className="profile">
         <i className="far fa-bell"></i>
+<<<<<<< HEAD
 
 
 
-      <a href={`/teacher/${this.state.userId}`}><img src={require('./images/ppnn.jpg')} alt=""></img></a><span>{this.state.username}</span>
+      <a href={`/teacher/${this.state.userId}`}><img src={require('./images/exam.jpg')} alt=""></img></a><span>{this.state.username}</span>
        
        
        
+=======
+        <a href={`/teacher/${this.state.userId}`}><img src={require('./images/ppnn.jpg')} alt=""></img></a><span>{this.state.username}</span>
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
         <button onClick={()=>localStorage.clear()}>Logout</button>
     </div>
 </div>
+
+
 </section>
 </div>
 

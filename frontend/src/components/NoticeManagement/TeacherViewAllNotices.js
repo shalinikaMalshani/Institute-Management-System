@@ -92,6 +92,7 @@ console.log(notSearch);
       <div className="card">
       <h5 className="card-header">{index + 1}. {notices.notice_id}</h5>
       <div className="card-body" style={{ height :"350px"}}>
+      <h5 className="card-title">{notices.name}</h5>
         <h5 className="card-title">{notices.header}</h5>
         <p className="card-text">{notices.description}</p>
         <img

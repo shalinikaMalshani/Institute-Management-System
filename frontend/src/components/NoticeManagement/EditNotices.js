@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 //import { useParams } from "react-router-dom";
 
-//import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 export default function EditNotices(props) {
   
@@ -16,6 +16,30 @@ export default function EditNotices(props) {
    let objectID = "";
     let image2 = "";
     let image3 = "";
+    let flag1 = 0;
+
+
+    function validatereg() {
+
+     // const checkbox = document.getElementById("exampleCheck1");
+    
+      if(header.length === 0){
+        flag1 = 0;
+        Swal.fire("Header is required!");
+      }
+     
+      else if(description.length === 0){
+        flag1 = 0;
+        Swal.fire("Body is required!");
+      }
+      
+    else {
+      flag1 = 1;
+    }
+  
+    }
+
+
   
     useEffect(() => {
       objectID = props.match.params.id;
@@ -55,11 +79,13 @@ export default function EditNotices(props) {
     }
   
     function updateNotice() {
+      validatereg();
         console.log("hello");
         noticeI();
       Imagecheck();
   
       const updateNotice = {
+        name: notices.name,
         notice_id: notices.notice_id,
         header,
        description,
@@ -69,6 +95,7 @@ export default function EditNotices(props) {
   
       console.log(updateNotice);
       objectID = props.match.params.id;
+      if (flag1 == 1) {
       axios
         .put("http://localhost:8091/notice/update/" + objectID, updateNotice)
         .then(() => {
@@ -85,7 +112,7 @@ export default function EditNotices(props) {
           alert(err);
         });
     }
-  
+    }
    return(
     
     <div style={{marginLeft:"325px",width:"76%"}}>

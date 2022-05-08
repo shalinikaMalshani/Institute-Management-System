@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
 
 const initialState={
@@ -85,7 +86,7 @@ return true;
         
     
         axios.post("http://localhost:8091/teacherLogin",data).then((res)=>{
-          alert("Teacher login successfully!");
+           
           this.setState({
             teacher:res.data.datateacher
               });
@@ -94,10 +95,26 @@ return true;
           localStorage.setItem("userId",res.data.datateacher._id);
           localStorage.setItem("userProfile",res.data.datateacher.photo);
           this.setState(initialState);
-            this.props.history.push("/homeTeacher");
+          swal({
+            title: "You are successfully login",
+            icon: "success",
+            button: "ok",
+        }).then(function() {
+            window.location = "/homeTeacher";
+        });
+    
+           
         
         }).catch(error=>{
-            alert("Error occoured.Please check and resubmit the details.");
+            swal({
+                title: "Invalid Login",
+                text: "Please re-enter your details.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              }).then(function() {
+                window.location = "/teacherSignIn";
+            });
         })
     
     }

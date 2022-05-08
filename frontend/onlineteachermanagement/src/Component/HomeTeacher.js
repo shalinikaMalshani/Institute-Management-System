@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import swal from 'sweetalert'
 
 
 export default class HomeTeacher extends React.Component{
@@ -47,6 +48,30 @@ export default class HomeTeacher extends React.Component{
         })
         }
 
+        logout=(e)=>{
+           let user=this.state.username;
+            swal({
+                title: "Are you sure?",
+                text: "Once logout ,you need to relogin",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  swal("Hello " +user + ",you are successfully logout",{
+                    icon: "success",
+                  });
+                } 
+              });
+              localStorage.clear();
+             document.getElementById("profileImage").style.visibility="hidden";
+             document.getElementById("username").style.visibility="hidden";
+             document.getElementById("logout").style.visibility="hidden";
+
+
+
+        }
     render(){
         return(
             <React.Fragment>
@@ -70,9 +95,9 @@ export default class HomeTeacher extends React.Component{
                         <div class="login_info">
                              <ul class="d-flex">
                                 
-                                <a href={`/teacherProfile/${this.state.userId}`}><img src={this.state.userProfile} alt="" style={{"width":"45px","borderRadius":" 50%","height":" 45px","objectFit":" cover","marginRight":"20px"}}></img></a><span style={{"color":"white","marginRight":"20px"}}>{this.state.username}</span>
+                                <a href={`/teacherProfile/${this.state.userId}`}><img id="profileImage" src={this.state.userProfile} alt="" style={{"width":"45px","borderRadius":" 50%","height":" 45px","objectFit":" cover","marginRight":"20px"}}></img></a><span id="username" style={{"color":"white","marginRight":"20px"}}>{this.state.username}</span>
                                 
-                                <button onClick={()=>localStorage.clear()} style={{"background":"black","padding":"5px","fontSize":"13px"}}>Logout</button>
+                                <button id="logout" onClick={this.logout} style={{"background":"black","padding":"5px","fontSize":"13px"}}>Logout</button>
        
        
        
@@ -92,57 +117,25 @@ export default class HomeTeacher extends React.Component{
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="#" class="nav-link active">Home</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
-                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
-                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
-                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
-                            </ul>
+                          
                         </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                  
                         <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Chemistry</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Physics</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                            </ul> 
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Notices</a>
+                            
                         </li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pages</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                        <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                                    </ul>    
-                                </li>                                 
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                                        <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
-                                    </ul>    
-                                </li>                                
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                        <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                        <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                        <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                                    </ul>    
-                                </li> 
-                                <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="teacher-profile.html" class="nav-link">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
-                                <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
-                            </ul>                            
-                        </li>     
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
+                            
+                            </li>
+                            <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
+                            
+                            </li>
+                      
                     </ul>
                 </div>
                 <div class="mr-auto search_area ">

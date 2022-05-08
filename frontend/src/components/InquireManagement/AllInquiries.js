@@ -65,7 +65,7 @@ console.log(inqSearch);
       
      //setErrorMsg("");
       axios
-        .get("http://localhost:8070/inquiry/getinquries")
+        .get("http://localhost:8091/inquiry/getinquries")
         .then((res) => {
         console.log(res.data);
           filterContent(res.data, inqSearch);

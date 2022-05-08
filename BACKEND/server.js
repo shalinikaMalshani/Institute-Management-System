@@ -52,17 +52,6 @@ const onlinePaymentRouter = require("./routes/Student/onlinePayment.js");
 
 
 
-//notice
-
-
-
-//inquire
-
-
-
-//admin
-
-
 
 
 
@@ -99,20 +88,21 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
-//notice
 
 
 
-//inquire
 
 
 
-//admin
+<<<<<<< HEAD
+
 
 
 
 // app.use("/student",studentRouter);
 
+=======
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 
 
 
@@ -132,6 +122,3 @@ app.use("/notice", NoticeRouter);
 app.listen(PORT,() => {//function(){}
     console.log(`Server is up and running on port number :${PORT}`);
     });
-
-
-

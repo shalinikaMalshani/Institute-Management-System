@@ -1,4 +1,8 @@
 import { BrowserRouter ,Route } from "react-router-dom";
+import addLesson from "./Component/addLesson";
+import addMeeting from "./Component/addMeeting";
+import AllMeetings from "./Component/AllMeetings";
+import AllLessons from "./Component/AllLessons";
 import AllTeachers from './Component/AllTeachers';
 import HomeNewTeacher from "./Component/HomeNewTeacher";
 import HomeTeacher from './Component/HomeTeacher';
@@ -30,11 +34,14 @@ function App() {
    <Route path="/homeTeacher" exact component={HomeTeacher}/>
  <Route path="/teacherAlll" exact component={AllTeachers}/>
  <Route path="/teacherProfile/:id" exact component={TeacherProfile}/>
- 
- <Route path="/teacherSignUp" exact component={TeacherSignUp}/>
+<Route path="/teacherSignUp" exact component={TeacherSignUp}/>
  <Route path="/homeNewTeacher" exact component={HomeNewTeacher}/>
- 
- <Route path="/teacherSignIn" exact component={TeacherLogin}/>
+<Route path="/teacherSignIn" exact component={TeacherLogin}/>
+<Route path="/addLesson" exact component={addLesson}/>
+ <Route path="/addMeeting" exact component={addMeeting}/>
+ <Route path="/AllMeetings" exact component={AllMeetings}/>
+ <Route path="/AllLessons" exact component={AllLessons}/>
+
 
 
 
@@ -64,6 +71,7 @@ function App() {
  <Route path="/module3" exact component={Module3}/>
  <Route path="/module4" exact component={Module4}/>
  <Route path="/fileSubmit" exact component={FileSubmitPage}/>
+
 
     </BrowserRouter>
     

@@ -4,36 +4,27 @@ import "./customSignUP.css";
 
 
 const initialState={
-    name:"",
-    photo:"",
-    age:"",
-    gender:"",
-    email:"",
-    qualification:"",
-    mobile:"",
-    subject:"Chemistry",
+    topic:"",
     date:"",
-    password:"",
-    confirmPassword:"",
-    emailError:"",
-    nameError:"",
-    phoneError:"",
-    genderError:"",
-    quaError:"",
-    ageError:"",
-    subError:"",
+    time:"",
+    link:"",
+    mId:"",
+    passCode:"",
+    topicError:"",
     dateError:"",
-    passwordError:"",
-    typeError:""
-
+    timeError:"",
+    linkError:"",
+    mIdError:"",
+    passCodeError:""
+        
 }
 
-export default class TeacherSignUp extends React.Component{
+export default class addMeeting extends React.Component{
 
     constructor(props){
         super(props);
 
-        this.state={alertMsg:"",initialState,rType:"Online"};
+        this.state={alertMsg:"",initialState};
     }
 
     handlInputChange=(e)=>{
@@ -46,99 +37,51 @@ export default class TeacherSignUp extends React.Component{
 
     }
 
-onChangeSelect = e=>{
-    this.setState({subject:e.target.value});
-}
 
-// changeType = e=>{
-//     this.setState({rType:e.target.value});
-// }
 
-onChangeFile =e=>{
-    let file=e.target.files;
-    console.log("file",file);
-    let reader=new FileReader();
-    reader.readAsDataURL(file[0]);
-
-    reader.onload =e=>{
-        console.log("image url",e.target.result);
-        this.setState({photo:e.target.result});
-    }
-}
 
 validate =()=>{
 
-let nameError="";
-let genderError="";
-let quaError="";
-let subError="";
-let ageError="";
-let emailError="";
-let phoneError="";
-let dateError="";
-let passwordError="";
+    let topicError="";
+    let dateError="";
+    let timeError="";
+    let linkError="";
+    let mIdError="";
+    let passCodeError="";
 
-
-
-if(!this.state.name){
-    nameError="Name Cannot Be Empty"
+ if(!this.state.topic){
+    topicError="Topic Cannot Be Empty"
 }
 
-if(!this.state.gender){
-    genderError="Gender Cannot Be Empty"
-}
 
-if(!this.state.qualification){
-    quaError="Qualification Cannot Be Empty"
-}
-
-if(!this.state.subject){
-    subError="Subject Cannot Be Empty"
-}
-
-let agePattern=/^[A-Za-z]+$/;
-
-if(!this.state.age){
-    ageError="Age Cannot Be Empty"
-}else if(this.state.age.match(agePattern)){
-    ageError="Cannot enter any characters"
-}else if(this.state.age<0){
-    ageError="Invalid age";
-}
 
 if(!this.state.date){
-    dateError="Date Cannot Be Empty"
+    dateError="Date  Cannot Be Empty"
+}
+
+if(!this.state.time){
+    timeError="Time Cannot Be Empty"
+}
+
+if(!this.state.link){
+    linkError="Link Cannot Be Empty"
+}
+
+if(!this.state.mId){
+    mIdError="Meeting Id  Cannot Be Empty"
 }
 
 
 
-if(!this.state.email){
-    emailError="Email Cannot Be Empty"
-}else if(!this.state.email.includes("@")){
-    emailError="Invalid Email";
+
+
+if(!this.state.passCode){
+    passCodeError="Passcode Cannot Be Empty"
 }
 
-let pattern=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-if(!this.state.mobile){
-    phoneError="Contact Cannot Be Empty"
-}else if(this.state.mobile.length>10 || this.state.mobile.length<10 || !this.state.mobile.match(pattern)){
-phoneError="Invalid Phone Number";
-}
 
-if(!this.state.password){
-    passwordError="Password Cannot Be Empty"
-}
-
-if(!this.state.confirmPassword){
-    passwordError="Password Cannot Be Empty"
-}
-
-// if(!this.state.type){
-//     typeError="Type Cannot Be Empty"
-// }
-
-if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError || passwordError ){
-this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError,passwordError});
+if(topicError || dateError || timeError || linkError|| mIdError || passCodeError ){
+this.setState({topicError,dateError,timeError,linkError,mIdError,passCodeError});
 return false;
 }
 
@@ -150,54 +93,43 @@ return true;
         e.preventDefault();
         const isValid=this.validate();
         if(isValid){
-        const {name,photo,age,gender,email,qualification,mobile,subject,date,rType,password,confirmPassword}=this.state;
+        const {topic,date,time,link,mId,passCode}=this.state;
         const data={
-            name:name,
-            photo:photo,
-            age:age,
-            gender:gender,
-            email:email,
-            qualification:qualification,
-            mobile:mobile,
-            subject:subject,
-            date:date,
-            rType:rType,
-            password:password,
-            confirmPassword:confirmPassword
+            topic:topic,
+        date:date,
+        time:time,
+        link:link,
+        mId:mId,
+        passCode:passCode
+        
            
         }
     
         
     
-        axios.post("http://localhost:8091/add",data).then((res)=>{
-          alert("Teacher added successfully!");
+        axios.post("http://localhost:8091/addMeeting",data).then((res)=>{
+          alert("Teacher Meeting added successfully!");
           console.log("data",data);
           this.setState(initialState);
-            this.props.history.push("/teacherSignIn");
+            this.props.history.push("/");
         }).catch(error=>{
             alert("Error occoured.Please check and resubmit the details.");
+            console.log(error.message);
         })
     
     }
 }
 
 reset() {
-    this.setState({name:"",
-    photo:"",
-    age:"",
-    gender:"",
-    email:"",
-    qualification:"",
-    mobile:"",
-    subject:"",
-    date:"",
-   rType:"",
-password:"",
-confirmPassword:""})
+    this.setState({subject:"",
+    lessonNo:"",
+    lessonNote:"",
+    tute:"",
+    stuTuteAnswers:"",
+    tuteAnswers:"",
+    referances:"",
+})
 }
-    
-    
-    
     
 
 
@@ -240,57 +172,26 @@ render(){
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
-                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
-                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
-                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
-                            </ul>
+                            
                         </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                       
                         <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
+                                <li class="nav-item"><a href="course.html" class="nav-link">Chemistry</a></li>
+                                <li class="nav-item"><a href="course-details.html" class="nav-link">Physics</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                            </ul> 
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link active">Pages</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                        <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                                    </ul>    
-                                </li>                                 
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                                        <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
-                                    </ul>    
-                                </li>                                
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                        <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                        <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                        <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                                    </ul>    
-                                </li> 
-                                <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="teacher-profile.html" class="nav-link active">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
-                                <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
-                            </ul>                            
-                        </li>     
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Notices</a>
+                            
+                            </li>
+                            <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
+                                
+                                </li>
+                                <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
+                            
+                            </li>  
+                        
+                        
                     </ul>
                 </div>
                 <div class="mr-auto search_area ">
@@ -314,10 +215,10 @@ render(){
             <div class="row">        
                  <div class="col-sm-12 col-md-8 col-lg-8">
                     <div class="intro_text">
-                        <h1>Register</h1>
+                        <h1>Schedule Meetings</h1>
                         <div class="pages_links">
                             <a href="#" title="">Home</a>
-                            <a href="#" title="" class="active">Register</a>
+                            <a href="#" title="" class="active">Schedule Meetings</a>
                         </div>
                     </div>
                 </div>              
@@ -330,168 +231,78 @@ render(){
 <div>
 
 <form >
-  <div class="container">
-  <input type="text" className="form-control" id="rType" style={{"display":"none"}}
-    name="rType" 
-    defaultValue={this.state.rType}
-    value={this.state.rType} 
-    onChange={this.handlInputChange}/>
-    
+<div class="container">
 
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account and register to our Amzo Learning</p>
-    <hr/>
-
-    <label for="name" ><b>Name</b></label>
-    <input type="text"  id="name" 
-    name="name" 
-    placeholder="First Name Last Name" 
-    value={this.state.name} 
+    <label for="name" >Covered Topic</label>
+    <input type="text"  id="topic" 
+    name="topic" 
+    placeholder="Covered Topic" 
+    value={this.state.topic} 
     onChange={this.handlInputChange}/>
-    {this.state.nameError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
+    {this.state.topicError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.topicError}</div>
 ):null}
-
-<label for="age" ><b>Age</b></label>
-    <input type="text" id="age"
-    name="age" 
-     placeholder="Enter age"
-    
-     min="0"
-     value={this.state.age} 
-    onChange={this.handlInputChange}
+   
+    <label for="age" >Date</label>
+    <input type="date"  id="date"
+    name="date" 
+    value={this.state.date}
+  onChange={this.handlInputChange}
     />
-    {this.state.ageError?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.ageError}</div>
-):null}
-
-<label for="gender" className="form-label"><b>Gender</b></label>
-<div>
-    <input type="radio" 
-    name="gender"
-         id="male"  
-          value="Male" 
-          onChange={this.handlInputChange}
-          checked={this.state.gender === "Male"} 
-        />Male
-      &nbsp;
-        <input type="radio" 
-         id="female" 
-         name="gender"
-         onChange={this.handlInputChange}
-           value="Female"
-           checked={this.state.gender === "Female"}  /> Female
-     </div>
-     {this.state.genderError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.genderError}</div>
-):null}
-
-<label for="email" ><b>Email</b></label>
-<input type="text"  id="email"
-name="email" 
- placeholder="xxxx@gmail.com" 
- value={this.state.email} 
-onChange={this.handlInputChange}
-/>
-{this.state.emailError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.emailError}</div>
-):null}
-
-<label for="qualification" ><b>Qulifications(Comma Seperated)</b></label>
-<input type="text"  id="qualification" 
-name="qualification" 
-placeholder="MSc,phD" 
-value={this.state.qualification} 
-onChange={this.handlInputChange}/>
-{this.state.quaError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.quaError}</div>
-):null}
-
-<label for="mobile"><b>Contact</b></label>
-<input type="text"  id="mobile"
-name="mobile" 
- placeholder="xxx xxx xx xx" 
- value={this.state.mobile} 
-onChange={this.handlInputChange}
-/>
-{this.state.phoneError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.phoneError}</div>
-):null}
-
-
-<label for="subject" ><b>Subject</b></label>
-<select onChange={this.onChangeSelect}  name="subject" id="subject">
-        <option selected disabled >--Select Subject--</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Physics">Physics</option>
-
-        {this.state.subError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.subError}</div>
-):null}
-
-</select>
-        
-
-<label for="date" ><b>Join Date</b></label>
-<input type="date"  id="date"
-name="date" 
- placeholder="Enter join date" 
- value={this.state.date} 
-onChange={this.handlInputChange}
-/>
-{this.state.dateError ?(
+     {this.state.dateError ?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.dateError}</div>
 ):null}
+   
+
+
+<label for="qualification" >Time Duration</label>
+<input type="time"  id="time" 
+name="time" 
+value={this.state.time}
+onChange={this.handlInputChange}
+/>
+{this.state.timeError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.timeError}</div>
+):null}
+
+<label for="mobile" >Meeting Link</label>
+<input type="text"  id="link"
+name="link" 
+value={this.state.link}
+onChange={this.handlInputChange}
+/>
+{this.state.linkError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.linkError}</div>
+):null}
 
 
 
-{/* <input type="text" className="form-control" id="type" style={{display:'none'}}
-name="type" 
+
+
+<label for="subject" >Meeting Id</label>
+<input type="text"  id="mId"
+name="mId" 
+onChange={this.handlInputChange}
+value={this.state.mId}
  
- value={this.state.type} 
-onChange={this.handlInputChange}
-/> */}
-
-
-  <label for="formFile">Photo</label>
-  <input  type="file" id="photo" name="photo" onChange={this.onChangeFile}/>
-
-
-
-<label for="password" ><b>Password</b></label>
-<input type="password" id="password"
-name="password" 
- placeholder="Enter password" 
- value={this.state.password} 
+/>
+     
+<label for="date" >Meeting Passcode</label>
+<input type="text"  id="passCode"
+name="passCode" 
+value={this.state.passCode}
 onChange={this.handlInputChange}
 />
-      
+{this.state.passCodeError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.passCodeError}</div>
+):null}
 
-
-<label for="confirmPassword"><b>Confirm Password</b></label>
-<input type="password" id="confirmPassword"
-name="confirmPassword" 
- placeholder="confirmPassword" 
- value={this.state.confirmPassword} 
-onChange={this.handlInputChange}
-/>
-
-
-
-    
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style={{"marginBottom":"15px"}}/> Remember me
-    </label>
-    
-    <p>By creating an account you agree to our <a href="#" style={{"color":"dodgerblue"}}>Terms & Privacy</a>.</p>
-
-    <div class="clearfix">
+<div class="clearfix">
       
       <button className="cancelbtn" onChange={this.reset} >Reset</button>
   <button type="submit" className="signupbtn" onClick={this.onSubmit} >Submit</button>
-
+</div>
     </div>
-  </div>
 </form>
     </div>
 

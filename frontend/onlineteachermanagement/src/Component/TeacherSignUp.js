@@ -3,6 +3,8 @@ import axios from "axios";
 import "./customSignUP.css";
 
 
+
+
 const initialState={
     name:"",
     photo:"",
@@ -24,11 +26,14 @@ const initialState={
     subError:"",
     dateError:"",
     passwordError:"",
+    cpasswordError:"",
     typeError:""
 
 }
 
 export default class TeacherSignUp extends React.Component{
+
+    
 
     constructor(props){
         super(props);
@@ -66,6 +71,95 @@ onChangeFile =e=>{
     }
 }
 
+focus=e=>{
+    document.getElementById("message").style.display = "block";
+}
+
+hideMessage=e=>{
+    document.getElementById("message").style.display="none";
+}
+
+passwordValidation=e=>{
+
+    var myInput = document.getElementById("password");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+   
+
+    // Validate lowercase letters
+
+    var lowerCaseLetters = /[a-z]/g;
+    if(myInput.value.match(lowerCaseLetters)) {  
+        letter.classList.remove("invalid");
+        letter.classList.add("valid");
+    } else {
+        letter.classList.remove("valid");
+        letter.classList.add("invalid");
+    }
+    
+    // Validate capital letters
+    var upperCaseLetters = /[A-Z]/g;
+    if(myInput.value.match(upperCaseLetters)) {  
+      capital.classList.remove("invalid");
+      capital.classList.add("valid");
+    } else {
+      capital.classList.remove("valid");
+      capital.classList.add("invalid");
+    }
+  
+    // Validate numbers
+    var numbers = /[0-9]/g;
+    if(myInput.value.match(numbers)) {  
+      number.classList.remove("invalid");
+      number.classList.add("valid");
+    } else {
+      number.classList.remove("valid");
+      number.classList.add("invalid");
+    }
+    
+    // Validate length
+    if(myInput.value.length >= 8) {
+      length.classList.remove("invalid");
+      length.classList.add("valid");
+    } else {
+      length.classList.remove("valid");
+      length.classList.add("invalid");
+    }
+
+
+}
+
+showBtn=()=>{
+
+    var show=document.getElementById("show");
+    
+    if(this.state.confirmPassword != ""){
+       show.style.display="block";
+       
+    }else{
+        show.style.display="none"
+    }
+}
+showPwd=()=>{
+
+    var password=document.getElementById("password");
+    var confirmPassword=document.getElementById("confirmPassword");
+    var show=document.getElementById("show");
+    if(password.type=="password" && confirmPassword.type=="password"){
+        password.type="text";
+        confirmPassword.type="text"
+        show.innerHTML="HIDE";
+
+    }else{
+     password.type="password";
+     confirmPassword.type="password";
+     show.innerHTML="SHOW";
+
+    }
+}
+
 validate =()=>{
 
 let nameError="";
@@ -77,7 +171,7 @@ let emailError="";
 let phoneError="";
 let dateError="";
 let passwordError="";
-
+let cpasswordError="";
 
 
 if(!this.state.name){
@@ -127,18 +221,22 @@ phoneError="Invalid Phone Number";
 
 if(!this.state.password){
     passwordError="Password Cannot Be Empty"
+}else if(this.state.password.length<=6){
+    passwordError="Password Cannot Be Empty"
 }
 
 if(!this.state.confirmPassword){
-    passwordError="Password Cannot Be Empty"
+    cpasswordError="Password Cannot Be Empty"
+}else if(this.state.confirmPassword!=this.state.password){
+    cpasswordError="Password Not Matched"
 }
 
 // if(!this.state.type){
 //     typeError="Type Cannot Be Empty"
 // }
 
-if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError || passwordError ){
-this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError,passwordError});
+if(emailError || nameError || genderError || phoneError || subError || dateError|| ageError || quaError || passwordError || cpasswordError ){
+this.setState({emailError,nameError,phoneError,subError,ageError,dateError,quaError,passwordError,cpasswordError});
 return false;
 }
 
@@ -196,8 +294,7 @@ password:"",
 confirmPassword:""})
 }
     
-    
-    
+
     
 
 
@@ -445,12 +542,7 @@ onChange={this.handlInputChange}
 
 
 
-{/* <input type="text" className="form-control" id="type" style={{display:'none'}}
-name="type" 
- 
- value={this.state.type} 
-onChange={this.handlInputChange}
-/> */}
+
 
 
   <label for="formFile">Photo</label>
@@ -464,17 +556,38 @@ name="password"
  placeholder="Enter password" 
  value={this.state.password} 
 onChange={this.handlInputChange}
+onFocus={this.focus}
+onBlur={this.hideMessage}
+onKeyUp={this.passwordValidation}
 />
-      
+{this.state.passwordError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.passwordError}</div>
+):null}
+
+<div id="message">
+  <h6><b>Password must contain the following:</b></h6>
+  <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+  <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+  <p id="number" class="invalid">A <b>number</b></p>
+  <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+</div>   
 
 
+    
+
+<br></br>
 <label for="confirmPassword"><b>Confirm Password</b></label>
 <input type="password" id="confirmPassword"
 name="confirmPassword" 
  placeholder="confirmPassword" 
  value={this.state.confirmPassword} 
 onChange={this.handlInputChange}
+onClick={this.showBtn}
 />
+<div id="show" onClick={this.showPwd}>SHOW</div>
+{this.state.cpasswordError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.cpasswordError}</div>
+):null}
 
 
 

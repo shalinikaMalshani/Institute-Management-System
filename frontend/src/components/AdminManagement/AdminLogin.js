@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 //import { useNavigate } from 'react-router-dom';
 
 //import "../../css/login.css";
@@ -32,13 +33,12 @@ console.log("hello");
           }
           console.log("hello");
           axios.post("http://localhost:8091/Admin/loginAdmin", loginCredentials).then((res)=>{
-            //console.log(res);
             
-
             localStorage.setItem("name", username);
             
             console.log(loginCredentials);
-          alert("login success");
+         // alert("login success");
+         Swal.fire('Successfully Login!',  'You clicked the button!',  'success')
           seterrormsg("");
           console.log("hello world");
           props.history.push("/Admin/profile");
@@ -49,7 +49,20 @@ console.log("hello");
           }).catch((err) =>{
 
          console.log(err.response.data);
-          alert("Invalid login");
+          //alert("Invalid login");
+
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Please Check Your Username & Password!',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+              popup: 'animate__animated animate__fadeOutUp'
+            }
+          })
          seterrormsg(err.response.data.error);
         
 
@@ -93,7 +106,7 @@ console.log("hello");
                   </form>
                   <hr class="mt-4"/>
                   <div class="col-12">
-                      <p class="text-center mb-0">Have not account yet? <a href="/Admin/Register">Signup</a></p>
+                      <p class="text-center mb-0">Have not account yet? <a href="/Register">Signup</a></p>
                   </div>
               </div>
           </div>

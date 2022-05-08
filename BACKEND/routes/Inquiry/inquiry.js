@@ -2,8 +2,6 @@ const router = require("express").Router();
 //const multer = require("multer");
 let Inquiry = require("../../models/Inquiry/Inquiry");
 
-//const pdf = require('html-pdf');
-//const tem = require("../documents/RefundReport");
 
 router.route("/add").post((req, res) => {
    
@@ -126,6 +124,33 @@ router.route("/getinquries").get((req, res) => {
       });
   });
 
+  //get posts
+
+router.get('/aaa', (req, res) => {
+
+  Inquiry.find().exec((err, Inquiry) => {
+
+    if (err) {
+
+      return res.status(400).json({
+
+        error: err,
+
+      });
+
+    }
+
+    return res.status(200).json({
+
+      success: true,
+
+      existingPosts: Inquiry,
+
+    });
+
+  });
+
+});
   
 
   module.exports = router;

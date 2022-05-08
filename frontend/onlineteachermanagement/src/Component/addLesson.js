@@ -210,57 +210,26 @@ render(){
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
                         <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
-                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
-                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
-                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
-                            </ul>
+                           
                         </li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        
                         <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Chemistry</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Physics</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                            </ul> 
-                        </li>
-                        <li class="nav-item"><a href="#" class="nav-link active">Pages</a>
-                            <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                        <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                                    </ul>    
-                                </li>                                 
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                                        <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
-                                    </ul>    
-                                </li>                                
-                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                    <ul class="navbar-nav nav mx-auto">
-                                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                        <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                        <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                        <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                                    </ul>    
-                                </li> 
-                                <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
-                                <li class="nav-item"><a href="teacher-profile.html" class="nav-link active">Teachers Profile</a></li>
-                                <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
-                                <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
-                            </ul>                            
-                        </li>     
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Notices</a>
+                            
+                            </li>
+                            <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
+                                
+                                </li>
+                                <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
+                            
+                            </li>  
+                        
                     </ul>
                 </div>
                 <div class="mr-auto search_area ">
@@ -284,10 +253,10 @@ render(){
             <div class="row">        
                  <div class="col-sm-12 col-md-8 col-lg-8">
                     <div class="intro_text">
-                        <h1></h1>
+                        <h1>Lessons</h1>
                         <div class="pages_links">
                             <a href="#" title="">Home</a>
-                            <a href="#" title="" class="active">Register</a>
+                            <a href="#" title="" class="active">Lessons</a>
                         </div>
                     </div>
                 </div>              
@@ -298,171 +267,98 @@ render(){
 </header> 
 
 <div>
+<form>
 
-<form >
-  <div class="container">
-  <input type="text" className="form-control" id="rType" style={{"display":"none"}}
-    name="rType" 
-    defaultValue={this.state.rType}
-    value={this.state.rType} 
-    onChange={this.handlInputChange}/>
-    
-
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account and register to our Amzo Learning</p>
-    <hr/>
-
-    <label for="name" ><b>Name</b></label>
-    <input type="text"  id="name" 
-    name="name" 
-    placeholder="First Name Last Name" 
-    value={this.state.name} 
-    onChange={this.handlInputChange}/>
-    {this.state.nameError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
-):null}
-
-<label for="age" ><b>Age</b></label>
-    <input type="text" id="age"
-    name="age" 
-     placeholder="Enter age"
-    
-     min="0"
-     value={this.state.age} 
-    onChange={this.handlInputChange}
-    />
-    {this.state.ageError?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.ageError}</div>
-):null}
-
-<label for="gender" className="form-label"><b>Gender</b></label>
-<div>
-    <input type="radio" 
-    name="gender"
-         id="male"  
-          value="Male" 
-          onChange={this.handlInputChange}
-          checked={this.state.gender === "Male"} 
-        />Male
-      &nbsp;
-        <input type="radio" 
-         id="female" 
-         name="gender"
-         onChange={this.handlInputChange}
-           value="Female"
-           checked={this.state.gender === "Female"}  /> Female
-     </div>
-     {this.state.genderError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.genderError}</div>
-):null}
-
-<label for="email" ><b>Email</b></label>
-<input type="text"  id="email"
-name="email" 
- placeholder="xxxx@gmail.com" 
- value={this.state.email} 
-onChange={this.handlInputChange}
-/>
-{this.state.emailError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.emailError}</div>
-):null}
-
-<label for="qualification" ><b>Qulifications(Comma Seperated)</b></label>
-<input type="text"  id="qualification" 
-name="qualification" 
-placeholder="MSc,phD" 
-value={this.state.qualification} 
-onChange={this.handlInputChange}/>
-{this.state.quaError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.quaError}</div>
-):null}
-
-<label for="mobile"><b>Contact</b></label>
-<input type="text"  id="mobile"
-name="mobile" 
- placeholder="xxx xxx xx xx" 
- value={this.state.mobile} 
-onChange={this.handlInputChange}
-/>
-{this.state.phoneError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.phoneError}</div>
-):null}
-
-
-<label for="subject" ><b>Subject</b></label>
-<select onChange={this.onChangeSelect}  name="subject" id="subject">
+<div class="container">  
+<label for="subject" >Subject</label>
+<select onChange={this.onChangeSelect} name="subject" id="subject">
         <option selected disabled >--Select Subject--</option>
         <option value="Chemistry">Chemistry</option>
         <option value="Physics">Physics</option>
 
-        {this.state.subError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.subError}</div>
+        {this.state.subjectError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.subjectError}</div>
 ):null}
 
 </select>
-        
+         
+   
+   
+   
 
-<label for="date" ><b>Join Date</b></label>
-<input type="date"  id="date"
-name="date" 
- placeholder="Enter join date" 
- value={this.state.date} 
+  
+
+    <label for="name">Lesson No</label>
+    <input type="text" id="lessonNo" 
+    name="lessonNo" 
+    placeholder="Lesson No" 
+    value={this.state.lessonNo} 
+    onChange={this.handlInputChange}/>
+    {this.state.lessonNoError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.lessonNoError}</div>
+):null}
+  
+    <label for="age" >Lesson Notes</label>
+    <input type="file" id="lessonNote"
+    name="lessonNote" 
+  onChange={this.onChangeFile1}
+    />
+     {this.state.lessonNoteError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.lessonNoteError}</div>
+):null}
+   
+<label for="qualification" >Tute</label>
+<input type="file"  id="tute" 
+name="tute" 
+onChange={this.onChangeFile2}
+/>
+{this.state.tuteError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.tuteError}</div>
+):null}
+
+<label for="mobile" className="form-label">Tute Answer Upload Link</label>
+<input type="text"  id="stuTuteAnswers"
+name="stuTuteAnswers" 
+value={this.state.stuTuteAnswers}
 onChange={this.handlInputChange}
 />
-{this.state.dateError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.dateError}</div>
+{this.state.stuTuteAnswersError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.stuTuteAnswers}</div>
 ):null}
 
 
 
-{/* <input type="text" className="form-control" id="type" style={{display:'none'}}
-name="type" 
+
+
+<label for="subject" >Tute Answers</label>
+<input type="file" id="tuteAnswers"
+name="tuteAnswers" 
+onChange={this.onChangeFile4}
  
- value={this.state.type} 
-onChange={this.handlInputChange}
-/> */}
-
-
-  <label for="formFile">Photo</label>
-  <input  type="file" id="photo" name="photo" onChange={this.onChangeFile}/>
-
-
-
-<label for="password" ><b>Password</b></label>
-<input type="password" id="password"
-name="password" 
- placeholder="Enter password" 
- value={this.state.password} 
+/>
+        
+<label for="date" >Referances</label>
+<input type="text"  id="referances"
+name="referances" 
+value={this.state.referances}
 onChange={this.handlInputChange}
 />
-      
-
-
-<label for="confirmPassword"><b>Confirm Password</b></label>
-<input type="password" id="confirmPassword"
-name="confirmPassword" 
- placeholder="confirmPassword" 
- value={this.state.confirmPassword} 
-onChange={this.handlInputChange}
-/>
+{this.state.referancesError ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.referancesError}</div>
+):null}
 
 
 
-    
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style={{"marginBottom":"15px"}}/> Remember me
-    </label>
-    
-    <p>By creating an account you agree to our <a href="#" style={{"color":"dodgerblue"}}>Terms & Privacy</a>.</p>
 
-    <div class="clearfix">
+
+<div class="clearfix">
       
       <button className="cancelbtn" onChange={this.reset} >Reset</button>
   <button type="submit" className="signupbtn" onClick={this.onSubmit} >Submit</button>
-
+</div>
     </div>
-  </div>
 </form>
+
     </div>
 
 
