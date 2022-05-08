@@ -35,14 +35,15 @@ console.log("hello");
           console.log("hello");
           axios.post("http://localhost:8091/Admin/loginAdmin", loginCredentials).then((res)=>{
             
-            localStorage.setItem("name", username);
-            
+           localStorage.setItem("name", username);
+           console.log(res.data.username);
+           
             console.log(loginCredentials);
          // alert("login success");
          Swal.fire('Successfully Login!',  'You clicked the button!',  'success')
           seterrormsg("");
           console.log("hello world");
-          props.history.push("/Admin/profile");
+          props.history.push("/dashboard");
          // console.log(res.data.adminLogin._id);
          // localStorage.setItem("AdminID",res.data.adminLogin._id);
 
@@ -103,9 +104,7 @@ console.log("hello");
             
             <label>Password</label>
                           <i></i>
-                    <i          
-                       onClick={togglePassword}
-                    ></i>
+                    
                           <input type="password" name="password" className="password" placeholder="Password"  onChange={(e) => {
                           setpassword(e.target.value);
                         }}/>
@@ -126,7 +125,7 @@ console.log("hello");
                 <div class="clearfix">
                   
                   {/* <button className="cancelbtn" onChange="" >Reset</button> */}
-          <button type="submit" className="signIn" style={{marginLeft:"26%"}} ><a href="/dashboard" style={{textDecoration:"none"}}>SignIn</a></button>
+          <button type="submit" className="signIn" style={{marginLeft:"26%"}} >SignIn</button>
             
                 </div>
               </div>

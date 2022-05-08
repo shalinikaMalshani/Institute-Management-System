@@ -63,7 +63,7 @@ import dashboard from "./dashboard";
 
 
 
-<<<<<<< HEAD
+
 
 //Class
 import addClass from "./components/ClassManagement/addClass";
@@ -86,7 +86,7 @@ import freeCards from "./components/ClassManagement/freeCards";
 
 
 
-=======
+
 // admin notice inquiry
 import AdminLogin from "./components/AdminManagement/AdminLogin";
 import AdminRegister from "./components/AdminManagement/AdminRegister";
@@ -107,7 +107,7 @@ import MyAdminNotices from "./components/NoticeManagement/MyAdminNotices";
 import TeacherAddNotices from "./components/NoticeManagement/TeacherAddNotices";
 import TeacherUpdareNotices from "./components/NoticeManagement/TeacherUpdareNotices";
 import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
->>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
+
 
 function App() {
   return (

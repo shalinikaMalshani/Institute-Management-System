@@ -9,7 +9,7 @@ export default class SideMenu extends React.Component{
         super(props);
       
         this.state={//All the teachers stores in a array
-          username:"",
+          namei:"",
           userId:"",
           teachers:[],
           tId:""
@@ -19,31 +19,21 @@ export default class SideMenu extends React.Component{
     
     componentDidMount(){
     this.setState({
-    username:localStorage.getItem("name")
+    namei:localStorage.getItem("name")
     }) 
-    this.setState({
-        userId:localStorage.getItem("userId")
-        }) 
+   
+    // this.setState({
+    //     userId:localStorage.getItem("userId")
+    //     }) 
     
 
-    this.retrieveTeachers();
+   
 
     
     
 
     }
-    retrieveTeachers(){
-        axios.get("http://localhost:8091/AllTeachers")
-        .then(res=>{
-        if(res.data.success){
-        this.setState({
-          teachers:res.data.existingTeachers
-        })
-        console.log(this.state.teachers);
-        
-        }
-        })
-        }
+    
         
     render(){
         return(
@@ -57,15 +47,12 @@ export default class SideMenu extends React.Component{
 <li><i className="fa-solid fa-chart-pie"></i><a href="#">Dashboard</a></li>
 <li><i className="fa-solid fa-person-chalkboard"></i><a href="/navTeacher">Teacher Management</a></li>
 <li><i className="fa-solid fa-people-group"></i><a href="/studentDashboard">Student Management</a></li>
-<<<<<<< HEAD
+
+
 <li><i className="fa-solid fa-building-columns"></i><a href="/classhome">Class Management</a></li>
-<li><i className="fa-solid fa-circle-question"></i><a href="#">Inquire Management</a></li>
-<li><i className="fa-solid fa-note-sticky"></i><a href="#">Notice Management</a></li>
-=======
-<li><i className="fa-solid fa-building-columns"></i><a href="#">Class Management</a></li>
 <li><i className="fa-solid fa-circle-question"></i><a href="/Student/AllInquiries">Inquire Management</a></li>
 <li><i className="fa-solid fa-note-sticky"></i><a href="/Admin/AllNotices">Notice Management</a></li>
->>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
+
 </div>
 
 </section>
@@ -85,9 +72,9 @@ export default class SideMenu extends React.Component{
 
 
 
-      <a href="/Admin/profile"><img src={require('./images/exam.jpg')} alt=""></img></a><span>{this.state.name}</span>
+      <a href="/Admin/profile"><img src={require('./images/exam.jpg')} alt=""></img></a><span>{this.state.namei}</span>
        &nbsp;
-       <button onClick={localStorage.clear()} style={{background:"black",color:"white",borderRadius:"5px"}}>Logout</button>
+       {/* <button onClick={localStorage.clear()} style={{background:"black",color:"white",borderRadius:"5px"}}>Logout</button> */}
 
 
       

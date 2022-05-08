@@ -23,16 +23,8 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
-<<<<<<< HEAD
 
 
-
-
-
-=======
-
-
->>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 //import route
 //teacher
 const teacherRouter=require("./routes/Teacher/teachers");
@@ -150,10 +142,6 @@ app.use(feeRouter);
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 
 
 // app.use("/student",studentRouter);

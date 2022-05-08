@@ -50,13 +50,13 @@ export default class dashboard extends React.Component{
         })
       }
       retrieveClasses(){
-        axios.get("http://localhost:8091/AllTeachers")
+        axios.get("http://localhost:8091/class")
         .then(res=>{
         if(res.data.success){
         this.setState({
-          teachers:res.data.existingTeachers
+            classes:res.data.existingClass
         })
-        console.log(this.state.teachers);
+        console.log(this.state.classes);
         
         }
         })
@@ -117,7 +117,7 @@ export default class dashboard extends React.Component{
     <div className="valBox">
     <i className="fa-solid fa-building-columns"></i>
     <div>
-        <h3>8,345</h3>
+        <h3>{this.state.classes.length}</h3>
         <span>Classes</span>
         
     </div>
@@ -140,7 +140,7 @@ export default class dashboard extends React.Component{
 {this.state.admins.map((admins,index)=>(
     <tr key={index}>
         <td className="people">
-        <img src={admins.logo}></img>
+        <img src={"/upload/" + admins.logo}></img>
     <div className="peopleDe">
         <h5>{admins.firstName} {admins.lastName}</h5>
         <p>{admins.email}</p>
