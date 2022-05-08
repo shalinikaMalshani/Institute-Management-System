@@ -60,7 +60,7 @@ function App() {
     <BrowserRouter>
     <SideMenu/>
 {/* teacher counter */}
-<Route path="/teacherAll" exact component={AllTeachers}/>
+  <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />
   <Route  path="/teacherEdit/:id" exact component={EditTeacher} />
   <Route  path="/teacherSalary/:id" exact component={EditSalary} />

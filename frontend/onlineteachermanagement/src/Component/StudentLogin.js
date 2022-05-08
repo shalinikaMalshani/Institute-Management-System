@@ -282,8 +282,8 @@ reset() {
             
                 <div class="clearfix">
                   
-                  <button className="cancelbtn" onChange={this.reset} >Reset</button>
-              <button type="submit" className="signupbtn" onClick={this.onSubmit} >SignIn</button>
+                  <button className="cancelbtn" onChange={this.reset} style={{width:"40%"}}>Reset</button> &nbsp;&nbsp; 
+                  &nbsp;&nbsp;<button type="submit" className="signupbtn" onClick={this.onSubmit} style={{width:"40%", marginLeft:"50px"}}>SignIn</button>
             
                 </div>
               </div>

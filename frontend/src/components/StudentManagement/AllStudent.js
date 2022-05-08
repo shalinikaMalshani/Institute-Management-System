@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 
+// import Swal from "sweetalert2"
 
 export default class AllStudent extends Component{
   constructor(props){
@@ -78,7 +79,7 @@ hadleSearchArea = (e) =>{
           </div>
         
         ))} */}
-
+{/* <SideMenu/> */}
          <div className="row">
                 <div className="col-lg-9 mt-2 mb-2">
                     <h4><i>All Students</i></h4>

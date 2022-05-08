@@ -15,7 +15,14 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
-
+import mySubject from "./Component/mySubject";
+import OnlineStudentProfileUpdate from "./Component/OnlineStudentProfileUpdate";
+import updateMySubjects from "./Component/updateMySubjects";
+import Module1 from "./Component/Module1";
+import Module2 from "./Component/Module2";
+import Module4 from "./Component/Module4";
+import Module3 from "./Component/Module3";
+import FileSubmitPage from "./Component/FileSubmitPage";
 
 function App() {
   return (
@@ -49,6 +56,14 @@ function App() {
  <Route path="/studentLogin" exact component={StudentLogin}/>
  <Route path="/gets/:id" exact component={StudentProfile}/>
  <Route path="/enrolledSubject" exact component={EnrolledSubject}/>
+ <Route path="/mySubject" exact component={mySubject}/>
+ <Route path="/onlineUpdate/:id" exact component={OnlineStudentProfileUpdate}/>
+ <Route path="/updateOnlinePayment/:id" exact component={updateMySubjects}></Route>
+ <Route path="/module1" exact component={Module1}/>
+ <Route path="/module2" exact component={Module2}/>
+ <Route path="/module3" exact component={Module3}/>
+ <Route path="/module4" exact component={Module4}/>
+ <Route path="/fileSubmit" exact component={FileSubmitPage}/>
 
     </BrowserRouter>
     
