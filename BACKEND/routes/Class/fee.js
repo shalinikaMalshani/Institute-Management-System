@@ -1,9 +1,9 @@
 const express = require('express');
-const Class = require('../../models/Fee/fee');
+const Fee = require('../../models/Class/fee');
 
 const router = express.Router();
 
-//save posts
+//add class fee details
 
 router.post('/fee/add',(req,res)=>{
 let newFee = new Fee(req.body);
@@ -20,7 +20,7 @@ success:"Class Fees saves successfully"
 });
 });
 
-//get posts
+//get class fee details
 
 router.get('/fee',(req,res)=>{
 Fee.find().exec((err,Fee) =>{
@@ -36,7 +36,7 @@ existingFee:Fee
 });
 });
 
-//get a specific post
+//get a specific class fee details
 
 router.get("/fee/:id",(req,res)=>{
 let postId = req.params.id;
@@ -57,7 +57,7 @@ return res.status(200).json({
 
 
 
-//update posts
+//update class fee details
 router.put('/fee/update/:id',(req,res)=>{
     Fee.findByIdAndUpdate(
 req.params.id,
@@ -76,7 +76,8 @@ $set:req.body
 });
 });
 
-//delete posts
+//delete class fee details
+
 router.delete('/fee/delete/:id',(req,res) =>{
 Fee.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
     if(err) return res.status(400).json({

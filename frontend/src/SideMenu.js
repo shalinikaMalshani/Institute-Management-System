@@ -57,9 +57,15 @@ export default class SideMenu extends React.Component{
 <li><i className="fa-solid fa-chart-pie"></i><a href="#">Dashboard</a></li>
 <li><i className="fa-solid fa-person-chalkboard"></i><a href="/navTeacher">Teacher Management</a></li>
 <li><i className="fa-solid fa-people-group"></i><a href="/studentDashboard">Student Management</a></li>
+<<<<<<< HEAD
+<li><i className="fa-solid fa-building-columns"></i><a href="/classhome">Class Management</a></li>
+<li><i className="fa-solid fa-circle-question"></i><a href="#">Inquire Management</a></li>
+<li><i className="fa-solid fa-note-sticky"></i><a href="#">Notice Management</a></li>
+=======
 <li><i className="fa-solid fa-building-columns"></i><a href="#">Class Management</a></li>
 <li><i className="fa-solid fa-circle-question"></i><a href="/Student/AllInquiries">Inquire Management</a></li>
 <li><i className="fa-solid fa-note-sticky"></i><a href="/Admin/AllNotices">Notice Management</a></li>
+>>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 </div>
 
 </section>

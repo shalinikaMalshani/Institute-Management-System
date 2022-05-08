@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
+
 // teacher
 import AllTeachers from "./components/TeacherManagement/AllTeachers";
 import CreateTeacher from "./components/TeacherManagement/CreateTeacher";
@@ -24,6 +25,8 @@ import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
 import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
 import Homenn from "./components/TeacherManagement/Homenn";
+
+
 
 
 
@@ -60,6 +63,30 @@ import dashboard from "./dashboard";
 
 
 
+<<<<<<< HEAD
+
+//Class
+import addClass from "./components/ClassManagement/addClass";
+import ClassDetailsHome from "./components/ClassManagement/ClassDetailsHome";
+import ClassHome from "./components/ClassManagement/ClassHome";
+import updateClass from "./components/ClassManagement/updateClass";
+import readClass from "./components/ClassManagement/readClass";
+import classReport from "./components/ClassManagement/classReport";
+import feeHome from "./components/ClassManagement/feeHome";
+import addFee from "./components/ClassManagement/addFee";
+import updateFee from "./components/ClassManagement/updateFee";
+import feeReport from "./components/ClassManagement/feeReport";
+import readFee from "./components/ClassManagement/readFee";
+import freeCards from "./components/ClassManagement/freeCards";
+
+
+
+
+
+
+
+
+=======
 // admin notice inquiry
 import AdminLogin from "./components/AdminManagement/AdminLogin";
 import AdminRegister from "./components/AdminManagement/AdminRegister";
@@ -80,6 +107,7 @@ import MyAdminNotices from "./components/NoticeManagement/MyAdminNotices";
 import TeacherAddNotices from "./components/NoticeManagement/TeacherAddNotices";
 import TeacherUpdareNotices from "./components/NoticeManagement/TeacherUpdareNotices";
 import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
+>>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 
 function App() {
   return (
@@ -155,6 +183,22 @@ function App() {
 
 
 {/* class counter*/}
+<Route  path="/addDetails" exact component={addClass} />
+<Route  path="/classDetailsHome" exact component={ClassDetailsHome} />
+<Route  path="/classhome" exact component={ClassHome} />
+<Route  path="/updateClass/:id" exact component={updateClass} />
+<Route  path="/readClass/:id" exact component={readClass} />
+<Route  path="/classReport" exact component={classReport} />
+<Route  path="/feeHome" exact component={feeHome} />
+<Route  path="/addFee" exact component={addFee} />
+<Route  path="/updateFee/:id" exact component={updateFee} />
+<Route  path="/feeReport" exact component={feeReport} />
+<Route  path="/readFee/:id" exact component={readFee} />
+<Route  path="/freeCards" exact component={freeCards} />
+
+
+
+
 
 
 
