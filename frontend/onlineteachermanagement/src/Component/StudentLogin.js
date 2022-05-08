@@ -86,7 +86,7 @@ return true;
         
     
         axios.post("http://localhost:8091/onlineStudent/loginStudent",data).then((res)=>{
-          alert("Teacher login successfully!");
+        //   alert("Teacher login successfully!");
           this.setState({
             teacher:res.data.datastudent
               });

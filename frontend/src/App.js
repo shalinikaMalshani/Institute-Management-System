@@ -47,6 +47,7 @@ import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubje
 import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
 import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
 import dashboard from "./dashboard";
+import OnlineDashboardNW from "./components/StudentManagement/OnlineDashbordNW";
 
 
 
@@ -116,6 +117,7 @@ function App() {
 <Route path="/getPayment/:id" exact component={EnrolledSubjectDetails}></Route>
 <Route path="/onlineAllStudent"  exact component={OnlineAllStudent}></Route>
 <Route path="/gets/:id" exact component={OnlineStudentProfile}></Route>
+<Route path="/onlineDashboardd" exact component={OnlineDashboardNW}></Route>
 
 
 
@@ -144,7 +146,7 @@ function App() {
 
 {/* notice counter & inq & admin */}
 
-{/* <Route  path="/" exact component={AdminLogin} /> */}
+<Route  path="/" exact component={AdminLogin} />
   <Route  path="/Register" exact component={AdminRegister}/>
   <Route  path="/Admin/AddNotice" exact component={AddNotice}/>
   <Route  path="/Admin/AllNotices" exact component={AllNotices}/>

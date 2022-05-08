@@ -27,6 +27,7 @@ import Module2 from "./Component/Module2";
 import Module4 from "./Component/Module4";
 import Module3 from "./Component/Module3";
 import FileSubmitPage from "./Component/FileSubmitPage";
+import ClassDetailsNw from "./Component/ClassDetailsNw";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
  <Route path="/module3" exact component={Module3}/>
  <Route path="/module4" exact component={Module4}/>
  <Route path="/fileSubmit" exact component={FileSubmitPage}/>
+ <Route path="/classDetailsNw" exact component={ClassDetailsNw}/>
 
 
     </BrowserRouter>

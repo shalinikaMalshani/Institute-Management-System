@@ -160,7 +160,7 @@ export default class HomeStudent extends React.Component{
 
                         <li class="nav-item"><a  class="nav-link">Subjects</a>
                             <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Subject Details</a></li>
+                                <li class="nav-item"><a href="/classDetailsNw" class="nav-link">Subject Details</a></li>
                                 <li class="nav-item"><a href="/enrolledSubject" class="nav-link">Enrolled Subjects</a></li>
                                 <li class="nav-item"><a href="/mySubject" class="nav-link">My Subjects</a></li>
                             </ul> 
