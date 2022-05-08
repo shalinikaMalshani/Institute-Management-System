@@ -20,6 +20,46 @@ export default function StudentUpdateInqiury(props){
   let objectID = "";
    let image2 = "";
    let image3 = "";
+   let flag1 = 0;
+
+
+   const EmailAdd = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   function validatereg() {
+ 
+   
+ 
+ 
+     if(email.length === 0){
+     flag1 = 0;
+     Swal.fire("email is required!"); 
+     }
+ 
+     else if (!email.match(EmailAdd)) {
+       flag1 = 0;
+       Swal.fire("You have entered an invalid email address!");
+     }  
+ 
+ 
+ 
+     else if(inqHeader.length === 0){
+       flag1 = 0;
+       Swal.fire("Header is required!"); 
+       }
+ 
+       else if(inqBody.length === 0){
+         flag1 = 0;
+         Swal.fire("Body is required!"); 
+         }
+ 
+   
+    
+ 
+   else {
+     flag1 = 1;
+   }
+ 
+   }
+
  
    useEffect(() => {
      objectID = props.match.params.id;
@@ -37,6 +77,7 @@ export default function StudentUpdateInqiury(props){
 
            setCurrentImage(res.data.inqimage);
            inqimage = res.data.inqimage;
+
          })
          .catch((err) => {
            alert(err.msg);
@@ -65,6 +106,7 @@ export default function StudentUpdateInqiury(props){
  
    function updateInquiry() {
        console.log("hello");
+       validatereg();
        inquiryI();
      Imagecheck();
  
@@ -83,6 +125,7 @@ export default function StudentUpdateInqiury(props){
  
      console.log(updateInquiry);
      objectID = props.match.params.id;
+     if (flag1 == 1) {
      axios
        .put("http://localhost:8091/inquiry/update/" + objectID, updateInquiry)
        .then(() => {
@@ -99,7 +142,7 @@ export default function StudentUpdateInqiury(props){
          alert(err);
        });
    }
- 
+  }
 
    return(
  

@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 // teacher
@@ -20,16 +19,16 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-<<<<<<< HEAD
+
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
 import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
 import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
-import Home from "./components/TeacherManagement/Home";
-=======
+import Homenn from "./components/TeacherManagement/Homenn";
 
-import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
+
+
 
 
 
@@ -41,16 +40,36 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
->>>>>>> 550b3e533ab7a12c7cedc2f385d09e9907c0dca4
 
 
 
 
+
+//admin notice inquiry
+import AdminLogin from "./components/AdminManagement/AdminLogin";
+import AdminRegister from "./components/AdminManagement/AdminRegister";
+import AddNotice from "./components/NoticeManagement/AddNotice";
+import AllNotices from "./components/NoticeManagement/AllNotices";
+import EditNotices from "./components/NoticeManagement/EditNotices";
+import UpdateNoticess from "./components/NoticeManagement/updateNoticess";
+import AddInquiry from "./components/InquireManagement/AddInquiry";
+import AllInquiries from "./components/InquireManagement/AllInquiries";
+import StudentViewAllInquiries from "./components/InquireManagement/StudentViewAllInquiries";
+import StudentViewAllNotices from "./components/NoticeManagement/StudentViewAllNotices";
+import TeacherViewAllNotices from "./components/NoticeManagement/TeacherViewAllNotices";
+import StudentUpdateInqiury from "./components/InquireManagement/StudentUpdateInqiury";
+import AdminProfile from "./components/AdminManagement/AdminProfile";
+import UpdateAdmin from "./components/AdminManagement/UpdateAdmin";
+import MyAdminNotices from "./components/NoticeManagement/MyAdminNotices";
+import InquiryReport from "./components/InquireManagement/InquiryReport";
+import TeacherAddNotices from "./components/NoticeManagement/TeacherAddNotices";
+import TeacherUpdareNotices from "./components/NoticeManagement/TeacherUpdareNotices";
+import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
 
 function App() {
   return (
     <BrowserRouter>
-    <SideMenu/>
+   
 {/* teacher counter */}
 <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />
@@ -103,21 +122,27 @@ function App() {
 
 
 
-{/* notice counter */}
+{/* notice counter & inq & admin */}
 
-
-
-
-{/* inquire counter */}
-
-
-
-
-
-{/* admin */}
-
-
-
+<Route  path="/" exact component={AdminLogin} />
+  <Route  path="/Register" exact component={AdminRegister}/>
+  <Route  path="/Admin/AddNotice" exact component={AddNotice}/>
+  <Route  path="/Admin/AllNotices" exact component={AllNotices}/>
+  <Route  path="/Admin/EditNotice/:id" exact component={EditNotices}/>
+  <Route  path="/Admin/updateNotice/:id" exact component={UpdateNoticess}/>
+  <Route  path="/Student/AddInquiry" exact component={AddInquiry}/>
+  <Route  path="/Admin/AllInquiries" exact component={AllInquiries}/>
+  <Route  path="/Student/AllInquiries" exact component={StudentViewAllInquiries}/>
+  <Route  path="/Student/AllNotices" exact component={StudentViewAllNotices}/>
+  <Route  path="/Teach/AllNotices" exact component={TeacherViewAllNotices}/>
+  <Route  path="/Student/EditInquiry/:id" exact component={StudentUpdateInqiury}/>
+  <Route  path="/Admin/profile" exact component={AdminProfile}/>
+  <Route  path="/Admin/updateProfile/:id" exact component={UpdateAdmin}/>
+  <Route  path="/Admin/MyNotices" exact component={MyAdminNotices}/>
+  <Route  path="/Adminnnnn/InquiryReport" exact component={InquiryReport}/>
+  <Route  path="/Teacher/Notices/add" exact component={TeacherAddNotices}/>
+  <Route  path="/Teacher/Notices/update/:id" exact component={TeacherUpdareNotices}/>
+  <Route  path="/Teacher/Notices/Mynotices" exact component={TeacherMyNotices}/>
 
 
 {/* teacher online */}
@@ -131,7 +156,7 @@ function App() {
   <Route  path="/onlineMeeting" exact component={OnlineMeeting} />
   <Route  path="/onlineAllMeeting" exact component={OnlineAllMeeting} />
   <Route  path="/meetingEdit/:id" exact component={OnlineMeetingEdit} />
-  <Route  path="/home" exact component={Home} />
+  <Route  path="/home" exact component={Homenn} />
 
 
 
@@ -148,4 +173,3 @@ function App() {
 }
 
 export default App;
->>>>>>> 78985762dcf25c5157dc7272a57c6dcaef110524

@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
+//import "../../css/AdminProfile.css"
 //import Swal from 'sweetalert2';
 
 export default function AdminProfile(props){
@@ -30,10 +31,43 @@ export default function AdminProfile(props){
   
       }, []);
 
+      function update(id){
+        console.log(id);
+        props.history.push("/Admin/updateProfile/" + id);
+    };
+
     return(
-        <div style={{marginLeft:"325px",width:"40%"}}>
+        <div style={{marginLeft:"325px",width:"40%"}} className = "myDiv">
             <h1>hello</h1>
-                      <h1>{admin.username}</h1>
+                     <h4>User Name :{admin.username}</h4>
+                     <h4>First Name : {admin.firstName}</h4>
+                      <h4>Last Name : {admin.lastName}</h4>
+                      
+                      
+
+                      <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                   
+                    <img
+                       src = {'/upload/'+admin.logo}
+                      alt="Admin"
+                      class="rounded-circle p-1 bg-black"
+                      width="175"
+                    />
+                    <br></br>
+                  </div>
+                  </div>
+                      
+                      <div class="float-right">
+            <span> </span>
+						<button type="button" onClick = {()=>update(admin._id)} class="btn btn-primary">EDIT</button>
+							<span> </span>
+							</div>   
+                      
+                      
+                       
                     </div>
+
+                    
     )
 }

@@ -20,6 +20,8 @@ router.route("/addAdmin").post(async(req,res)=>{
     const lastName = req.body.lastName;
     const username = req.body.username;
     const password = req.body.password;
+    const email = req.body.email;
+    const logo = req.body.logo;
 
  try{
 
@@ -35,7 +37,8 @@ router.route("/addAdmin").post(async(req,res)=>{
         lastName,
         username,
         password,
-        
+        email,
+        logo,
     })
 
 
@@ -55,9 +58,9 @@ router.route("/addAdmin").post(async(req,res)=>{
 //Get one admin
 router.route("/getAdmin/:id").get(async (req,res) =>{
     let userID = req.params.id;
-    const user = await Admin.findById(userID).then((adminss) =>{
+    const user = await Admin.findById(userID).then((Admin) =>{
         // res.status(200).send({status:"User fetched"});
-        res.json(adminss);
+        res.json(Admin);
     }).catch((err) =>{
         console.log(err.message);
         res.status(500).send({status : "Error with get user", error : err.message});
@@ -132,5 +135,52 @@ router.post('/loginAdmin', async(req,res) => {
 
 
 });
+
+router.route("/update/:id").put(async (req,res) =>{
+   
+
+    let userID = req.params.id;  
+    const{  
+
+        firstName,
+        lastName,
+        username,
+        password,
+        email,
+        logo,} = req.body;
+
+    const updateAdmin = {
+
+        firstName,
+        lastName,
+        username,
+        password,
+        email,
+        logo,
+    }
+
+    const update = await Admin.findByIdAndUpdate(userID,updateAdmin).then(()=>{
+        res.json("Your details Updated Successfully!");
+        }).catch((err) => {
+            console.log(err);
+        })
+    });
+
+
+    router.route("/get/:id").get(async (req,res) =>{
+    
+
+        let userID = req.params.id;
+    
+        const user = await Admin.findById(userID).then((findAdmin) =>{
+    
+            res.json(findAdmin);
+    
+        }).catch((err) =>{
+            
+            console.log(err.message);
+        })
+    })    
+
 
 module.exports = router;

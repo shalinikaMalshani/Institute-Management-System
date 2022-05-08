@@ -5,7 +5,7 @@ let Notice = require("../../models/Notice/Notice");
 //const tem = require("../documents/RefundReport");
 
 router.route("/add").post((req, res) => {
-
+    const name = req.body.name;
     const notice_id = req.body.notice_id;
     const header = req.body.header;
    
@@ -14,6 +14,7 @@ router.route("/add").post((req, res) => {
    
   
     const newNotice = new Notice({
+      name,
       notice_id,
       header,
       description,
@@ -26,6 +27,7 @@ router.route("/add").post((req, res) => {
       .then(() => {
         res.json({
           newNotice: {
+            name: newNotice.name,
             notice_id: newNotice.notice_id,
            header: newNotice.header,
               description: newNotice.description,
@@ -68,9 +70,10 @@ router.route("/add").post((req, res) => {
 
   router.route("/update/:id").put(async (req, res) => {
     let userID = req.params.id;
-    const {notice_id, header, description, noticeImage} = req.body;
+    const {name, notice_id, header, description, noticeImage} = req.body;
   
     const updateNotices = {
+      name,
       notice_id,
       header,
     description,
@@ -105,6 +108,15 @@ router.route("/add").post((req, res) => {
           .send({ status: "Error with get user", error: err.message });
       });
   });
+
+  router.route("/getn/:name").get(async (req,res) =>{
+    let  name = req.params.name;
+    const notice = await Notice.findOne({name : name}).then((notice)=>{
+        res.json(notice);
+    }).catch((err) =>{
+        res.status(500).send({status : "Error", error : err.message});
+    })
+})
 
 
   module.exports = router;

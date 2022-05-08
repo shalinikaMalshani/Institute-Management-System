@@ -5,6 +5,11 @@ const Schema = mongoose.Schema;
 
 const noticeSchema = new Schema({
 
+    name : {
+        type : String,
+        required: true,
+    },
+
     notice_id : {
         type : String,
         required: true

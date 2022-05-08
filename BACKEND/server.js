@@ -96,15 +96,13 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 
 
-//notice
 
 
 
-//inquire
 
 
 
-//admin
+
 
 
 
@@ -129,6 +127,3 @@ app.use("/notice", NoticeRouter);
 app.listen(PORT,() => {//function(){}
     console.log(`Server is up and running on port number :${PORT}`);
     });
-
-
-
