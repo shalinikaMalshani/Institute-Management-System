@@ -40,6 +40,8 @@ const meetingRouter=require("./routes/Teacher/meeting");
 
 const studentRouter = require("./routes/Student/student.js");
 const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
+const paymentRouter = require("./routes/Student/payment.js");
+const onlinePaymentRouter = require("./routes/Student/onlinePayment.js");
 
 
 
@@ -48,17 +50,6 @@ const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
 
 
 
-
-
-//notice
-
-
-
-//inquire
-
-
-
-//admin
 
 
 
@@ -85,7 +76,8 @@ app.use(meetingRouter);
 //student
 app.use("/student",studentRouter);
 app.use("/onlineStudent",onlineStudentRouter);
-
+app.use("/payment",paymentRouter);
+app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
@@ -102,12 +94,15 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 
 
+<<<<<<< HEAD
 
 
 
 
 // app.use("/student",studentRouter);
 
+=======
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 
 
 

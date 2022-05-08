@@ -167,11 +167,11 @@ router.route("/update/:id").put(async(req,res)=>{
                 //check with database username
                 const teacherLogin = await Teacher.findOne({email: email});
                 if(!teacherLogin){
-                     res.status(400).json({error: "Teacher does not exists"});
+                     return res.json({error: "Teacher does not exists"});
                 }else if (password == teacherLogin.password){
                         return res.json({
                          success:true,
-                         datat:teacherLogin
+                         datateacher:teacherLogin
                         });
                         
                      }else{ 

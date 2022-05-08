@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 // teacher
@@ -19,7 +22,10 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
 import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
@@ -27,7 +33,10 @@ import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
 import Homenn from "./components/TeacherManagement/Homenn";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 
 
 
@@ -40,6 +49,23 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
+<<<<<<< HEAD
+=======
+import StudentReportInput from "./components/StudentManagement/StudentReportInput";
+import StudentReport from "./components/StudentManagement/StudentReport";
+import StudentPayment from "./components/StudentManagement/StudentPayment";
+import SubjectEnrollmentStudents from "./components/StudentManagement/SubjectEnrollmentStudents";
+import UpdateEnrolledSubject from "./components/StudentManagement/UpdateEnrolledSubject";
+import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubjectDetails";
+import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
+import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
+import dashboard from "./dashboard";
+
+
+
+
+
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 
 
 
@@ -69,7 +95,13 @@ import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
 function App() {
   return (
     <BrowserRouter>
+<<<<<<< HEAD
    
+=======
+    <SideMenu/>
+    <Route path="/dashboard" exact component={dashboard}/>
+
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 {/* teacher counter */}
 <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />
@@ -90,12 +122,18 @@ function App() {
 <Route path="/studentDashboard" exact component={Home}></Route>
 <Route path="/save" exact component={StudentAdd}></Route>
 <Route path="/allStudents" exact component={AllStudent}></Route>
-<Route path="/update" exact component={StudentUpdate}></Route>
+<Route path="/updateStudents" exact component={StudentUpdate}></Route>
 <Route path="/update/:id" exact component={Edit}></Route>
 <Route path="/delete" exact component={StudentDelete}></Route>
 <Route path="/get/:id" exact component={ StudentDetails}></Route>
-
-
+<Route path="/studentReportInput" exact component={ StudentReportInput}></Route>
+<Route path="/studentReport/:sDate/:eDate"exact component={StudentReport}></Route>
+<Route path="/studentPayment" exact component={StudentPayment}></Route>
+<Route path="/enrolledStudent" exact component={ SubjectEnrollmentStudents}></Route>
+<Route path="/updatePayment/:id" exact component={ UpdateEnrolledSubject}></Route>
+<Route path="/getPayment/:id" exact component={EnrolledSubjectDetails}></Route>
+<Route path="/onlineAllStudent"  exact component={OnlineAllStudent}></Route>
+<Route path="/gets/:id" exact component={OnlineStudentProfile}></Route>
 
 
 

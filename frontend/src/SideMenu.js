@@ -74,6 +74,7 @@ export default class SideMenu extends React.Component{
     </div>
     <div className="profile">
         <i className="far fa-bell"></i>
+<<<<<<< HEAD
 
 
 
@@ -81,9 +82,14 @@ export default class SideMenu extends React.Component{
        
        
        
+=======
+        <a href={`/teacher/${this.state.userId}`}><img src={require('./images/ppnn.jpg')} alt=""></img></a><span>{this.state.username}</span>
+>>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
         <button onClick={()=>localStorage.clear()}>Logout</button>
     </div>
 </div>
+
+
 </section>
 </div>
 
