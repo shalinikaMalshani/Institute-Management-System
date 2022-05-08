@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+//import "../../css/AllNotices.css"
 
 //use effect is responible for when we navigate to AllNotices page, which data wants to be display from the AllNotices page
 
@@ -63,7 +64,7 @@ export default function AllNotices(props){
 
   function edit(id) {
     console.log(id);
-   props.history.push("/update/" + id);
+   props.history.push("/Admin/updateNotice/" + id);
    // navigate("/Notice/EditNotices/" +id);
     
   }
@@ -121,10 +122,17 @@ seterrormsg("");
         <div className="container">
                     <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{marginLeft:'20px', height:'50px', width:'200px'}}>
-                 <a href="/Notice/AddNotice" style={{textDecoration:'none', color:'white'}}>Add Notice</a>
+                 <a href="/Admin/AddNotice" style={{textDecoration:'none', color:'white'}}>Add Notice</a>
                 </button>
                     </div>
                     <br/>
+
+                    <div className="container">
+                    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{marginLeft:'20px', height:'50px', width:'200px'}}>
+                 <a href="/Admin/MyNotices" style={{textDecoration:'none', color:'white'}}>My notices</a>
+                </button>
+                    </div>
         <input
         class="form-control"
         type="text"
@@ -139,9 +147,14 @@ seterrormsg("");
             <br/>
             {notices.map((notices, index) => {
                 return(
+
+                  <div className="card-container">
+
+
       <div className="card">
       <h5 className="card-header">{index + 1}. {notices.notice_id}</h5>
       <div className="card-body" style={{ height :"350px"}}>
+      <h5 className="card-title">{notices.name}</h5>
         <h5 className="card-title">{notices.header}</h5>
         <p className="card-text">{notices.description}</p>
         <img
@@ -166,9 +179,9 @@ seterrormsg("");
 
 
        
-        
+        </div>
       </div>
-      
+      <br></br>
     </div>
     
      );

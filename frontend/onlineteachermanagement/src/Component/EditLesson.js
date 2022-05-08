@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./customSignUP.css";
+import swal from "sweetalert";
 
 
 
@@ -94,12 +95,26 @@ onChangeFile4=e=>{
     
         
     axios.put(`http://localhost:8091/updateLesson/${id}`,data).then((res)=>{
-          alert("Updated Lesson");
-          this.props.history.push("/OnlineAllLesson");
-          this.setState(initialState);
-          console.log(data);
+         
+        swal({
+            title: "You are successfully update your lesson materials",
+            icon: "success",
+            button: "ok",
+        }).then(function() {
+            window.location = "/allLessons";
+        });   
+          
+          
         }).catch(error=>{
-            alert("error");
+            swal({
+                title: "Error occoured when updating.",
+                text: "Please re-enter the details.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              }).then(function() {
+                window.location = `/lessonEdit/${id}`;
+            });
         })
     
     
@@ -141,6 +156,11 @@ render(){
     return(
         <React.Fragment>
 
+<img src={require('./images/inner_banner_1.jpg')} alt="" style={{width:"100%"}}></img>
+    <div style={{position:" absolute",top: "20%",left:" 10%"}}>
+      <h1 style={{fontSize:"60px"}}>Lesson Update</h1>
+      <p style={{color:"white",marginLeft:"5px"}}>Home // Lesson Update</p>
+    </div>
 
 
 <div>

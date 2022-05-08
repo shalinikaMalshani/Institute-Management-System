@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SideMenu from "../../SideMenu.js";
 
 
 const initialState={
@@ -35,6 +36,7 @@ export default class ReportInput extends Component{
    
     render(){
     return(
+        <div><SideMenu/>
         <div style={{marginLeft:"325px",width:"76%"}}><br></br>
               <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{height:'45px', width:'80px'}}>
@@ -66,6 +68,7 @@ name="eDate"
 
 
 </form>
+            </div>
             </div>
         )
     }

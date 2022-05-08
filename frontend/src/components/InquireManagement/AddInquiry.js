@@ -14,17 +14,65 @@ export default function AddInquiry(props){
   const [inqBody, setinqBody] = useState("");
   const [picture, setPicture] = useState("");
   const [imgData, setImgData] = useState("");
+  let flag1 = 0;
+
+
+  const checkbox = document.getElementById("exampleCheck1");
+
+  const EmailAdd = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  function validatereg() {
+
+  
+
+
+    if(email.length === 0){
+    flag1 = 0;
+    Swal.fire("email is required!"); 
+    }
+
+    else if (!email.match(EmailAdd)) {
+      flag1 = 0;
+      Swal.fire("You have entered an invalid email address!");
+    }  
+
+
+
+    else if(inqHeader.length === 0){
+      flag1 = 0;
+      Swal.fire("Header is required!"); 
+      }
+
+      else if(inqBody.length === 0){
+        flag1 = 0;
+        Swal.fire("Body is required!"); 
+        }
+
+    else if (!checkbox.checked) {
+      flag1 = 0;
+      Swal.fire("You Should Agree To Our Terms & Conditions!!");
+    }
+
+   
+
+  else {
+    flag1 = 1;
+  }
+
+  }
  
 
   const onChangePicture = (e) => {
     if (e.target.files[0]) {
+
       console.log("picture: ", e.target.files);
       setPicture(e.target.files[0]);
       const reader = new FileReader();
+
       reader.addEventListener("load", () => {
         setImgData(reader.result);
         document.getElementById("addedImage").hidden = false;
       });
+
       reader.readAsDataURL(e.target.files[0]);
     }
   };
@@ -45,13 +93,17 @@ export default function AddInquiry(props){
   function setDate(e){
     let flag = 0;
     e.preventDefault();
+    validatereg();
     images();
 
+    let namei = "";
+    namei = localStorage.getItem("name");
+    console.log(namei);
     //.....................................................................
     if (document.getElementById("exampleCheck1").checked == true) {
       const newInquiry = {
-        inquiry_id : "inq78641",
-        name : "Banuka",
+        inquiry_id : Date.now(),
+        name : namei,
         grade,
         subjects,
         email,
@@ -61,12 +113,13 @@ export default function AddInquiry(props){
          
        };
 
-
+  console.log(inquiry_id);
   console.log(newInquiry);
   
-    
+  if (flag1 == 1) {
 
-    axios.post("http://localhost:8091/inquiry/add", newInquiry).then(()=>{
+    axios.post("http://localhost:8091/inquiry/add", newInquiry).then((res)=>{
+      console.log(res.data);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -85,7 +138,7 @@ export default function AddInquiry(props){
 } else{
   Swal.fire("You must agree to terms and conditions!");
 }
-
+    }
 }
 
     return(
@@ -153,8 +206,9 @@ export default function AddInquiry(props){
                  onChange={(e) => {
                   setinqBody(e.target.value);
                  }}
-                 required
+                 
                ></textarea>
+
              </div>
 
              </div>
@@ -168,9 +222,10 @@ export default function AddInquiry(props){
               className="form-control-file"
               id="inq_image"
               onChange={onChangePicture}
-              required
+              
             />
           </div>
+
           <div className = "container">
 
           <div className="ImagePreview">
@@ -190,7 +245,10 @@ export default function AddInquiry(props){
               }}
               hidden
             />
+
           </div>
+
+
          <br/>
 
           <div className="mb-3 form-check">
@@ -209,7 +267,8 @@ export default function AddInquiry(props){
 
 <div className="container">
     <br/>
-  <button type="submit" className="btn btn-primary" /* onClick={()=>setDate()}*/>Submit</button>
+  <button type="submit" className="btn btn-primary" 
+  /* onClick={()=>setDate()}*/>Submit</button>
   </div>
 </div>
         

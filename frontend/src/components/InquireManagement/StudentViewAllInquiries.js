@@ -8,10 +8,16 @@ export default function StudentViewAllInquiries(props){
     const [inquiries, setInquiries] = useState([]); //[] - array, data get from the db to this arraya
     useEffect(()=>{
         function getInquiries() {
+          let namei = "";
+          namei = localStorage.getItem("name");
+          console.log(namei);
             axios
               .get("http://localhost:8091/inquiry/getinquries")
               .then((res) => {
-                setInquiries(res.data);
+                console.log("innnnn");
+                
+                setInquiries(res.data.filter((inquiry) => inquiry.name === namei));
+                console.log(res.data);
                // console.log(res.data);
               })
               .catch((err) => {
@@ -117,7 +123,13 @@ console.log(inqSearch);
           <h1>All Inquiries</h1>
           
           
-
+          <div className="container">
+                    <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="bottom" data-bs-content="Bottom popover" style={{marginLeft:'20px', height:'50px', width:'200px'}}>
+                 <a href="/Student/AddInquiry" style={{textDecoration:'none', color:'white'}}>Add Notice</a>
+                </button>
+                    </div>
+                    <br/>
 
           <input
         class="form-control"

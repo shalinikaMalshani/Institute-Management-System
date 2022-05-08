@@ -5,15 +5,44 @@ import Swal from "sweetalert2";
 
 
 export default function AddNotice(props){
-   
+  const [name, setname]  = useState("");
   const [notice_id, setnotice_id] = useState("");
   const [header, setheader] = useState("");
   
   const [description, setDescription] = useState("");
-  //............................................................................................
-
+  
   const [picture, setPicture] = useState("");
   const [imgData, setImgData] = useState("");
+  let flag1 = 0;
+
+  //........................................................
+  function validatereg() {
+
+    const checkbox = document.getElementById("exampleCheck1");
+    //const description = document.getElementById("description").value;
+    //exampleInputPassword1
+   // const header = document.getElementById("exampleInputPassword1").value;
+
+    if(header.length === 0){
+      flag1 = 0;
+      Swal.fire("Header is required!");
+    }
+   
+    else if(description.length === 0){
+      flag1 = 0;
+      Swal.fire("Body is required!");
+    }
+    else if (!checkbox.checked) {
+      flag1 = 0;
+      Swal.fire("You Should Agree To Our Terms & Conditions!!");
+    }
+  else {
+    flag1 = 1;
+  }
+
+  }
+  //.........................................................
+
   const onChangePicture = (e) => {
     if (e.target.files[0]) {
       console.log("picture: ", e.target.files);
@@ -40,14 +69,19 @@ export default function AddNotice(props){
   //............................................................................................
 
   function setDate(e){
-    let flag = 0;
+    console.log("hi");
+    //let flag = 0;
     e.preventDefault();
+    validatereg();
     images();
-
+    let namei = "";
+    namei = localStorage.getItem("name");
+    console.log(namei);
     //.....................................................................
     if (document.getElementById("exampleCheck1").checked == true) {
       const newNotice = {
-        notice_id : "nt2223872",
+        name :  namei,
+        notice_id : Date. now(),
       header,
       description,
       noticeImage : image3,
@@ -65,6 +99,7 @@ export default function AddNotice(props){
      // description
   //  }
    console.log(newNotice);
+   if (flag1 == 1) {
    //form goes to back end as the http request http request
    axios.post("http://localhost:8091/notice/add", newNotice)
     .then(() => {
@@ -86,10 +121,10 @@ export default function AddNotice(props){
       console.log(err);
     });
 } else{
-  Swal.fire("You must agree to terms and conditions!");
+ // Swal.fire("You must agree to terms and conditions!");
 }
 
-}
+}}
 
     return(
        
@@ -124,7 +159,7 @@ export default function AddNotice(props){
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
-              required
+              //required
             ></textarea>
           </div>
           </div>
@@ -139,7 +174,7 @@ export default function AddNotice(props){
               className="form-control-file"
               id="notice_image"
               onChange={onChangePicture}
-              required
+             // required
             />
           </div>
           <div className = "container">

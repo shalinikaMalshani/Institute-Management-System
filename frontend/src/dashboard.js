@@ -138,23 +138,23 @@ export default class dashboard extends React.Component{
 </thead>
 <tbody>
 {this.state.admins.map((admins,index)=>(
-    <tr>
+    <tr key={index}>
         <td className="people">
-        <img src=""></img>
+        <img src={admins.logo}></img>
     <div className="peopleDe">
-        <h5>John Doe</h5>
-        <p>john@gmail.com</p>
+        <h5>{admins.firstName} {admins.lastName}</h5>
+        <p>{admins.email}</p>
     </div>
     </td>
     <td className="peopleDes">
-        <h5>Software Engineer</h5>
-        <p>Web dev</p>
+        <h5>Admin</h5>
+        
     </td>
     <td className="active">
         <p>Active</p>
     </td>
     <td className="role">
-<p>Owner</p>
+<p>Admin</p>
 
         
     </td>

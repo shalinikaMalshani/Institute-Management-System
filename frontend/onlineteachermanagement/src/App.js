@@ -21,11 +21,13 @@ import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
 import EditLesson from "./Component/EditLesson";
 import EditMeeting from "./Component/EditMeeting";
-
+import EditTeacherProfile from "./Component/EditTeacherProfile";
+import LeaveTeacher from "./Component/LeaveTeacher";
 
 function App() {
   return (
     <BrowserRouter>
+   
    <Route path="/homeTeacher" exact component={HomeTeacher}/>
  <Route path="/teacherAlll" exact component={AllTeachers}/>
  <Route path="/teacherProfile/:id" exact component={TeacherProfile}/>
@@ -38,11 +40,9 @@ function App() {
  <Route path="/AllLessons" exact component={AllLessons}/>
  <Route path="/lessonEdit/:id" exact component={EditLesson}/>
  <Route path="/meetingEdit/:id" exact component={EditMeeting}/>
-
+ <Route path="/teacherEdit/:id" exact component={EditTeacherProfile}/>
+ <Route path="/leaveTeacher" exact component={LeaveTeacher}/>
  
-
-
-
 
 
 

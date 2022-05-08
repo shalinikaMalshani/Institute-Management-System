@@ -97,6 +97,15 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
+
+
+// app.use("/student",studentRouter);
+
+
+
+
+
+
 //Make access to admin
 const adminRouter = require("./routes/Admin/admin.js");
 app.use("/Admin", adminRouter);
@@ -113,6 +122,3 @@ app.use("/notice", NoticeRouter);
 app.listen(PORT,() => {//function(){}
     console.log(`Server is up and running on port number :${PORT}`);
     });
-
-
-

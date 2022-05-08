@@ -29,6 +29,7 @@ import Homenn from "./components/TeacherManagement/Homenn";
 
 
 
+
 //students
 import Home from "./components/StudentManagement/Home";
 import StudentAdd from "./components/StudentManagement/StudentAdd";
@@ -56,11 +57,41 @@ import dashboard from "./dashboard";
 
 
 
+
+// admin notice inquiry
+import AdminLogin from "./components/AdminManagement/AdminLogin";
+import AdminRegister from "./components/AdminManagement/AdminRegister";
+import AddNotice from "./components/NoticeManagement/AddNotice";
+import AllNotices from "./components/NoticeManagement/AllNotices";
+import EditNotices from "./components/NoticeManagement/EditNotices";
+import UpdateNoticess from "./components/NoticeManagement/updateNoticess";
+import AddInquiry from "./components/InquireManagement/AddInquiry";
+import AllInquiries from "./components/InquireManagement/AllInquiries";
+import StudentViewAllInquiries from "./components/InquireManagement/StudentViewAllInquiries";
+import StudentViewAllNotices from "./components/NoticeManagement/StudentViewAllNotices";
+import TeacherViewAllNotices from "./components/NoticeManagement/TeacherViewAllNotices";
+import StudentUpdateInqiury from "./components/InquireManagement/StudentUpdateInqiury";
+import AdminProfile from "./components/AdminManagement/AdminProfile";
+import UpdateAdmin from "./components/AdminManagement/UpdateAdmin";
+import MyAdminNotices from "./components/NoticeManagement/MyAdminNotices";
+// import InquiryReport from "./components/InquireManagement/InquiryReport";
+import TeacherAddNotices from "./components/NoticeManagement/TeacherAddNotices";
+import TeacherUpdareNotices from "./components/NoticeManagement/TeacherUpdareNotices";
+import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
+
 function App() {
   return (
     <BrowserRouter>
+
     {/* <SideMenu/> */}
+
+
+   
+
+
+
     <Route path="/dashboard" exact component={dashboard}/>
+
 
 {/* teacher counter */}
 <Route path="/teacherAll" exact component={AllTeachers}/>
@@ -120,21 +151,27 @@ function App() {
 
 
 
-{/* notice counter */}
+{/* notice counter & inq & admin */}
 
-
-
-
-{/* inquire counter */}
-
-
-
-
-
-{/* admin */}
-
-
-
+<Route  path="/" exact component={AdminLogin} />
+  <Route  path="/Register" exact component={AdminRegister}/>
+  <Route  path="/Admin/AddNotice" exact component={AddNotice}/>
+  <Route  path="/Admin/AllNotices" exact component={AllNotices}/>
+  <Route  path="/Admin/EditNotice/:id" exact component={EditNotices}/>
+  <Route  path="/Admin/updateNotice/:id" exact component={UpdateNoticess}/>
+  <Route  path="/Student/AddInquiry" exact component={AddInquiry}/>
+  <Route  path="/Admin/AllInquiries" exact component={AllInquiries}/>
+  <Route  path="/Student/AllInquiries" exact component={StudentViewAllInquiries}/>
+  <Route  path="/Student/AllNotices" exact component={StudentViewAllNotices}/>
+  <Route  path="/Teach/AllNotices" exact component={TeacherViewAllNotices}/>
+  <Route  path="/Student/EditInquiry/:id" exact component={StudentUpdateInqiury}/>
+  <Route  path="/Admin/profile" exact component={AdminProfile}/>
+  <Route  path="/Admin/updateProfile/:id" exact component={UpdateAdmin}/>
+  <Route  path="/Admin/MyNotices" exact component={MyAdminNotices}/>
+  {/* <Route  path="/Adminnnnn/InquiryReport" exact component={InquiryReport}/> */}
+  <Route  path="/Teacher/Notices/add" exact component={TeacherAddNotices}/>
+  <Route  path="/Teacher/Notices/update/:id" exact component={TeacherUpdareNotices}/>
+  <Route  path="/Teacher/Notices/Mynotices" exact component={TeacherMyNotices}/>
 
 
 {/* teacher online */}

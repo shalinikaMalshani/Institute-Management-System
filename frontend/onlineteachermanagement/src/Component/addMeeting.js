@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./customSignUP.css";
+import swal from "sweetalert";
 
 
 const initialState={
@@ -108,14 +109,26 @@ return true;
         
     
         axios.post("http://localhost:8091/addMeeting",data).then((res)=>{
-          alert("Teacher Meeting added successfully!");
-          console.log("data",data);
-          this.setState(initialState);
-            this.props.history.push("/");
-        }).catch(error=>{
-            alert("Error occoured.Please check and resubmit the details.");
-            console.log(error.message);
-        })
+            swal({
+                title: "You are successfully add meeting schedule",
+                icon: "success",
+                button: "ok",
+            }).then(function() {
+                window.location = "/allMeetings";
+            });   
+              
+              
+            }).catch(error=>{
+                swal({
+                    title: "Error occoured when updating.",
+                    text: "Please re-enter the details.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  }).then(function() {
+                    window.location = "/addMeeting";
+                });
+            })
     
     }
 }
@@ -168,30 +181,33 @@ render(){
     <div class="edu_nav">
         <div class="container">
             <nav class="navbar navbar-expand-md navbar-light bg-faded">
-                <a class="navbar-brand" href="index-2.html"><img src="images/logo.png" alt="logo"/></a>
+                <a class="navbar-brand" href="index-2.html"><img src="asset/images/logo.png" alt="logo"/></a>
                 <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav nav lavalamp ml-auto menu">
-                        <li class="nav-item"><a href="#" class="nav-link">Home</a>
-                            
+                        <li class="nav-item"><a href="#" class="nav-link active">Home</a>
+                          
                         </li>
-                       
+                  
                         <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
                             <ul class="navbar-nav nav mx-auto">
-                                <li class="nav-item"><a href="course.html" class="nav-link">Chemistry</a></li>
-                                <li class="nav-item"><a href="course-details.html" class="nav-link">Physics</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Chemistry</a></li>
+                                <li class="nav-item"><a href="/addLesson" class="nav-link">Physics</a></li>
                             </ul> 
                         </li>
                         <li class="nav-item"><a href="blog.html" class="nav-link">Notices</a>
                             
-                            </li>
-                            <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
-                                
-                                </li>
-                                <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
+                        </li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Inquires</a>
                             
-                            </li>  
-                        
-                        
+                            </li>
+                            <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
+                            
+                            </li>
+
+                            {/* <li class="nav-item"><a href="blog.html" class="nav-link">Add Leave</a>
+                            
+                            </li> */}
+                      
                     </ul>
                 </div>
                 <div class="mr-auto search_area ">

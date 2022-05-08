@@ -9,22 +9,86 @@ export default function AdminRegister(props){
     let [lastName, setLastName] = useState("");
     let [username, setUsername] = useState("");
     let [password, setPassword] = useState("");
+    let [email, setemail] = useState("");
+    let logo = "";
+    let logo2 = "";
+    let logo3 = "";
     let [errorMsg, setErrorMsg] = useState("");
+    let flag1 = 0;
+
+    const checkbox = document.getElementById("policy");
+
+    const EmailAdd = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    function validatereg() {
+
+      if(firstName.length === 0){
+        flag1 = 0;
+        Swal.fire("first name is required!");
+      }
+     
+      else if(lastName.length === 0){
+        flag1 = 0;
+        Swal.fire("last name is required!");
+      }
+
+      else if(username.length === 0){
+        flag1 = 0;
+        Swal.fire("username is required!");
+      }
+
+      else if(password.length === 0){
+        flag1 = 0;
+        Swal.fire("password is required!");
+      }
+
+      else if (password.length < 5) {
+        flag1 = 0;
+        Swal.fire("Password should comtains more that 5 characters!!");
+      }
+
+      else if(email.length === 0){
+      flag1 = 0;
+      Swal.fire("email is required!"); 
+      }
+
+      else if (!email.match(EmailAdd)) {
+        flag1 = 0;
+        Swal.fire("You have entered an invalid email address!");
+      }  
+
+      else if (!checkbox.checked) {
+        flag1 = 0;
+        Swal.fire("You Should Agree To Our Terms & Conditions!!");
+      }
+    else {
+      flag1 = 1;
+    }
   
+    }
+
     function sendData(e) {
       // alert("d0");
       e.preventDefault();
+       validatereg();
+
+      logo2 = document.getElementById("logo").value;
+    logo3 = logo2.substring(12);
   
       const newAdmin = {
         firstName,
         lastName,
         username,
-        password
+        password,
+        email,
+        logo: logo3,
       };
   
      
       console.log(newAdmin);
      // console.log("hello");
+
+     if (flag1 == 1) {
+
       axios
         .post("http://localhost:8091/Admin/addAdmin", newAdmin)
         .then(() => {
@@ -37,7 +101,7 @@ export default function AdminRegister(props){
           )
       setErrorMsg("");
           
-         props.history.push("/Home");
+         props.history.push("/");
         
          
           // alert( "Student Added Successfully!");
@@ -46,12 +110,12 @@ export default function AdminRegister(props){
             console.log("helloworld");
             Swal.fire(
                 'unsuccess!',
-                'Request Sent unsuccess!',
+                'User name Should be uniqe!',
                 'unsuccess'
               )
         });
     }
-
+  }
 
 
     return(
@@ -82,6 +146,67 @@ export default function AdminRegister(props){
                 setPassword(e.target.value);
               }}/>
         </div>
+        <div className="card-container">
+                      <label style={{ textAlign: "left" }}>Email</label>
+                      <br />
+                      </div>
+        <div class="col">
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="Email Address"
+                 
+                    onChange={(e) => {
+                      setemail(e.target.value);
+                    }}
+                  />
+       </div>
+       <div className="card-container">
+                      <label style={{ textAlign: "left" }}>Profile picture</label>
+                      <br />
+                      </div>
+       <div class="col">
+                  <div className="card container-size">
+                    <br />
+                    <div className="card-container">
+                      <label style={{ textAlign: "left" }}>Profile picture</label>
+                      <br />
+                     
+                        <input
+                          type="file"
+                          name="logo"
+                          id="logo"
+                          class="form-control-file"
+                          placeholder="Allowed types: png/jpg/jpeg"
+                          accept="image/*"
+                         
+                        />
+                     
+                    </div>
+                    <br />
+                    <h6 style={{ textAlign: "right" }}>
+                      Allowed types : png/jpg/jpeg
+                    </h6>
+                  </div>
+                </div>
+                <div class="form-check">
+                <br />
+                <br />
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="policy"
+                  name="policy"
+                  value="true"
+                />
+
+                <label class="form-check-label" for="defaultCheck1">
+                  <b> I agree to the Terms of service </b>
+                </label>
+              </div>
+
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
         </div>

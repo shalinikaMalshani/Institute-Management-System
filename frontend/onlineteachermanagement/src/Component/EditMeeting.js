@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./customSignUP.css";
+import swal from "sweetalert";
 
 
 
@@ -54,14 +55,26 @@ export default class EditLesson extends React.Component{
         
         }
         axios.put(`http://localhost:8091/updateMeeting/${id}`,data).then((res)=>{
-            alert("Updated Lesson");
-            this.props.history.push("/OnlineAllMeeting");
-            this.setState(initialState);
-            console.log(data);
-          }).catch(error=>{
-              alert("error");
-          })
-     
+            swal({
+                title: "You are successfully update the meeting schedule",
+                icon: "success",
+                button: "ok",
+            }).then(function() {
+                window.location = "/allMeetings";
+            });   
+              
+              
+            }).catch(error=>{
+                swal({
+                    title: "Error occoured when updating.",
+                    text: "Please re-enter the details.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  }).then(function() {
+                    window.location = `/meetingEdit/${id}`;
+                });
+            })
            
         }
     
@@ -111,6 +124,12 @@ render(){
    
     return(
         <React.Fragment>
+<img src={require('./images/inner_banner_1.jpg')} alt="" style={{width:"100%"}}></img>
+    <div style={{position:" absolute",top: "20%",left:" 10%"}}>
+      <h1 style={{fontSize:"60px"}}>Update Meeting</h1>
+      <p style={{color:"white",marginLeft:"5px"}}>Home // Update Meeting</p>
+    </div>
+
 
 
 

@@ -17,12 +17,32 @@ export default function UpdateNoticess(props) {
  // let objectID = "";
   let image2 = "";
   let image3 = "";
+  let flag1 = 0;
+  function validatereg() {
+
+    // const checkbox = document.getElementById("exampleCheck1");
+   
+     if(document.getElementById("email").value.length === 0){
+       flag1 = 0;
+       Swal.fire("Header is required!");
+     }
+    
+     else if(document.getElementById('descriptionn').value.length === 0){
+       flag1 = 0;
+       Swal.fire("Body is required!");
+     }
+    
+   else {
+     flag1 = 1;
+   }
+ 
+   }
 
   useEffect(() => {
  
     function getNotices() {
    
-      console.log("hello");
+      console.log("hello00000000000000000000000000000000000000000000000");
      
      console.log(id); 
     
@@ -63,11 +83,13 @@ export default function UpdateNoticess(props) {
  
 
   function updateNotice() {
+    validatereg()
    // console.log("hello ddddddworld");
     noticeI();
    Imagecheck();
 
     const updatenotice = {
+      name: notices.name,
       notice_id: notices.notice_id,
       header,
      description,
@@ -77,6 +99,7 @@ export default function UpdateNoticess(props) {
     console.log("hello ddddddworld vbggds ghg "); 
 
     console.log(updatenotice);
+    if (flag1 == 1) {
    // let objectID = props.match.params.id;
     axios
       .put("http://localhost:8091/notice/update/" + id, updatenotice)
@@ -95,7 +118,7 @@ export default function UpdateNoticess(props) {
         alert(err);
       });
     
-  }
+  }}
 return(
   <div style={{marginLeft:"325px",width:"76%"}}>
     <div className="container">
@@ -125,9 +148,9 @@ return(
            
           rows="5"
           class="form-control"
-          id="description"
+          id="descriptionn"
          
-          required
+         // required
           value={description}
           onChange={(e) => {
             setDescription(e.target.value);
