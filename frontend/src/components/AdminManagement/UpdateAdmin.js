@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
 
 export default function UpdateAdmin(props) {
@@ -102,9 +103,12 @@ setData(newdata);
 
   
     return(
+      <div>
+      <SideMenu/>
         <div style={{marginLeft:"325px",width:"60%"}} className = "myDiv">
+          
           <center>
-             <form onSubmit={sendData} style={{marginLeft:"160px"}}>
+             <form onSubmit={sendData} style={{marginLeft:"160px", marginTop:"100px"}}>
              <div class="d-flex flex-column align-items-center text-center">
                         <br></br>
                         <img
@@ -223,7 +227,7 @@ setData(newdata);
                           
                             </center>
         </div>
-        
+        </div>
 
     )
 }

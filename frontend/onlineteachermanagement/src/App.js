@@ -21,6 +21,15 @@ import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
 
 
+import TeacherAllInquiries from "./Component/TeacherAllInquiries";
+import TeacherViewAllNotices from "./Component/TeacherViewAllNotices";
+import TeacherMyNotices from "./Component/TeacherMyNotices";
+import TeacherAddNotices from "./Component/TeacherAddNotice";
+import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
+import AddAllInquiry from "./Component/AddAllInquiry";
+import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
+import AllInquiries from "./Component/StudentAllInquiry";
+
 function App() {
   return (
     <BrowserRouter>
@@ -57,6 +66,17 @@ function App() {
  <Route path="/gets/:id" exact component={StudentProfile}/>
  <Route path="/enrolledSubject" exact component={EnrolledSubject}/>
 
+
+
+
+<Route path="/AllInquiries" exact component={TeacherAllInquiries}/>
+<Route path="/AllNotices" exact component={TeacherViewAllNotices}/>
+<Route path="/MyNotices" exact component={TeacherMyNotices}/>
+<Route path="/AddNotices" exact component={TeacherAddNotices}/>
+<Route path="/updateNotices/:id" exact component={TeacherUpdareNotices}/>
+<Route path="/AddInquiry" exact component={AddAllInquiry}/>
+<Route path="/UpdateInquiry/:id" exact component={StudentUpdateInqiury}/>
+<Route path="/StudentAllInquiries" exact component={AllInquiries}/>
 
     </BrowserRouter>
     
