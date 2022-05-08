@@ -99,10 +99,16 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
+
 // app.use("/student",studentRouter);
 
+<<<<<<< HEAD
 
 
+=======
+=======
+>>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
+>>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
 
 
 

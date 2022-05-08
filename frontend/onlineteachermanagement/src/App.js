@@ -19,10 +19,30 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
+<<<<<<< HEAD
 import EditLesson from "./Component/EditLesson";
 import EditMeeting from "./Component/EditMeeting";
 import EditTeacherProfile from "./Component/EditTeacherProfile";
 import LeaveTeacher from "./Component/LeaveTeacher";
+=======
+import mySubject from "./Component/mySubject";
+import OnlineStudentProfileUpdate from "./Component/OnlineStudentProfileUpdate";
+import updateMySubjects from "./Component/updateMySubjects";
+import Module1 from "./Component/Module1";
+import Module2 from "./Component/Module2";
+import Module4 from "./Component/Module4";
+import Module3 from "./Component/Module3";
+import FileSubmitPage from "./Component/FileSubmitPage";
+
+import TeacherAllInquiries from "./Component/TeacherAllInquiries";
+import TeacherViewAllNotices from "./Component/TeacherViewAllNotices";
+import TeacherMyNotices from "./Component/TeacherMyNotices";
+import TeacherAddNotices from "./Component/TeacherAddNotice";
+import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
+import AddAllInquiry from "./Component/AddAllInquiry";
+import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
+import AllInquiries from "./Component/StudentAllInquiry";
+>>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
 
 function App() {
   return (
@@ -61,7 +81,26 @@ function App() {
  <Route path="/studentLogin" exact component={StudentLogin}/>
  <Route path="/gets/:id" exact component={StudentProfile}/>
  <Route path="/enrolledSubject" exact component={EnrolledSubject}/>
+ <Route path="/mySubject" exact component={mySubject}/>
+ <Route path="/onlineUpdate/:id" exact component={OnlineStudentProfileUpdate}/>
+ <Route path="/updateOnlinePayment/:id" exact component={updateMySubjects}></Route>
+ <Route path="/module1" exact component={Module1}/>
+ <Route path="/module2" exact component={Module2}/>
+ <Route path="/module3" exact component={Module3}/>
+ <Route path="/module4" exact component={Module4}/>
+ <Route path="/fileSubmit" exact component={FileSubmitPage}/>
 
+
+
+
+<Route path="/AllInquiries" exact component={TeacherAllInquiries}/>
+<Route path="/AllNotices" exact component={TeacherViewAllNotices}/>
+<Route path="/MyNotices" exact component={TeacherMyNotices}/>
+<Route path="/AddNotices" exact component={TeacherAddNotices}/>
+<Route path="/updateNotices/:id" exact component={TeacherUpdareNotices}/>
+<Route path="/AddInquiry" exact component={AddAllInquiry}/>
+<Route path="/UpdateInquiry/:id" exact component={StudentUpdateInqiury}/>
+<Route path="/StudentAllInquiries" exact component={AllInquiries}/>
 
     </BrowserRouter>
     

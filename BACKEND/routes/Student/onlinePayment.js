@@ -105,7 +105,7 @@ router.route("/updateOnlinePayment/:id").put(async(req,res) => {
         paymentSlip,
     }
 
-    const update = await payment.findByIdAndUpdate(userId,updateOnlinePayment)
+    const update = await onlinePayment.findByIdAndUpdate(userId,updateOnlinePayment)
     .then( () => {
         res.status(200).send({
         success:"Update Successfully"})

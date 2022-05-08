@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
 
 const initialState={
@@ -94,12 +95,29 @@ return true;
           localStorage.setItem("userId",res.data. datastudent._id);
           localStorage.setItem("userProfile",res.data. datastudent.profileImage);
           this.setState(initialState);
-            this.props.history.push("/homeStudent");
+            // this.props.history.push("/homeStudent");
         
-        }).catch(error=>{
-            alert("Error occoured.Please check and resubmit the details.");
-        })
-    
+            swal({
+                title: "You are successfully login",
+                icon: "success",
+                button: "ok",
+            }).then(function() {
+                window.location = "/homeStudent";
+            });
+        
+               
+            
+            }).catch(error=>{
+                swal({
+                    title: "Invalid Login",
+                    text: "Please re-enter your details.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                  }).then(function() {
+                    window.location = "/studentLogin";
+                });
+            })
     }
 }
 
@@ -282,8 +300,8 @@ reset() {
             
                 <div class="clearfix">
                   
-                  <button className="cancelbtn" onChange={this.reset} >Reset</button>
-              <button type="submit" className="signupbtn" onClick={this.onSubmit} >SignIn</button>
+                  <button className="cancelbtn" onChange={this.reset} style={{width:"40%"}}>Reset</button> &nbsp;&nbsp; 
+                  &nbsp;&nbsp;<button type="submit" className="signupbtn" onClick={this.onSubmit} style={{width:"40%", marginLeft:"50px"}}>SignIn</button>
             
                 </div>
               </div>

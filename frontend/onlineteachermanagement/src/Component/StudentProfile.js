@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import axios from "axios"; 
 // import ReactToPrint from "react-to-print";
 // import "./print.css";
-// import Swal from "sweetalert";
+import swal from "sweetalert";
 
 
 export default class StudentProfile extends Component{
@@ -81,9 +81,9 @@ export default class StudentProfile extends Component{
         WinPrint.close();
     }
 
-      //Delete Function
+    //   //Delete Function
     //   onDelete = (id) =>{
-    //     Swal.fire({
+    //     swal.fire({
     //         title: 'Are you sure?',
     //         text: "You won't be able to revert this!",
     //         icon: 'warning',
@@ -93,7 +93,7 @@ export default class StudentProfile extends Component{
     //         confirmButtonText: 'Yes, delete it!'
     //       }).then((result) => {
     //         if (result.isConfirmed) {
-    //           Swal.fire(
+    //           swal.fire(
     //             'Deleted!',
     //             'Your file has been deleted.',
     //             'success'
@@ -118,7 +118,15 @@ export default class StudentProfile extends Component{
        //Delete Function
        onDelete = (id) =>{
         axios.delete(`http://localhost:8091/onlineStudent/onlineDelete/${id}`).then((res) =>{
-            alert("Delete Successfully");
+            swal({
+                title: "You are successfully deleted your account",
+                icon: "warning",
+                button: "ok",
+            }).then(function() {
+                window.location = "/homeNewStudent";
+            });
+        
+            // alert("Delete Successfully");
             this. retriveStudentList();
         })
         }
@@ -130,19 +138,20 @@ export default class StudentProfile extends Component{
 
         return(
             <div>
-                <span class="border border-dark">
-            <div className="container"  id= 'print'  style={{padding:"40px",marginLeft:"250px",marginTop:"0px", marginBottom:"50px",marginRight:"300px",width:"50%", backgroundColor:"white", height:"900px"}}>
+              
+            <div className="container"  id= 'print'  style={{padding:"40px",marginLeft:"300px",marginTop:"40px", marginBottom:"50px",marginRight:"300px",width:"55%", backgroundColor:"white", height:"900px", outlineStyle:"inset",}}>
               {/* <div className="logo">
                 <img src={require('../images/logon.jpeg')} width="60px" height="60px"/>&nbsp;&nbsp; <b style={{fontSize:"25px", marginInlineStart:"20px"}}>Amzo Learning </b>
               </div> */}
                 <br/>
-                
-                <h3 style={{paddingLeft:"42%"}}><i>Profile</i></h3>
+             
+                <h3 style={{paddingLeft:"40%"}}><b>Profile</b></h3>
                 <hr/>
-
+                <div className="card-box" style={{background:"rgb(244 244 244)", width:"600px", margin:"10px" }}>
+        
                 <dl  className="row col-sm-12" style={{paddingLeft:"20%"}}>
                     <dt className="col-sm-6"></dt>
-                    <dd style={{marginLeft:"50px"}}className="col-md-6"><img style={{width:"200px", height:"200px", borderRadius:"50%", alignItems: "center"}}src={profileImage}></img></dd><br></br>
+                    <dd style={{marginLeft:"80px", paddingTop:"30px", width:"1500px"}}className="col-md-6"><img style={{width:"200px", height:"200px", borderRadius:"50%", alignItems: "center"}}src={profileImage}></img></dd><br></br>
                     <dt className="col-sm-6">Name</dt>
                     <dd className="col-md-6">{stuName}</dd>
                     <dt className="col-md-6">Address</dt>
@@ -174,33 +183,32 @@ export default class StudentProfile extends Component{
                     <dt className="col-md-6"><small style={{marginLeft:"50px"}}>Date</small></dt>  */}
 
                     <dt>
-                    <button className="btn btn-danger" style={{marginLeft:"-100px",marginTop:"", height:"40px",width:"150px"}} onClick={() => this.onDelete(this.props.match.params.id)}>
+                    <button className="btn btn-danger" style={{marginLeft:"-90px",marginTop:"", height:"40px",width:"150px"}} onClick={() => this.onDelete(this.props.match.params.id)}>
                     <i class="fas fa-trash-alt"></i>&nbsp; &nbsp;Delete</button>
                     </dt>
 
                     <dt>
                     {/* <button className="btn btn-success" style={{marginLeft:"100px", marginTop:"-70px", height:"40px",width:"150px"}} onClick={this.print}>
                     <i class="fa-solid fa-print"></i>&nbsp; &nbsp;Update</button> */}
-                   <a className="btn btn-warning"   style={{marginLeft:"50px", marginTop:"10px", height:"40px",width:"150px"}}  href={`/onlineUpdate/${this.props.match.params.id}`}>
+                   <a className="btn btn-warning"    href={`/onlineUpdate/${this.props.match.params.id}`}>
+                   {/* <a className="btn btn-warning"  href="/homeNewStudent"> */}
                          <i className="fas fa-edit"></i>&nbsp; &nbsp;Edit
                        </a> 
                     </dt>
 
                     <dt>
                    
-                    <button className="btn btn-danger" style={{marginLeft:"300px", marginTop:"-70px", height:"40px",width:"150px"}} onClick={this.print}>
+                    <button className="btn btn-danger" style={{marginLeft:"290px", marginTop:"-125px", height:"40px",width:"150px"}} onClick={this.print}>
                     <i class="fa-solid fa-print"></i>&nbsp; &nbsp;Print</button>
 
                 
                     </dt>
                     
-
-
-
                 </dl>
-               
+            
+            
 
-                  
+                  </div>
 
                
                 
@@ -210,7 +218,7 @@ export default class StudentProfile extends Component{
                     <i class="fa-solid fa-print"></i>&nbsp; &nbsp;Print</button> */}
 
                 </div>
-                </span>
+               
             </div>
         )
         
