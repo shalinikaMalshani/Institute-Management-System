@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
 
+
 export default function UpdateAdmin(props) {
 
   let image2 = "";

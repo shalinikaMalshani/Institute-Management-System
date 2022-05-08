@@ -20,7 +20,7 @@ export default class Home extends Component{
 
                 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="right" data-bs-content="Right popover" style={{marginLeft:'30px',  height:'75px', width:'230px'}}>
-                 <a href="/update" style={{textDecoration:'none', color:'white'}}>UPDATE STUDENTS</a>
+                 <a href="/updateStudents" style={{textDecoration:'none', color:'white'}}>UPDATE STUDENTS</a>
                 </button>&nbsp;
 
                 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
@@ -43,6 +43,12 @@ export default class Home extends Component{
                 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="left" data-bs-content="Left popover" style={{marginLeft:'30px', height:'75px', width:'230px'}}>
                  <a href="/studentReportInput" style={{textDecoration:'none', color:'white',aHoover:'red'}}>REPORT</a>
+                </button>&nbsp;
+
+                <br/><br/><br/>
+                <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
+                data-bs-placement="left" data-bs-content="Left popover" style={{marginLeft:'30px', height:'75px', width:'230px'}}>
+                 <a href="/onlineDashboardd" style={{textDecoration:'none', color:'white',aHoover:'red'}}>Online Students</a>
                 </button>&nbsp;
 
              </div>   

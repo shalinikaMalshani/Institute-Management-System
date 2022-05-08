@@ -23,8 +23,16 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
+<<<<<<< HEAD
 
 
+
+
+
+=======
+
+
+>>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 //import route
 //teacher
 const teacherRouter=require("./routes/Teacher/teachers");
@@ -46,7 +54,28 @@ const onlinePaymentRouter = require("./routes/Student/onlinePayment.js");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //class
+const classRouter=require("./routes/Class/class");
+const feeRouter=require("./routes/Class/fee");
 
 
 
@@ -82,7 +111,30 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //class
+app.use(classRouter);
+app.use(feeRouter);
 
 
 
@@ -97,10 +149,20 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
+
+
+=======
+>>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
 
 
 // app.use("/student",studentRouter);
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 
 //Make access to admin
 const adminRouter = require("./routes/Admin/admin.js");

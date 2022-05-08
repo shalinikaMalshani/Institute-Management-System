@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import "./adminSignIn.css";
 //import { useNavigate } from 'react-router-dom';
 
 //import "../../css/login.css";
@@ -71,46 +72,84 @@ console.log("hello");
 
 
     return(
-      <div class="container">
-      <div class="row">
-          <div class="col-md-4 offset-md-4">
-              <div class="login-form bg-light mt-4 p-4">
-                  <form action="" method="" class="row g-3" onSubmit={loginUser}>
-                      <h4>Welcome Back</h4>
-                      <h6 id="AdminLoginError" style={{color:"red"}}>{errorMsg}</h6>
-                      <div class="col-12">
-                          <label>Username</label>
-                          <input type="text" name="username" class="form-control" placeholder="Username"  onChange={(e) => {
+     <div className="container-fluid">
+       <div className="row">
+         <div className="col-6" >
+         <img src={require('../../images/b1.jpg')} style={{width:"100%",height:"147%"}}
+                     alt=""/>
+         </div>
+         <div className="col-6">
+       
+
+           
+         <div>
+            
+            <form onSubmit={loginUser} >
+              <div class="container">
+              
+                <h1>Sign In</h1>
+                <p>Please fill in this form to SignIn</p>
+                <hr/>
+            
+                
+                <label>Username</label>
+                          <input type="text" name="username" className="username" placeholder="Username"  onChange={(e) => {
                           setusername(e.target.value);
                         }}  required/>
-                      </div>
-                      <div class="col-12">
-                          <label>Password</label>
+            
+            
+           
+            
+            
+            <label>Password</label>
                           <i></i>
                     <i          
                        onClick={togglePassword}
                     ></i>
-                          <input type="password" name="password" class="form-control" placeholder="Password"  onChange={(e) => {
+                          <input type="password" name="password" className="password" placeholder="Password"  onChange={(e) => {
                           setpassword(e.target.value);
                         }}/>
-                      </div>
-                      <div class="col-12">
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" id="rememberMe"/>
-                              <label class="form-check-label" for="rememberMe"> Remember me</label>
-                          </div>
-                      </div>
-                      <div class="col-12">
-                          <button type="submit" class="btn btn-dark float-end">Login</button>
-                      </div>
-                  </form>
-                  <hr class="mt-4"/>
-                  <div class="col-12">
-                      <p class="text-center mb-0">Have not account yet? <a href="/Register">Signup</a></p>
-                  </div>
+                  
+            
+            
+            
+            
+            
+            
+                
+                <label>
+                  <input type="checkbox" checked="checked" name="remember" style={{"marginBottom":"15px"}}/> Remember me
+                </label>
+                
+                <p>Do not have an account <a href="/Register" style={{"color":"dodgerblue"}}>Create account</a>.</p>
+            
+                <div class="clearfix">
+                  
+                  {/* <button className="cancelbtn" onChange="" >Reset</button> */}
+          <button type="submit" className="signIn" style={{marginLeft:"26%"}} ><a href="/dashboard" style={{textDecoration:"none"}}>SignIn</a></button>
+            
+                </div>
               </div>
-          </div>
-      </div>
-  </div>
+            </form>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+    
+        </div>
+        </div>
+        </div>
+    
   );
 }

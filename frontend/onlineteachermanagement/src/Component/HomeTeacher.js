@@ -135,6 +135,8 @@ export default class HomeTeacher extends React.Component{
                             <li class="nav-item"><a href="/addMeeting" class="nav-link">Schedule Meetings</a>
                             
                             </li>
+
+                            
                       
                     </ul>
                 </div>

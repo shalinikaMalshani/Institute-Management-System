@@ -19,6 +19,12 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
+
+import EditLesson from "./Component/EditLesson";
+import EditMeeting from "./Component/EditMeeting";
+import EditTeacherProfile from "./Component/EditTeacherProfile";
+import LeaveTeacher from "./Component/LeaveTeacher";
+
 import mySubject from "./Component/mySubject";
 import OnlineStudentProfileUpdate from "./Component/OnlineStudentProfileUpdate";
 import updateMySubjects from "./Component/updateMySubjects";
@@ -27,6 +33,7 @@ import Module2 from "./Component/Module2";
 import Module4 from "./Component/Module4";
 import Module3 from "./Component/Module3";
 import FileSubmitPage from "./Component/FileSubmitPage";
+import ClassDetailsNw from "./Component/ClassDetailsNw";
 
 import TeacherAllInquiries from "./Component/TeacherAllInquiries";
 import TeacherViewAllNotices from "./Component/TeacherViewAllNotices";
@@ -38,9 +45,11 @@ import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
 import StudentAllInquiry from "./Component/StudentAllInquiry";
 import StudentViewAllNotices from "./Component/StudentViewAllNotices";
 
+
 function App() {
   return (
     <BrowserRouter>
+   
    <Route path="/homeTeacher" exact component={HomeTeacher}/>
  <Route path="/teacherAlll" exact component={AllTeachers}/>
  <Route path="/teacherProfile/:id" exact component={TeacherProfile}/>
@@ -51,10 +60,11 @@ function App() {
  <Route path="/addMeeting" exact component={addMeeting}/>
  <Route path="/AllMeetings" exact component={AllMeetings}/>
  <Route path="/AllLessons" exact component={AllLessons}/>
-
-
-
-
+ <Route path="/lessonEdit/:id" exact component={EditLesson}/>
+ <Route path="/meetingEdit/:id" exact component={EditMeeting}/>
+ <Route path="/teacherEdit/:id" exact component={EditTeacherProfile}/>
+ <Route path="/leaveTeacher" exact component={LeaveTeacher}/>
+ 
 
 
 
@@ -81,6 +91,7 @@ function App() {
  <Route path="/module3" exact component={Module3}/>
  <Route path="/module4" exact component={Module4}/>
  <Route path="/fileSubmit" exact component={FileSubmitPage}/>
+ <Route path="/classDetailsNw" exact component={ClassDetailsNw}/>
 
 
 

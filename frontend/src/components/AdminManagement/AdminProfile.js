@@ -4,6 +4,7 @@ import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
 //import Swal from 'sweetalert2';
 
+
 export default function AdminProfile(props){
 
     const [admin, setAdmin] = useState([]);
