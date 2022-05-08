@@ -33,6 +33,7 @@ import Module2 from "./Component/Module2";
 import Module4 from "./Component/Module4";
 import Module3 from "./Component/Module3";
 import FileSubmitPage from "./Component/FileSubmitPage";
+import ClassDetailsNw from "./Component/ClassDetailsNw";
 
 import TeacherAllInquiries from "./Component/TeacherAllInquiries";
 import TeacherViewAllNotices from "./Component/TeacherViewAllNotices";
@@ -41,7 +42,8 @@ import TeacherAddNotices from "./Component/TeacherAddNotice";
 import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
 import AddAllInquiry from "./Component/AddAllInquiry";
 import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
-import AllInquiries from "./Component/StudentAllInquiry";
+import StudentAllInquiry from "./Component/StudentAllInquiry";
+import StudentViewAllNotices from "./Component/StudentViewAllNotices";
 
 
 function App() {
@@ -89,6 +91,7 @@ function App() {
  <Route path="/module3" exact component={Module3}/>
  <Route path="/module4" exact component={Module4}/>
  <Route path="/fileSubmit" exact component={FileSubmitPage}/>
+ <Route path="/classDetailsNw" exact component={ClassDetailsNw}/>
 
 
 
@@ -100,8 +103,8 @@ function App() {
 <Route path="/updateNotices/:id" exact component={TeacherUpdareNotices}/>
 <Route path="/AddInquiry" exact component={AddAllInquiry}/>
 <Route path="/UpdateInquiry/:id" exact component={StudentUpdateInqiury}/>
-<Route path="/StudentAllInquiries" exact component={AllInquiries}/>
-
+<Route path="/StudentAllInquiries" exact component={StudentAllInquiry}/>
+<Route path="/StudentAllNotices" exact component={StudentViewAllNotices}/>
     </BrowserRouter>
     
   );

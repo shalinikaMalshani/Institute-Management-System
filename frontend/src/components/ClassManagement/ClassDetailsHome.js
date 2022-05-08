@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 
 export default class ClassDetailsHome extends Component{
@@ -41,6 +42,7 @@ this.retrievePosts();
 
 filterData(posts,searchKey){
 
+
 const result = posts.filter((post) =>
 post.Class_Type.toLowerCase().includes(searchKey)||
 post.Subject.toLowerCase().includes(searchKey)||
@@ -72,13 +74,15 @@ axios.get(`http://localhost:8091/class`).then(res =>{
 
 render() {
 return (
+    <div>
+  <SideMenu/>
 
 <div style={{marginLeft:"325px",width:"76%"}}>
     <div className="row">
 <div className="col-lg-9 mt-2 mb-2">
 
 
-<h1><center><b>All Class Details</b></center></h1>
+<h1 style={{marginTop:"80px"}}><center><b>All Class Details</b></center></h1>
 
 
 </div>
@@ -154,6 +158,7 @@ return (
 <th><button className="btn btn-success" style={{marginLeft:"100px"}}><a href="/classhome" style={{textDecoration:'none',color:'white',marginBottom:"50px"}}>Home Page</a></button></th>
 
 </table> 
+</div>
 </div>
 )
 }

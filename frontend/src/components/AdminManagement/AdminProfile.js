@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
-import SideMenu from "../../SideMenu";
+// import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
 //import Swal from 'sweetalert2';
 

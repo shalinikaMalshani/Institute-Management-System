@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 export default class readClass extends Component {
     constructor(props){
@@ -32,11 +33,13 @@ render() {
 const {Class_Type,Subject,Teacher_Name,Starting_Time,Ending_Time,Contact_Number,Day} = this.state.post;
 
 return (
+    <div>
+  <SideMenu/>
     
     <div style={{marginLeft:"325px",width:"76%"}}>
     <div className="" style={{marginTop:'20px'}}>
        
-    <center><h1 style={{color:"blue"}} ><b>{Class_Type}</b></h1></center>
+    <center><h1 style={{color:"blue", marginTop:"80px"}} ><b>{Class_Type}</b></h1></center>
     <hr/>
     <center>
      
@@ -66,6 +69,7 @@ return (
 </h3>
 </center>
 
+</div>
 </div>
 </div>
 

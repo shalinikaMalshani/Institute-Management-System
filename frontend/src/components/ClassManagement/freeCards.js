@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 export default class freeCards extends Component {
 
@@ -7,10 +8,12 @@ export default class freeCards extends Component {
 render() {
 
 return (
+  <div>
+  <SideMenu/>
     
  <div style={{marginLeft:"350px",width:"70%"}}>
 
-<h1><p style={{fontSize:"50px",color: "black"}}><center><b>About Free Cards</b></center></p></h1>
+<h1><p style={{fontSize:"50px",color: "black", marginTop:"80px"}}><center><b>About Free Cards</b></center></p></h1>
 <br>
 </br>
 <br></br>
@@ -47,6 +50,7 @@ return (
   <center>
   <th><button className="btn btn-success" style={{marginLeft:"100px"}}><a href="/classhome" style={{textDecoration:'none',color:'white',marginBottom:"50px"}}>Home Page</a></button></th>
 </center>
+</div>
 </div>
 
 

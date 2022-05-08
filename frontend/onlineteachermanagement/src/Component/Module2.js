@@ -146,60 +146,63 @@ componentDidMount(){
               <a class="navbar-brand" href="index-2.html"><img src="asset/images/logo.png" alt="logo"/></a>
               <div class="collapse navbar-collapse main-menu" id="navbarSupportedContent">
                   <ul class="navbar-nav nav lavalamp ml-auto menu">
-                      <li class="nav-item"><a href="#" class="nav-link active">Home</a>
-                          <ul class="navbar-nav nav mx-auto">
-                              <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
-                              <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
-                              <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
-                              <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
-                          </ul>
-                      </li>
-                      <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                      <li class="nav-item"><a href="course.html" class="nav-link">Courses</a>
-                          <ul class="navbar-nav nav mx-auto">
-                              <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                              <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                          </ul> 
-                      </li>
-                      <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a>
-                          <ul class="navbar-nav nav mx-auto">
-                              <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                              <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                              <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                              <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                          </ul> 
-                      </li>
-                      <li class="nav-item"><a href="#" class="nav-link">Pages</a>
-                          <ul class="navbar-nav nav mx-auto">
-                              <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
-                                  <ul class="navbar-nav nav mx-auto">
-                                      <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
-                                      <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
-                                  </ul>    
-                              </li>                                 
-                              <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
-                                  <ul class="navbar-nav nav mx-auto">
-                                      <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
-                                      <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
-                                  </ul>    
-                              </li>                                
-                              <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Blog</a>
-                                  <ul class="navbar-nav nav mx-auto">
-                                      <li class="nav-item"><a href="blog.html" class="nav-link">Blog List</a></li> 
-                                      <li class="nav-item"><a href="blog-2.html" class="nav-link">Blog Grid One</a></li> 
-                                      <li class="nav-item"><a href="blog-3.html" class="nav-link">Blog Grid Two</a></li>
-                                      <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a></li>
-                                  </ul>    
-                              </li> 
-                              <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
-                              <li class="nav-item"><a href="teacher-profile.html" class="nav-link">Teachers Profile</a></li>
-                              <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
-                              <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
-                          </ul>                            
-                      </li>     
-                      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                  </ul>
-              </div>
+                  <li class="nav-item"><a href="/homeStudent" class="nav-link">Home</a>
+                            {/* <ul class="navbar-nav nav mx-auto">
+                                <li class="nav-item"><a href="index-2.html" class="nav-link">Home Version 01</a></li>
+                                <li class="nav-item"><a href="index-3.html" class="nav-link">Home Version 02</a></li>
+                                <li class="nav-item"><a href="index-4.html" class="nav-link">Home Version 03</a></li>
+                                <li class="nav-item"><a href="index-5.html" class="nav-link">Home Version 04</a></li>
+                            </ul> */}
+                        </li>
+                        <li class="nav-item"><a href="/teacherAlll" class="nav-link">Staff</a></li>
+                        {/* <li class="nav-item"><a href="#" class="nav-link">Pages</a>
+                            <ul class="navbar-nav nav mx-auto">
+                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Courses</a>
+                                    <ul class="navbar-nav nav mx-auto">
+                                        <li class="nav-item"><a href="course.html" class="nav-link">Courses</a></li>
+                                        <li class="nav-item"><a href="course-details.html" class="nav-link">Courses Details</a></li>
+                                    </ul>    
+                                </li>                                 
+                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">Events</a>
+                                    <ul class="navbar-nav nav mx-auto">
+                                        <li class="nav-item"><a href="event.html" class="nav-link">Event</a></li>
+                                        <li class="nav-item"><a href="event-details.html" class="nav-link">Event Details</a></li>
+                                    </ul>    
+                                </li>                                
+                                <li class="nav-item"><a href="#" class="nav-link dropdown_icon">My Subjects</a>
+                                    <ul class="navbar-nav nav mx-auto">
+                                        <li class="nav-item"><a href="blog.html" class="nav-link">Chemistry</a></li> 
+                                        <li class="nav-item"><a href="blog-2.html" class="nav-link">Physics</a></li> 
+                                        <li class="nav-item"><a href="blog-3.html" class="nav-link">Biology</a></li>
+                                        <li class="nav-item"><a href="blog-details.html" class="nav-link">English</a></li>
+                                    </ul>    
+                                </li> 
+                                <li class="nav-item"><a href="become-a-teacher.html" class="nav-link">Become A Teacher</a></li>
+                                <li class="nav-item"><a href="teacher-profile.html" class="nav-link">Teachers Profile</a></li>
+                                <li class="nav-item"><a href="team.html" class="nav-link">Teachers Page</a></li>
+                                <li class="nav-item"><a href="forgot-password.html" class="nav-link">Forgot Password</a></li>
+                            </ul>                            
+                        </li>      */}
+
+                        <li class="nav-item"><a  class="nav-link">Subjects</a>
+                            <ul class="navbar-nav nav mx-auto">
+                                <li class="nav-item"><a href="/course.html" class="nav-link">Subject Details</a></li>
+                                <li class="nav-item"><a href="/enrolledSubject" class="nav-link">Enrolled Subjects</a></li>
+                                <li class="nav-item"><a href="/mySubject" class="nav-link">My Subjects</a></li>
+                            </ul> 
+                        </li>
+                        <li class="nav-item"><a class="nav-link active">My Subjects</a>
+                            <ul class="navbar-nav nav mx-auto">
+                                <li class="nav-item"><a href="/module1" class="nav-link">{this.state.subject1}</a></li> 
+                                <li class="nav-item"><a href="/module2" class="nav-link">{this.state.subject2}</a></li> 
+                                <li class="nav-item"><a href="/module3" class="nav-link">{this.state.subject3}</a></li>
+                                <li class="nav-item"><a href="/module4" class="nav-link">{this.state.subject4}</a></li>
+                            </ul> 
+                        </li>
+                        <li class="nav-item"><a href="notice.html" class="nav-link">Notice</a></li>
+                        <li class="nav-item"><a href="inquery.html" class="nav-link">Inquery</a></li>
+                    </ul>
+                </div>
               <div class="mr-auto search_area ">
                   <ul class="navbar-nav mx-auto">
                       <li class="nav-item"><i class="search_btn flaticon-magnifier"></i>
@@ -225,7 +228,7 @@ componentDidMount(){
 
                    
               <div className="slider-overlay">
-                  <img src="asset/images/banner/module2.jpg" alt="Sky" className="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" data-no-retina style={{height:"", width:"100%"}}/>
+                  <img src="asset/images/banner/module111.jpg" alt="Sky" className="rev-slidebg"  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" data-no-retina style={{height:"", width:"100%"}}/>
                   <div style={{position:"absolute", left:"50px", bottom:"100px",color:"black"}}><h1><b> Module Details </b></h1></div>
                 </div> 
         

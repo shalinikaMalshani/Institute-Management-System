@@ -135,7 +135,8 @@ export default function StudentUpdateInqiury(props){
             "success"
           );
       
-         props.history.push("/Student/AllInquiries");
+        // props.history.push("/StudentAllInquiries");
+         window.location.href = "/StudentAllInquiries";
     
        })
        .catch((err) => {
@@ -147,7 +148,7 @@ export default function StudentUpdateInqiury(props){
    return(
  
 
-      <div style={{marginLeft:"325px",width:"76%"}}> 
+      <div style={{marginLeft:"155px",width:"76%"}}> 
       <h1> Edit Inquiry </h1>
         <form /*onSubmit={changeOnClick} encType="multipart/form-data"*/>
         
@@ -200,7 +201,7 @@ export default function StudentUpdateInqiury(props){
 <br/>
   <div className="container">
   <br/>
-     <div className="mb-3" style={{ width: "1090px" }}>
+     <div className="mb-3" style={{ width: "800px" }}>
                <label for="exampleInputPassword1" class="form-label">
                  Enter Description
                </label>

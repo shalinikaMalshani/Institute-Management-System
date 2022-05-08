@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 
 
@@ -67,10 +68,12 @@ filterData(posts,searchKey){
 
 render() {
 return (
+    <div>
+  <SideMenu/>
 
 <div style={{marginLeft:"325px",width:"76%"}}>
 <div className="card-box" style={{marginTop:"20px", marginBottom:"50px"}}>
-<center><h1><b>Monthly Report For Class Details Management</b></h1></center>
+<center><h1 style={{marginTop:"80px"}}><b>Monthly Report For Class Details Management</b></h1></center>
 
 
 <br></br>
@@ -138,6 +141,7 @@ return (
 <center>
 <th><button className="btn btn-success" style={{marginLeft:"70px"}}><a href="/classDetailsHome" style={{textDecoration:'none',color:'white'}}>All Class Details Page</a></button></th>
 </center>
+</div>
 </div>
 </div>
 
