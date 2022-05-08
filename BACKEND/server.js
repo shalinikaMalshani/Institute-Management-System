@@ -52,17 +52,6 @@ const onlinePaymentRouter = require("./routes/Student/onlinePayment.js");
 
 
 
-//notice
-
-
-
-//inquire
-
-
-
-//admin
-
-
 
 
 
@@ -99,19 +88,11 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
-//notice
 
 
 
-//inquire
 
 
-
-//admin
-
-
-
-// app.use("/student",studentRouter);
 
 
 

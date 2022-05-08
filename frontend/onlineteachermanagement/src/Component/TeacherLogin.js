@@ -86,7 +86,7 @@ return true;
         
     
         axios.post("http://localhost:8091/teacherLogin",data).then((res)=>{
-          
+           
           this.setState({
             teacher:res.data.datateacher
               });
@@ -102,11 +102,19 @@ return true;
         }).then(function() {
             window.location = "/homeTeacher";
         });
-          
+    
            
         
         }).catch(error=>{
-            alert("Error occoured.Please check and resubmit the details.");
+            swal({
+                title: "Invalid Login",
+                text: "Please re-enter your details.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              }).then(function() {
+                window.location = "/teacherSignIn";
+            });
         })
     
     }
