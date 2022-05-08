@@ -574,7 +574,7 @@ onChange={this.handleInputChange}
                             {this.state.admissionfeesError ?(
                         <div style={{color:"red",fontWeight:"bold"}} >{this.state.admissionfeesError}</div>
                         ):null}
-<br></br><br></br>
+                       <br></br><br></br>
                             <label  for="fromFile"><b>Payment Slip</b></label>
                             <input type="file"
                                

@@ -142,13 +142,26 @@ app.use(feeRouter);
 
 
 
+<<<<<<< HEAD
+=======
+
+=======
+>>>>>>> cc0c5226afa1aec7322f3471e60c18b8f0d305bf
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 
 // app.use("/student",studentRouter);
 
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 
 
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 
 //Make access to admin
 const adminRouter = require("./routes/Admin/admin.js");

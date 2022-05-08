@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 
 
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 
@@ -22,11 +29,20 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
+<<<<<<< HEAD
 
 
 
 
 
+=======
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
 import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
@@ -34,14 +50,23 @@ import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
 import Homenn from "./components/TeacherManagement/Homenn";
 
+<<<<<<< HEAD
+
+
+
+
+=======
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 
 
 
 
-
-
-
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 
 
 //students
@@ -52,7 +77,15 @@ import StudentUpdate from "./components/StudentManagement/StudentUpdate";
 import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
+<<<<<<< HEAD
 
+=======
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
 import StudentPayment from "./components/StudentManagement/StudentPayment";
@@ -62,18 +95,28 @@ import EnrolledSubjectDetails from "./components/StudentManagement/EnrolledSubje
 import OnlineAllStudent from "./components/StudentManagement/OnlineAllStudents";
 import OnlineStudentProfile from "./components/StudentManagement/OnlineStudentProfile";
 import dashboard from "./dashboard";
+import OnlineDashboardNW from "./components/StudentManagement/OnlineDashbordNW";
 
 
 
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 
 
 
 
-
-
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 //Class
 import addClass from "./components/ClassManagement/addClass";
@@ -88,16 +131,21 @@ import updateFee from "./components/ClassManagement/updateFee";
 import feeReport from "./components/ClassManagement/feeReport";
 import readFee from "./components/ClassManagement/readFee";
 import freeCards from "./components/ClassManagement/freeCards";
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 
 
 
 
 
+<<<<<<< HEAD
+//admin notice inquiry
+=======
 
 
 
 
 // admin notice inquiry
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 import AdminLogin from "./components/AdminManagement/AdminLogin";
 // import AdminRegister from "./components/AdminManagement/AdminRegister";
 // import AddNotice from "./components/NoticeManagement/AddNotice";
@@ -122,21 +170,31 @@ import AdminLogin from "./components/AdminManagement/AdminLogin";
 function App() {
   return (
     <BrowserRouter>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
+<<<<<<< HEAD
+=======
     {/* <SideMenu/> */}
 
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
 
    
 
 
 
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 
 
 
    
+<<<<<<< HEAD
 
     {/* <SideMenu/> */}
   
@@ -147,6 +205,19 @@ function App() {
     <Route path="/dashboard" exact component={dashboard}/>
 
 
+=======
+    <Route path="/dashboard" exact component={dashboard}/>
+
+
+<<<<<<< HEAD
+
+    <SideMenu/>
+    <Route path="/dashboard" exact component={dashboard}/>
+
+
+=======
+>>>>>>> 9b70781c30189ec0b8f9fc9b488b235b2aafe5fd
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
 {/* teacher counter */}
   <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />
@@ -179,6 +250,7 @@ function App() {
 <Route path="/getPayment/:id" exact component={EnrolledSubjectDetails}></Route>
 <Route path="/onlineAllStudent"  exact component={OnlineAllStudent}></Route>
 <Route path="/gets/:id" exact component={OnlineStudentProfile}></Route>
+<Route path="/onlineDashboardd" exact component={OnlineDashboardNW}></Route>
 
 
 
@@ -223,8 +295,17 @@ function App() {
 
 {/* notice counter & inq & admin */}
 
+<<<<<<< HEAD
 <Route  path="/" exact component={AdminLogin} />
   {/* <Route  path="/Register" exact component={AdminRegister}/>
+=======
+<<<<<<< HEAD
+<Route  path="/" exact component={AdminLogin} />
+=======
+ <Route  path="/" exact component={AdminLogin} /> 
+>>>>>>> fbdeac7839e8f43dcb6f28942b20ec8d0f1ab61c
+  <Route  path="/Register" exact component={AdminRegister}/>
+>>>>>>> 2b6c8f33b23249215431559037c31d6f61a735c5
   <Route  path="/Admin/AddNotice" exact component={AddNotice}/>
   <Route  path="/Admin/AllNotices" exact component={AllNotices}/>
   <Route  path="/Admin/EditNotice/:id" exact component={EditNotices}/>
