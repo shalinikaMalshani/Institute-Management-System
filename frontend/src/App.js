@@ -59,7 +59,7 @@ import dashboard from "./dashboard";
 function App() {
   return (
     <BrowserRouter>
-    <SideMenu/>
+    {/* <SideMenu/> */}
     <Route path="/dashboard" exact component={dashboard}/>
 
 {/* teacher counter */}

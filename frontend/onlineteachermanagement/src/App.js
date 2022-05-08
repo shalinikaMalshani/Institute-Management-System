@@ -19,6 +19,8 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
+import EditLesson from "./Component/EditLesson";
+import EditMeeting from "./Component/EditMeeting";
 
 
 function App() {
@@ -34,7 +36,10 @@ function App() {
  <Route path="/addMeeting" exact component={addMeeting}/>
  <Route path="/AllMeetings" exact component={AllMeetings}/>
  <Route path="/AllLessons" exact component={AllLessons}/>
+ <Route path="/lessonEdit/:id" exact component={EditLesson}/>
+ <Route path="/meetingEdit/:id" exact component={EditMeeting}/>
 
+ 
 
 
 

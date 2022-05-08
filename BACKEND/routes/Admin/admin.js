@@ -74,6 +74,25 @@ router.route("/getAllAdmins").get((req ,res)=> {
     })
 });
 
+
+//Get all admins
+router.route("/getAllAdmin").get((req ,res)=> {
+    Admin.find().exec((err,admins)=>{
+        if(err){
+            return res.status(400).json({
+                error:err
+            });
+        }
+        return res.status(200).json({
+            success:true,
+            existingAdmins:admins
+        })
+    
+    })
+});
+
+
+
 //Delete
 router.route("/deleteAdmin/:id").delete(async (req,res) =>{
     let userID = req.params.id;
