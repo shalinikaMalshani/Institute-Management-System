@@ -183,54 +183,54 @@ router.get("/gets/:id", (async(req,res) =>{
 
 
 
-//login the system
-router.post('/loginStudent', async(req,res) => {
+// //login the system
+// router.post('/loginStudent', async(req,res) => {
 
-    try{
-            const {email, password, userName} = req.body;
+//     try{
+//             const {email, password, userName} = req.body;
 
-            if(!email || !password || !userName){
+//             if(!email || !password || !userName){
 
-                return res.status(400).json({error: "Please filled the all data"})
-            }
+//                 return res.status(400).json({error: "Please filled the all data"})
+//             }
 
-            //check with database email
-            const studentLogin = await onlineStudent.findOne({email: email});
+//             //check with database email
+//             const studentLogin = await onlineStudent.findOne({email: email});
     
-            //console.log(customerLogin);
-            if(!studentLogin){
+//             //console.log(customerLogin);
+//             if(!studentLogin){
 
-                res.status(400).json({error: "Student does not exists"});
+//                 res.status(400).json({error: "Student does not exists"});
 
-            }
+//             }
 
-            else if (password == studentLogin.password && userName == studentLogin.userName){
+//             else if (password == studentLogin.password && userName == studentLogin.userName){
 
-                 res.json({message: "Student Sign In Successfully"});
-                //  localStorage.setItem('name', userName)
-                //  localStorage.setItem('email', email)
-                //  localStorage.setItem('password', password)
-                console.log(res.status.error);
-                res.json({Login: {
-                    _id : Login._id,
-                }})
-                localStorage.setItem('id', _id)
+//                  res.json({message: "Student Sign In Successfully"});
+//                 //  localStorage.setItem('name', userName)
+//                 //  localStorage.setItem('email', email)
+//                 //  localStorage.setItem('password', password)
+//                 console.log(res.status.error);
+//                 res.json({Login: {
+//                     _id : Login._id,
+//                 }})
+//                 localStorage.setItem('id', _id)
                
                 
-            }else{ 
+//             }else{ 
 
-                res.status(400).json({error: "Invalid Credientials"});
+//                 res.status(400).json({error: "Invalid Credientials"});
                
-            }
+//             }
           
 
-    }catch(err){
+//     }catch(err){
 
-        console.log(err);
-    }
+//         console.log(err);
+//     }
 
 
-});
+// });
 
 
 //update the online student
@@ -264,6 +264,28 @@ router.route("/onlineUpdate/:id").put(async(req,res) => {
     })
  });
 
+
+  //login
+  router.post("/loginStudent", async(req,res) => {
+    try{
+        const {email, password} = req.body;
+        //check with database username
+        const loginStudent = await onlineStudent.findOne({email: email});
+        if(!loginStudent){
+             res.status(400).json({error: "Student does not exists"});
+        }else if (password == loginStudent.password){
+                return res.json({
+                 success:true,
+                 datastudent:loginStudent
+                });
+                
+             }else{ 
+                res.status(400).json({error: "Invalid Credientials"});
+             }
+      }catch(err){
+        console.log(err);
+}
+})    
 
 
 

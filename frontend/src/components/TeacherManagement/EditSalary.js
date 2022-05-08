@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import SideMenu from "../../SideMenu.js";
 
 const initialState={
             name:"",
@@ -134,6 +134,7 @@ componentDidMount() {
     
     render(){
         return(
+          <div><SideMenu/>
             <div style={{marginLeft:"325px",width:"76%"}}>
                 <h2>Teacher Salary Details</h2>
                 {/* {this.state.alertMsg==="success"?<Success/>:null} */}
@@ -275,6 +276,7 @@ componentDidMount() {
 <button type="reset" className="btn btn-danger"  >Reset</button>&nbsp;
   <button type="submit" className="btn btn-success" onClick={this.onSubmit} >Submit</button>
 </form>
+        </div>
         </div>
         
         )

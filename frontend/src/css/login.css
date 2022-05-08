@@ -1,0 +1,25 @@
+
+.CustomerLogin{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+.CustomerLogin  body {
+    background: #fbf3ff;
+  } 
+
+.CustomerLogin .container {
+    position: absolute;
+    max-width: 950px;
+    height: 550px;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } 
+
+  /* .CustomerLogin  .myRightCtn #LoginI {
+    position: relative;
+    
+  } */

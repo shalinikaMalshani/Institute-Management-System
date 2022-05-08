@@ -7,12 +7,15 @@ constructor(props){
   super(props);
 
   this.state={//All the teachers stores in a array
-    lessons:[]
+    lessons:[],
+    tuteAnswersAlert:"",
+    stuTuteAnswersAlert:""
   };
 } 
 
 componentDidMount(){
   this.retrieveLessons();//this method gather the all sub comp and comps
+
   
 }
 
@@ -25,6 +28,31 @@ this.setState({
   lessons:res.data.existingLessons
 })
 console.log(this.state.lessons);
+
+{ 
+  this.state.lessons.map( lesson => {
+      if(lesson.tuteAnswers==null){
+        this.setState({
+            tuteAnswersAlert:"Currently unavilable for the students"
+      })
+     console.log("called",this.state.tuteAnswersAlert);
+    }
+    
+  }) 
+
+
+
+  this.state.lessons.map( lesson => {
+      if(lesson.stuTuteAnswers==null){
+        this.setState({
+            stuTuteAnswersAlert:"Linked closed"
+      })
+     console.log("called",this.state.stuTuteAnswersAlert);
+    }
+    
+  }) 
+}
+
 
 }
 })
@@ -93,10 +121,14 @@ this.filterData(res.data.existingLessons,searchKey);
     <dl className='row'>
                 
                 <dt className='col-sm-3'>Lesson:</dt><dd className='col-sm-9'>{lessons.lessonNo}</dd>
-                <dt className='col-sm-3'>Notes:</dt><dd className='col-sm-9'><img src={require('../../images/pdf.png')} width="30px" height="30px"/>{lessons.lessonNote}</dd>
-                <dt className='col-sm-3'>Tute:</dt><dd className='col-sm-9'>{lessons.tute}</dd>
-                <dt className='col-sm-3'>Students tute answers:</dt><dd className='col-sm-9'>{lessons.stuTuteAnswers}</dd>
-                <dt className='col-sm-3'>Tute Answers:</dt><dd className='col-sm-9'>{lessons.tuteAnswers}</dd>
+                <dt className='col-sm-3'>Notes:</dt><dd className='col-sm-9'><img src={require('../../images/pdf2.png')} width="25px" height="25px"/>&nbsp;{lessons.lessonNote}</dd>
+                <dt className='col-sm-3'>Tute:</dt><dd className='col-sm-9'><img src={require('../../images/doc.png')} width="35px" height="30px" style={{"marginLeft":"-4px"}}/>{lessons.tute}</dd>
+                <dt className='col-sm-3'>Students tute answers:</dt><dd className='col-sm-9'>
+<div style={{color:"red",fontWeight:"bold"}}>{lessons.stuTuteAnswers}</div></dd>
+              
+                <dt className='col-sm-3'>Tute Answers:</dt><dd className='col-sm-9'>{this.state.tuteAnswersAlert ?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.tuteAnswersAlert}</div>
+):null}{lessons.tuteAnswers}</dd>
                 <dt className='col-sm-3'>Referances:</dt><dd className='col-sm-9'>{lessons.referances}</dd>
                 
                 

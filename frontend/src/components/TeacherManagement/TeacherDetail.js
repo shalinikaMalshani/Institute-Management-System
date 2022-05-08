@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import SideMenu from "../../SideMenu.js";
 
 export default class TeacherDetail extends Component{
 
@@ -32,6 +33,7 @@ export default class TeacherDetail extends Component{
         
        
         return(
+            <div><SideMenu/>
             <div style={{marginLeft:"325px",width:"76%"}}>
                 
              <h1>Teacher Detail</h1><hr></hr>
@@ -57,7 +59,7 @@ export default class TeacherDetail extends Component{
 
               
               </div>
-
+</div>
 
               
         )

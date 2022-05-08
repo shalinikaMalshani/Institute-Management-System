@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import SideMenu from "../../SideMenu.js";
 
 export default class AllLeaves extends React.Component{
 
@@ -67,6 +68,7 @@ this.filterData(res.data.existingLeaves,searchKey);
 
  render(){
    return(
+     <div><SideMenu/>
   <div style={{marginLeft:"325px",width:"76%"}}><br></br>
     <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" 
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'45px', width:'80px'}}>
@@ -128,6 +130,7 @@ this.filterData(res.data.existingLeaves,searchKey);
 
   </div>
    </div>
+    </div>
     </div>
  );
    }

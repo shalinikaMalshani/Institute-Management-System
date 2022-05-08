@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import SideMenu from "../../SideMenu.js";
 
 export default class EditTeacher  extends Component{
 
@@ -101,6 +102,7 @@ onSubmit=(e)=>{
 
 render(){
     return(
+        <div><SideMenu/>
         <div style={{marginLeft:"325px",width:"76%"}}>
         <h2>Update Teacher</h2>
     <form>
@@ -225,6 +227,7 @@ onChange={this.handlInputChange}
 
 <button type="submit" className="btn btn-success" onClick={this.onSubmit} >Update</button>
 </form>
+</div>
 </div>
     )
 }

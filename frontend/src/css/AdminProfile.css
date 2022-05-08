@@ -1,0 +1,17 @@
+.myDiv{
+	width: 200px;
+    padding: 10px;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    font-size: 21px;
+   
+    left: 3%;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    z-index: 2;
+    margin: 35px;
+    box-shadow: 5px 10px #1f1e1e;
+
+
+    
+}

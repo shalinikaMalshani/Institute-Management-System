@@ -1,6 +1,7 @@
  import React from "react";
 import axios from "axios";
 import "../../css/report.css";
+import SideMenu from "../../SideMenu.js";
 
 export default class Report extends React.Component{
 
@@ -93,7 +94,11 @@ getDate(){
     
 }
 
-  
+print(){
+
+  window.print();
+}
+
 render(){
   
  
@@ -101,7 +106,7 @@ render(){
 
 
    return(
-     
+    <div><SideMenu/>
   <div style={{marginLeft:"325px",width:"76%",marginTop:"5px"}}>
     <div className="row">
  <div className="col-lg-12"> 
@@ -182,12 +187,21 @@ render(){
 <p>Counter rate:{this.state.cRate.toFixed(2)}%</p>
 <p>Online rate:{this.state.oRate.toFixed(2)}%</p>
 
+<div style={{marginTop:"70px", marginLeft:"0px", height:"70px"}}>
 
+                    <button className="btn btn-danger" style={{marginLeft:"750px", marginTop:"-90px", height:"40px",width:"150px"}} onClick={this.print}>
+
+                    <i class="fa-solid fa-print"></i>&nbsp; &nbsp;Print</button>
+
+
+
+                </div>
 
             </div>
         </div>
   </div>
    </div>
+      </div>
       </div>
  );
    }
