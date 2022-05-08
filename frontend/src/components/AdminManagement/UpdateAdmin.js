@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import SideMenu from "../../SideMenu";
 //import "../../css/AdminProfile.css"
-import SideMenu from "../../SideMenu";
+
 
 export default function UpdateAdmin(props) {
 
@@ -104,12 +104,8 @@ setData(newdata);
 
   
     return(
-<<<<<<< HEAD
-      <div><SideMenu/>
-=======
       <div>
       <SideMenu/>
->>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
         <div style={{marginLeft:"325px",width:"60%"}} className = "myDiv">
           
           <center>
@@ -232,12 +228,7 @@ setData(newdata);
                           
                             </center>
         </div>
-<<<<<<< HEAD
-        
-        </div>
-=======
         </div>
 
->>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
     )
 }

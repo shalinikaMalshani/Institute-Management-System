@@ -19,12 +19,12 @@ import HomeStudent from "./Component/HomeStudent";
 import StudentLogin from "./Component/StudentLogin";
 import StudentProfile from "./Component/StudentProfile";
 import EnrolledSubject from "./Component/EnrolledSubject";
-<<<<<<< HEAD
+
 import EditLesson from "./Component/EditLesson";
 import EditMeeting from "./Component/EditMeeting";
 import EditTeacherProfile from "./Component/EditTeacherProfile";
 import LeaveTeacher from "./Component/LeaveTeacher";
-=======
+
 import mySubject from "./Component/mySubject";
 import OnlineStudentProfileUpdate from "./Component/OnlineStudentProfileUpdate";
 import updateMySubjects from "./Component/updateMySubjects";
@@ -42,7 +42,7 @@ import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
 import AddAllInquiry from "./Component/AddAllInquiry";
 import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
 import AllInquiries from "./Component/StudentAllInquiry";
->>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
+
 
 function App() {
   return (

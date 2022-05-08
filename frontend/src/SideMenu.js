@@ -77,23 +77,20 @@ export default class SideMenu extends React.Component{
 
 
 
-<<<<<<< HEAD
+
 
       <a href="/Admin/profile"><img src={require('./images/exam.jpg')} alt=""></img></a><span>{this.state.name}</span>
        &nbsp;
        <button onClick={localStorage.clear()} style={{background:"black",color:"white",borderRadius:"5px"}}>Logout</button>
 
-=======
-      <a href={`/teacher/${this.state.userId}`}><img src={require('./images/exam.jpg')} alt=""></img></a><span>{this.state.username}</span>
+
+      
        
        
        
 
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
-        <a href={`/teacher/${this.state.userId}`}><img src={require('./images/ppnn.jpg')} alt=""></img></a><span>{this.state.username}</span>
-        <button onClick={()=>localStorage.clear()}>Logout</button>
->>>>>>> 7a28faaf8edb8d774b85102ed67ee6f7ae0180ed
+
+
     </div>
 </div>
 
