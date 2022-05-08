@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
 const options = [
     {
@@ -242,8 +243,17 @@ handleSubmit = (e)=>{
 
     axios.put(`http://localhost:8091/onlinePayment/updateOnlinePayment/${id}`,data).then((res) =>{
       if(res.data.success){
-          alert("Payment Update Successfully")
-          this.props.history.push("/allSubjects");
+        swal({
+          title: "Update Success",
+          text: "You have new subject list",
+          icon: "success",
+          buttons: true,
+          dangerMode: true,
+        }).then(function() {
+          window.location = "/mySubject";
+      });
+          // alert("Payment Update Successfully")
+          // this.props.history.push("/allSubjects");
       this.setState(
           this.state={
             "stuName":"",
@@ -413,20 +423,33 @@ componentDidMount(){
 
    render(){
         return(
-            <div className="container" style={{padding:"40px",marginLeft:"300px",width:"76%"}}>
-                  <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
+          
+         
+                      
+                 <div>
+                     
+                     {/* <div style={{position:"absolute", left:"50px", bottom:"100px",color:"white"}}><h1><b> My Enrolled Subject </b></h1></div> */}
+                 {/* <h1>Enrolled Subject Update</h1> */}
+           
+                        <img src={require("./classBanner3.jpg")} style={{width:"100%", height:"300px"}}></img>
+   
+      
+            <div className="container" style={{padding:"40px",marginLeft:"200px",width:"76%",outlineStyle:"inset", marginBottom:"100px",marginTop:"60px"}}>
+                  {/* <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover"
                 data-bs-placement="bottom" data-bs-content="Bottom popover" style={{ height:'40px', width:'110px', marginTop:"-10px"}}>
                 <a href="/" style={{textDecoration:'none', color:'white',display:'flex'}}>&nbsp;<i class="fa-solid fa-angles-left"
                 style={{marginTop:'5px'}}></i>&nbsp;&nbsp;&nbsp;&nbsp;Back</a>
-                </button>
+                </button> */}
                 <br></br><br></br>
-                <h4>Class Registation & Payment</h4>
+                <div style={{ background:"rgb(107 104 164 / 32%)", outlineStyle:"inset", marginTop:"-50px", width:"50%", height:"60px", marginLeft:"200px", paddingLeft:"100px", paddingBottom:"20px", paddingTop:"20px"}}>
+                <h4>Update Enrolled Subject</h4>
+                </div>
                 <br></br>
 
                 <div className="row">   
                 <div className="col-lg-6">
                     <div className="form-group" style={{marginBottom:'15px',width:"70%"}}>&nbsp;
-                    <i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;
+                   
                         <label for="stuName"  id="stuName" className="form-lable" style={{marginBottom:'5px'}}>Name</label>
                             <input type="text"
                                 className="form-control"
@@ -446,7 +469,7 @@ componentDidMount(){
                     <div className="col-lg-6">
 
                     <div className="form-group" style={{marginBottom:'15px',width:"70%"}}>&nbsp;
-                    <i class="fa-solid fa-at"></i>&nbsp;&nbsp;&nbsp;
+                   
                         <label  for="email" className="form-lable" style={{marginBottom:'5px'}}>Email</label>
                             <input type="text"
                                 className="form-control"
@@ -467,7 +490,7 @@ componentDidMount(){
                 <div className="col-6">
                     <div className="form-group" style={{marginBottom:'15px',width:"70%"}}>&nbsp;
                     <label  for="stream" className="form-lable" style={{marginTop:"0px"}}>
-                    <i class="fa-solid fa-list"></i>&nbsp;&nbsp;&nbsp;
+                   
                         A/L Stream<br></br>
                         <select  name="stream" value={this.state.stream} onChange={this.handleInputChange1} >
                             <option value="Select your A/L stream">&nbsp;&nbsp;&nbsp;--Select your A/L stream--</option>
@@ -481,7 +504,7 @@ componentDidMount(){
                 </div>
                     <div className="col-6">
                     <div className="form-group" style={{marginBottom:'15px',width:"70%"}}>&nbsp;
-                    <i class="fa-solid fa-calendar"></i>&nbsp;&nbsp;&nbsp;
+                    
                         <label for= "rdate" className = "form-lable" style={{marginBottom:'5px'}}>Registation Date</label>
                             <input type="date"
                                 className="form-control"
@@ -505,7 +528,7 @@ componentDidMount(){
                     <div className="col-lg-3">
 
                     <label for="subject1" className="form-lable" style={{marginBottom:'5px'}}>
-                    <i class="fa-solid fa-list"></i>&nbsp;&nbsp;&nbsp;Subjects</label>
+                  Subjects</label>
                     {/* {
                     this.state.subjects.map((subjects,index)=>{ */}
                         {/* return( */}
@@ -532,7 +555,7 @@ componentDidMount(){
                 
                 <div className="col-lg-3">
                     <label className="form-lable" style={{marginBottom:'5px'}}>
-                    <i class="fa-solid fa-person-chalkboard"></i>&nbsp;&nbsp;&nbsp;   Teacher's Name</label><br></br>
+                   &nbsp;&nbsp;&nbsp;   Teacher's Name</label><br></br>
                 <select value={this.state.teacher} onChange={this.handleInputChange} >
                                         {options.map((option) => (
                                             <option value={option.value}>{option.label}</option>
@@ -758,7 +781,7 @@ componentDidMount(){
                         
                        
                   
-    
+    </div>
 
             </div>
             

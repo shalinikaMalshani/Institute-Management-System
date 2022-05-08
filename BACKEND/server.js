@@ -94,15 +94,6 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
-<<<<<<< HEAD
-
-
-
-
-// app.use("/student",studentRouter);
-
-=======
->>>>>>> 62e7697708459ea1349a5d47c6bdc762eb19ed05
 
 
 

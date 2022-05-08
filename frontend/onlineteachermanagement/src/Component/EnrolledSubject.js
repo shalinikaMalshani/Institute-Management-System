@@ -781,6 +781,7 @@ handleSubmit = (e)=>{
                                 placeholder="Total Class Fees"
                                 onChange={this.handleInputChange}
                                 value={this.total()}
+                                style={{width:"250px"}}
                                 readOnly>
                             </input>
                             </div>
@@ -793,13 +794,14 @@ handleSubmit = (e)=>{
                 <div className="col-lg-6">
                     <div className="form-group" style={{marginBottom:'15px',width:"70%",marginTop:"30px"}}>&nbsp;
                     <i class="fa-solid fa-money-check-dollar"></i>&nbsp;&nbsp;&nbsp;
-                        <label for="amount" className="form-lable" style={{marginBottom:'5px'}}>Payment Amount (Rs.)</label>
+                        <label for="amount" className="form-lable">Payment Amount (Rs.)</label>
                             <input type="number"
                                 className="form-control"
                                 name="amount"
                                 placeholder="Enter Total Amount"
                                 value={this.state.amount}
                                 onChange={this.handleInputChange1} 
+                                style={{width:"250px"}}
                                 require>
                             </input>
                         

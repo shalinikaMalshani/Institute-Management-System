@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import axios from "axios"; 
 // import ReactToPrint from "react-to-print";
 // import "./print.css";
-// import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 
 export default class StudentProfile extends Component{
@@ -83,7 +83,7 @@ export default class StudentProfile extends Component{
 
     //   //Delete Function
     //   onDelete = (id) =>{
-    //     Swal.fire({
+    //     swal.fire({
     //         title: 'Are you sure?',
     //         text: "You won't be able to revert this!",
     //         icon: 'warning',
@@ -93,7 +93,7 @@ export default class StudentProfile extends Component{
     //         confirmButtonText: 'Yes, delete it!'
     //       }).then((result) => {
     //         if (result.isConfirmed) {
-    //           Swal.fire(
+    //           swal.fire(
     //             'Deleted!',
     //             'Your file has been deleted.',
     //             'success'
@@ -118,7 +118,15 @@ export default class StudentProfile extends Component{
        //Delete Function
        onDelete = (id) =>{
         axios.delete(`http://localhost:8091/onlineStudent/onlineDelete/${id}`).then((res) =>{
-            alert("Delete Successfully");
+            swal({
+                title: "You are successfully deleted your account",
+                icon: "warning",
+                button: "ok",
+            }).then(function() {
+                window.location = "/homeNewStudent";
+            });
+        
+            // alert("Delete Successfully");
             this. retriveStudentList();
         })
         }
@@ -182,7 +190,8 @@ export default class StudentProfile extends Component{
                     <dt>
                     {/* <button className="btn btn-success" style={{marginLeft:"100px", marginTop:"-70px", height:"40px",width:"150px"}} onClick={this.print}>
                     <i class="fa-solid fa-print"></i>&nbsp; &nbsp;Update</button> */}
-                   <a className="btn btn-warning"   style={{marginLeft:"100px", marginTop:"-83px", height:"40px",width:"150px"}}  href={`/onlineUpdate/${this.props.match.params.id}`}>
+                   <a className="btn btn-warning"    href={`/onlineUpdate/${this.props.match.params.id}`}>
+                   {/* <a className="btn btn-warning"  href="/homeNewStudent"> */}
                          <i className="fas fa-edit"></i>&nbsp; &nbsp;Edit
                        </a> 
                     </dt>
