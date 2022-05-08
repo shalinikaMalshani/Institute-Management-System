@@ -212,7 +212,7 @@ export default function TeacherMyNotices(props){
         <button
                                   class="btn btn-dark"
                                   onClick={() => {
-                                    props.history.push("/AddNotices");
+                                    props.history.push("/AddInquiry");
                                     window.location.reload();
                                   }}
                                 >

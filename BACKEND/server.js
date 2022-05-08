@@ -94,17 +94,12 @@ app.use("/onlinePayment",onlinePaymentRouter);
 
 
 
-<<<<<<< HEAD
 
 
 
 
 
 // app.use("/student",studentRouter);
-
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
-
 
 
 //Make access to admin

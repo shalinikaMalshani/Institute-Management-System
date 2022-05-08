@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
 import React from "react";
 import { BrowserRouter ,Route } from "react-router-dom";
 // teacher
@@ -22,25 +19,15 @@ import OnlineCreateTeacher from "./components/TeacherManagement/OnlineCreateTeac
 import OnlineTeacherLogin from "./components/TeacherManagement/OnlineTeacherLogin";
 import OnlineTeacherLeave from "./components/TeacherManagement/OnlineTeacherLeave";
 import OnlineTeacherLesson from "./components/TeacherManagement/OnlineTeacherLesson";
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
+
 import OnlineTeacherAllLessons from "./components/TeacherManagement/OnlineTeacherAllLessons";
 import OnlineTeacherLessonUpdate from "./components/TeacherManagement/OnlineTeacherLessonUpdate";
 import OnlineMeeting from "./components/TeacherManagement/OnlineMeeting";
 import OnlineAllMeeting from "./components/TeacherManagement/OnlineAllMeeting";
 import OnlineMeetingEdit from "./components/TeacherManagement/OnlineMeetingEdit";
 import Homenn from "./components/TeacherManagement/Homenn";
-
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
-
 
 
 
@@ -53,10 +40,7 @@ import Edit from "./components/StudentManagement/Edit";
 import StudentDelete from "./components/StudentManagement/StudentDelete";
 import StudentDetails from "./components/StudentManagement/StudentDetails";
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
 import StudentReportInput from "./components/StudentManagement/StudentReportInput";
 import StudentReport from "./components/StudentManagement/StudentReport";
 import StudentPayment from "./components/StudentManagement/StudentPayment";
@@ -71,10 +55,6 @@ import dashboard from "./dashboard";
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
 
 
 
@@ -104,7 +84,7 @@ import TeacherMyNotices from "./components/NoticeManagement/TeacherMyNotices";
 function App() {
   return (
     <BrowserRouter>
-<<<<<<< HEAD
+
 
    
 
@@ -112,11 +92,11 @@ function App() {
     <Route path="/dashboard" exact component={dashboard}/>
 
 
-=======
+
     <SideMenu/>
     <Route path="/dashboard" exact component={dashboard}/>
 
->>>>>>> 8ebfe975afbee2547574482757c11881d521bcbf
+
 {/* teacher counter */}
   <Route path="/teacherAll" exact component={AllTeachers}/>
   <Route  path="/teacherAdd" exact component={CreateTeacher} />

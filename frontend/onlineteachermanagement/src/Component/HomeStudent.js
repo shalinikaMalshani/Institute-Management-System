@@ -173,8 +173,8 @@ export default class HomeStudent extends React.Component{
                                 <li class="nav-item"><a href="/module4" class="nav-link">{this.state.subject4}</a></li>
                             </ul> 
                         </li>
-                        <li class="nav-item"><a href="notice.html" class="nav-link">Notice</a></li>
-                        <li class="nav-item"><a href="inquery.html" class="nav-link">Inquery</a></li>
+                        <li class="nav-item"><a href="/StudentAllNotices" class="nav-link">Notice</a></li>
+                        <li class="nav-item"><a href="/StudentAllInquiries" class="nav-link">Inquery</a></li>
                     </ul>
                 </div>
                 <div class="mr-auto search_area ">

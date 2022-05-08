@@ -35,7 +35,8 @@ import TeacherAddNotices from "./Component/TeacherAddNotice";
 import TeacherUpdareNotices from "./Component/TeacherUpdareNotices";
 import AddAllInquiry from "./Component/AddAllInquiry";
 import StudentUpdateInqiury from "./Component/StudentUpdateInqiury";
-import AllInquiries from "./Component/StudentAllInquiry";
+import StudentAllInquiry from "./Component/StudentAllInquiry";
+import StudentViewAllNotices from "./Component/StudentViewAllNotices";
 
 function App() {
   return (
@@ -91,8 +92,8 @@ function App() {
 <Route path="/updateNotices/:id" exact component={TeacherUpdareNotices}/>
 <Route path="/AddInquiry" exact component={AddAllInquiry}/>
 <Route path="/UpdateInquiry/:id" exact component={StudentUpdateInqiury}/>
-<Route path="/StudentAllInquiries" exact component={AllInquiries}/>
-
+<Route path="/StudentAllInquiries" exact component={StudentAllInquiry}/>
+<Route path="/StudentAllNotices" exact component={StudentViewAllNotices}/>
     </BrowserRouter>
     
   );
