@@ -187,6 +187,14 @@ export default class StudentRegister extends React.Component{
         let passwordError="";
         let confirmPasswordError="";
         let userNameError="";
+        let addressError ="";
+        let birthDayError ="";
+        let genderError ="";
+        let schoolError ="";
+        let guardianNameError ="";
+        let rdateError = "";
+        let admissionfeesError = "";
+        let paymentSlipError ="";
         
         if(!this.state.stuName){
             nameError="Name Cannot Be Empty"
@@ -222,10 +230,43 @@ export default class StudentRegister extends React.Component{
             passwordError="Invalid password, Password should contain more than 8 charactors";
         }
 
+        if(!this.state.address){
+            addressError="Address Cannot Be Empty"
+        }
+
+        if(!this.state.birthDay){
+            birthDayError="Birth Day Cannot Be Empty"
+        }
+
+        if(!this.state.gender){
+            genderError="Gender Cannot Be Empty"
+        }
+
+        if(!this.state.school){
+            schoolError="School Cannot Be Empty"
+        }
+
+        if(!this.state.guardianName){
+            guardianNameError="Guardian name Cannot Be Empty"
+        }
+
+        
+        if(!this.state.rdate){
+            rdateError="Register Date Cannot Be Empty"
+        }
+
+        if(!this.state.admissionFees){
+            admissionfeesError ="Admission Fees Cannot Be Empty"
+        }
+
+        if(!this.state.paymentSlip){
+            paymentSlipError ="PAyment Slip Cannot Be Empty Please Upload Photo"
+        }
 
 
-        if(emailError || nameError || phoneError || passwordError || confirmPasswordError || userNameError){
-        this.setState({emailError,nameError,phoneError,passwordError,confirmPasswordError,userNameError});
+
+        if(emailError || nameError || addressError || birthDayError || genderError || phoneError || schoolError|| guardianNameError || rdateError || admissionfeesError || paymentSlipError ||  passwordError || confirmPasswordError || userNameError){
+        this.setState({emailError,nameError,addressError, birthDayError , genderError , phoneError,schoolError,guardianNameError , rdateError ,admissionfeesError, paymentSlipError, passwordError,confirmPasswordError,userNameError});
         return false;
         }
         
@@ -381,37 +422,40 @@ render(){
     <p>Please fill in this form to create an account and register to our Amzo Learning</p>
     <hr/>
 
-    <label for="stuName" ><b>Name</b></label>
+    <label for="stuName" ><b>Name</b></label> <br></br>
     <input type="text"  id="stuName" 
     name="stuName" 
     placeholder="First Name Last Name" 
     value={this.state.stuName} 
-    onChange={this.handleInputChange}/>
-    {/* {this.state.nameError ?(
-<div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
-):null} */}
-
-<label for="address" ><b>Adress</b></label>
+    onChange={this.handleInputChange}
+    />
+    {this.state.nameError ?(
+    <div style={{color:"red",fontWeight:"bold"}} >{this.state.nameError}</div>
+    ):null}
+ <br></br>
+   <label for="address" ><b>Adress</b></label> <br></br>
     <input type="text" id="address"
     name="address" 
      placeholder="Enter Address"
      value={this.state.address} 
     onChange={this.handleInputChange}
     />
-    {/* {this.state.addressError?(
+    {this.state.addressError?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.addressError}</div>
-):null} */}
+):null}
 
 
 
-<label for= "birthDay" >Birth Day</label>
+<label for= "birthDay" ><b>Birth Day</b></label>
     <input type="date"
     name="birthDay"
     id="birthDay"
     placeholder="Enter Your Birth Day"
     value={this.state.birthDay}
     onChange={this.handleInputChange} />
-
+   {this.state.birthDayError?(
+<div style={{color:"red",fontWeight:"bold"}} >{this.state.birthDayError}</div>
+):null}
 
 {/* <label for="gender" className="form-label"><b>Gender</b></label>
 <div>
@@ -434,16 +478,16 @@ render(){
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.genderError}</div>
 ):null} */}
 
-<label  for="gender" >Gender</label>
+<label  for="gender" ><b>Gender</b></label>
     <div onChange={this.handleInputChange}>
-        <input type="radio" value="MALE" name="gender"/> Male
+        <input type="radio" value="MALE" name="gender"/> Male  &nbsp;&nbsp;&nbsp;
         <input type="radio" value="FEMALE" name="gender"/> Female
     </div> 
-    {/* {this.state.genderError ?(
+    {this.state.genderError ?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.genderError}</div>
-):null}  */}
+):null} 
 
-
+<br></br>
 <label for="email" ><b>Email</b></label>
 <input type="text"  id="email"
 name="email" 
@@ -451,9 +495,9 @@ name="email"
  value={this.state.email} 
 onChange={this.handleInputChange}
 />
-{/* {this.state.emailError ?(
+{this.state.emailError ?(
 <div style={{color:"red",fontWeight:"bold"}} >{this.state.emailError}</div>
-):null} */}
+):null}
 
 <label  for="phone" className="form-lable" style={{marginBottom:'5px'}}>Phone</label>
     <input type="text"
@@ -463,34 +507,35 @@ onChange={this.handleInputChange}
         value={this.state.phone}
         onChange={this.handleInputChange} required>
         </input>
-        {/* {this.state.phoneError ?(
+        {this.state.phoneError ?(
                         <div style={{color:"red",fontWeight:"bold"}} >{this.state.phoneError}</div>
-                        ):null} */}
+                        ):null}
 
-<label  for="school" >School</label>
-                            <input type="text"
-                                name="school"
-                                id="school"
-                                placeholder="Enter School Name"
-                                value={this.state.school}
-                                onChange={this.handleInputChange} required>
-                            </input>
+         <label  for="school"><b>School</b></label>
+            <input type="text"
+                name="school"
+                id="school"
+                placeholder="Enter School Name"
+                value={this.state.school}
+                onChange={this.handleInputChange} required>
+            </input>
+            {this.state. schoolError ?(
+            <div style={{color:"red",fontWeight:"bold"}} >{this.state.schoolError}</div>
+            ):null}
                             
-<label  for="stream" >
-                   
-                        A/L Stream<br></br>
+                       <label  for="stream" ><b>A/L Stream</b><br></br>
                         <select  name="stream" value={this.state.stream} onChange={this.handleInputChange}>
-                            <option value="Select your A/L stream">&nbsp;&nbsp;&nbsp;--Select your A/L stream--</option>
-                            <option value="biology">&nbsp;  Biology</option>
-                            <option value="mathematics">&nbsp;  Mathematics</option>
+                            <option value="Select your A/L stream">&nbsp;&nbsp;&nbsp;--Select your A/L stream--&nbsp;&nbsp;&nbsp;</option>
+                            <option value="Biology">&nbsp;  Biology</option>
+                            <option value="Mathematics">&nbsp;  Mathematics</option>
                             <option value="commerce">&nbsp;  Commerce</option>
-                            <option value="art">&nbsp; Art</option>
-                            <option value="technology">&nbsp; Technology</option>
+                            <option value="Art">&nbsp; Art</option>
+                            <option value="Technology">&nbsp; Technology</option>
                         </select>
                         </label>
-
+<br></br>
                         
-                        <label  for="guardianName" >Guardian Name</label>
+                        <label  for="guardianName"><b>Guardian Name</b></label>
                             <input type="text"
                                 id="guardianName"
                                 name="guardianName"
@@ -498,8 +543,11 @@ onChange={this.handleInputChange}
                                 value={this.state.guardianName}
                                 onChange={this.handleInputChange} >
                             </input>
+                            {this.state.guardianNameError ?(
+                        <div style={{color:"red",fontWeight:"bold"}} >{this.state.guardianNameError}</div>
+                        ):null}
 
-                            <label for= "rdate">Registation Date</label>
+                            <label for= "rdate"><b>Registation Date</b></label>
                             <input type="date"
                                
                                 id="rdate"
@@ -508,17 +556,26 @@ onChange={this.handleInputChange}
                                 value={this.state.rdate}
                                 onChange={this.handleInputChange} >
                             </input>
+                            {this.state.rdateError ?(
+                        <div style={{color:"red",fontWeight:"bold"}} >{this.state.rdateError}</div>
+                        ):null}
 
-                            <label  for="admissionFees" >Admission Fees</label>
+
+
+                            <label  for="admissionFees"><b>Admission Fees</b></label><br></br>
                             <input type="number"
-                               
+                                id="admissionFees"
                                 name="admissionFees"
                                 placeholder="Enter Admission Fees"
                                 value={this.state.admissionFees}
-                                onChange={this.handleInputChange} >
+                                onChange={this.handleInputChange} 
+                                style={{width:"100%", height:"50px"}}>
                             </input>
-
-                            <label  for="fromFile" >Payment Slip </label>
+                            {this.state.admissionfeesError ?(
+                        <div style={{color:"red",fontWeight:"bold"}} >{this.state.admissionfeesError}</div>
+                        ):null}
+<br></br><br></br>
+                            <label  for="fromFile"><b>Payment Slip</b></label>
                             <input type="file"
                                
                                 name="paymentSlip"
@@ -527,11 +584,14 @@ onChange={this.handleInputChange}
                                 // value={this.state.profileImage}
                                 onChange={this.onChangeFile2} >
                             </input>
+                            {this.state.paymentSlipError?(
+                        <div style={{color:"red",fontWeight:"bold"}} >{this.state.paymentSlipError}</div>
+                        ):null}
 
                             <hr></hr>
                             <h4><i><b>Create Student Account</b></i></h4>
 
-                            <label for="userName" >User Name</label>
+                            <label for="userName"><b>User Name</b></label>
                             <input type="text"
                               
                                 name="userName"
@@ -539,13 +599,12 @@ onChange={this.handleInputChange}
                                 value={this.state.userName}
                                 onChange={this.handleInputChange} >
                             </input>
-                            {/* {this.state.userNameError ?(
+                            {this.state.userNameError ?(
                             <div style={{color:"red",fontWeight:"bold"}} >{this.state.userNameError}</div>
-                            ):null} */}
+                            ):null}
 
-<label  for="fromFile" >Profile Image</label>
+                            <label  for="fromFile"><b>Profile Image</b></label>
                             <input type="file"
-                             
                                 name="profileImage"
                                 id="profileImage"
                                 // placeholder="Input your profile image"
@@ -554,7 +613,7 @@ onChange={this.handleInputChange}
                                 required>
                             </input>
 
-                            <label  for="password" >Password</label>
+                            <label  for="password"><b>Password</b></label>
                             <input type="password"
                                 
                                 name="password"
@@ -562,11 +621,11 @@ onChange={this.handleInputChange}
                                 value={this.state.password}
                                 onChange={this.handleInputChange} >
                             </input>
-                            {/* {this.state.passwordError ?(
+                            {this.state.passwordError ?(
                             <div style={{color:"red",fontWeight:"bold"}} >{this.state.passwordError}</div>
-                            ):null} */}
+                            ):null}
 
-<label  for="confirmPassword" >Confirm Password</label>
+                            <label  for="confirmPassword" ><b>Confirm Password</b></label>
                             <input type="password"
                                 
                                 name="confirmPassword"
@@ -574,9 +633,9 @@ onChange={this.handleInputChange}
                                 value={this.state.confirmPassword}
                                 onChange={this.handleInputChange} >
                             </input>
-                            {/* {this.state.confirmPasswordError ?(
+                            {this.state.confirmPasswordError ?(
                             <div style={{color:"red",fontWeight:"bold"}} >{this.state.confirmPasswordError}</div>
-                            ):null} */}
+                            ):null}
     <label>
       <input type="checkbox" checked="checked" name="remember" style={{"marginBottom":"15px"}}/> Remember me
     </label>
@@ -584,17 +643,18 @@ onChange={this.handleInputChange}
     <p>By creating an account you agree to our <a href="#" style={{"color":"dodgerblue"}}>Terms & Privacy</a>.</p>
 
 
-<button  type="submit"  onClick={this.resetForm}> Reset</button> &nbsp;
+<button  type="submit" className="btn btn-danger" onClick={this.resetForm} style={{width:"40%", height:"50px"}}> Reset</button> &nbsp;
 
- <button  type="submit"  onClick={this.onSubmit}> Submit</button>&nbsp;
+ <button  type="submit"   className="btn btn-success" onClick={this.onSubmit} style={{width:"40%", height:"50px"}}> Submit</button>&nbsp;
+ <h6 >Already do you register the class, you can <a href="/studentLogin"> Signup</a></h6>
+</div>
 
- <h6 >Already do you register the class, you can <a href="/login"> Signup</a></h6>
       
       {/* <button className="cancelbtn" onChange={this.reset} >Reset</button>
   <button type="submit" className="signupbtn" onClick={this.onSubmit} >Submit</button> */}
 
 
-  </div>
+
 </form>
     </div>
 
@@ -604,7 +664,7 @@ onChange={this.handleInputChange}
 
 
 
-
+<br></br>
 <footer class="footer_2">
     <div class="container">
         <div class="footer_top">
