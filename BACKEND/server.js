@@ -23,11 +23,11 @@ mongoose.connect(URL)
     console.log("MongoDB Connection Error",err.message);
 })
 
-<<<<<<< HEAD
 
 
 
-=======
+
+
 //import route
 //teacher
 const teacherRouter=require("./routes/Teacher/teachers");
@@ -46,7 +46,28 @@ const onlineStudentRouter = require("./routes/Student/onlineStudent.js");
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //class
+const classRouter=require("./routes/Class/class");
+const feeRouter=require("./routes/Class/fee");
 
 
 
@@ -90,7 +111,30 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //class
+app.use(classRouter);
+app.use(feeRouter);
 
 
 
@@ -110,7 +154,7 @@ app.use("/onlineStudent",onlineStudentRouter);
 
 app.use("/student",studentRouter);
 
->>>>>>> 560e47cfd0244e0a74757ed6e026cc8f83ffde8e
+
 
 
 app.listen(PORT,() => {//function(){}

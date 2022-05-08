@@ -3,7 +3,7 @@ const Class = require('../../models/Class/class');
 
 const router = express.Router();
 
-//save posts
+//Insert  Class Details
 
 router.post('/class/add',(req,res)=>{
 let newClass = new Class(req.body);
@@ -20,7 +20,7 @@ success:"Class Details saves successfully"
 });
 });
 
-//get posts
+// Get Class Details
 
 router.get('/class',(req,res)=>{
 Class.find().exec((err,Class) =>{
@@ -36,7 +36,7 @@ existingClass:Class
 });
 });
 
-//get a specific post
+//get a specific class details
 
 router.get("/class/:id",(req,res)=>{
 let postId = req.params.id;
@@ -57,9 +57,9 @@ return res.status(200).json({
 
 
 
-//update posts
+//update class details
 router.put('/class/update/:id',(req,res)=>{
-    Detail.findByIdAndUpdate(
+    Class.findByIdAndUpdate(
 req.params.id,
 {
 $set:req.body
@@ -76,9 +76,9 @@ $set:req.body
 });
 });
 
-//delete posts
+//delete class details
 router.delete('/class/delete/:id',(req,res) =>{
-Detail.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
+Class.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
     if(err) return res.status(400).json({
         message:" Class Details Deleted unsuccessfully",err
         });
