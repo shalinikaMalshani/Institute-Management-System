@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 
 
@@ -19,13 +20,15 @@ posts:[]
 
 render() {
 return (
+    <div>
+  <SideMenu/>
 
 <div style={{marginLeft:"325px",width:"76%"}}>
     <div className="row">
 <div className="col-lg-9 mt-2 mb-2">
 
 <center>
-<h1 style = {{color:"black", marginTop:"10px", textAlign:"right", marginRight:"-70px"}}><b><i>WELCOME TO THE CLASS MANAGEMENT </i></b></h1></center>
+<h1 style = {{color:"black", marginTop:"80px", textAlign:"right", marginRight:"-70px"}}><b><i>WELCOME TO THE CLASS MANAGEMENT </i></b></h1></center>
 
 <br></br>
 
@@ -53,6 +56,7 @@ return (
 
 
 
+</div>
 </div>
 
 )

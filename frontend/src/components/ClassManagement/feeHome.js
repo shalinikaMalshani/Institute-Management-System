@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 
 export default class feeHome extends Component{
@@ -67,12 +68,14 @@ if(res.data.success){
 
 render() {
 return (
+    <div>
+  <SideMenu/>
 
 <div style={{marginLeft:"325px",width:"76%"}}>
     <div className="row">
 
 <div className="col-lg-9 mt-2 mb-2">
-<h1 style = {{color:"red",marginBottom:"0px",marginBottom:"5px",color:"black"}}><center><b>Welcome to the Class Fee Management</b></center></h1>
+<h1 style = {{color:"red",marginBottom:"0px",marginBottom:"5px",color:"black", marginTop:"80px"}}><center><b>Welcome to the Class Fee Management</b></center></h1>
 </div>
 
 
@@ -90,6 +93,9 @@ return (
 <center>
 <img src={require('../../images/fees.jpg')} width="900px" height="300px" />
 </center>
+
+
+
 
 <center><h1 style = {{color:"#ff1493", marginBottom:"30px"}}><b></b></h1></center>
 <table className="table table-hover">
@@ -141,6 +147,7 @@ return (
 
 
 </table>
+</div>
 </div>
 )
 }

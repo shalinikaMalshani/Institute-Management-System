@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import SideMenu from "../../SideMenu";
 
 
 export default class addFee  extends Component {
@@ -77,9 +78,11 @@ render() {
     
 
 return (
+    <div>
+  <SideMenu/>
     <div style={{marginLeft:"325px",width:"76%"}}>
     <form class="row g-3">
-        <h1>Add Class Fee Details</h1>
+        <h1 style={{marginTop:"100px"}}>Add Class Fee Details</h1>
 
 <div class="col-md-4">
 <label for="inputState" class="form-label"><b>Class_Type</b></label>
@@ -128,6 +131,7 @@ return (
 </div>
 </form>
 
+</div>
 </div>
 )
 }
