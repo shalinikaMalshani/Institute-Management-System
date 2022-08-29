@@ -3,6 +3,7 @@
 # dependencies
 frontend/node_modules
 BACKEND/node_modules
+frontend/onlineteachermanagement/node_modules
 frontend/.pnp
 frontend/.pnp.js
 
